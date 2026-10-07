@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portal Saung Kebun RT 11 RW 44</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -14,26 +14,62 @@ input,select,textarea{font-family:inherit}
 ::-webkit-scrollbar{width:6px}
 ::-webkit-scrollbar-thumb{background:#C4B5FD;border-radius:8px}
 
+/* DESKTOP LAYOUT */
+.desktop-layout{display:grid;grid-template-columns:var(--sbw) 1fr;min-height:100vh}
+
+/* SIDEBAR DESKTOP */
+.sidebar-desktop{background:#fff;border-right:1px solid var(--line);padding:20px 0;position:fixed;left:0;top:0;bottom:0;width:var(--sbw);overflow-y:auto;z-index:50}
+.sidebar-header{padding:0 20px 16px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.sidebar-header h2{font-size:18px;font-weight:800;display:flex;align-items:center;gap:8px}
+.sidebar-header h2 .logo-icon{width:32px;height:32px;background:linear-gradient(135deg,#8B5CF6,#6D28D9);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sidebar-header h2 .logo-icon svg{width:20px;height:20px;color:#fff}
+.sidebar-header p{font-size:12px;color:var(--muted);margin-top:2px}
+.sidebar-menu{display:flex;flex-direction:column;gap:2px;padding:0 10px 20px}
+.menu-item{display:flex;align-items:center;gap:12px;padding:12px 16px;cursor:pointer;color:var(--muted);font-weight:600;font-size:14px;transition:all .15s;border-radius:10px;min-height:44px}
+.menu-item:hover{background:var(--pt2);color:var(--ink)}
+.menu-item.active{background:var(--pt);color:var(--pdd);border-right:3px solid var(--p)}
+.menu-item .icon-wrap{width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.menu-item .icon-wrap .svg-icon{width:22px;height:22px}
+.menu-item.logout-item{color:var(--red);margin-top:12px;border-top:1px solid var(--line);padding-top:16px}
+.menu-item.logout-item:hover{background:#FEF2F2}
+
+/* MAIN CONTENT DESKTOP */
+.main-desktop{margin-left:var(--sbw);min-height:100vh}
+
+/* HEADER DESKTOP */
+.header-desktop{background:linear-gradient(135deg,var(--p),var(--pd),var(--pdd));color:#fff;padding:20px 28px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 4px 12px rgba(109,40,217,.2);position:relative;overflow:hidden}
+.header-desktop::before{content:"";position:absolute;top:-60px;right:-40px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.1)}
+.header-left{display:flex;align-items:center;gap:16px;position:relative}
+.user-avatar-desktop{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#F59E0B,#EF4444);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:18px;border:2px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.user-info-desktop h2{font-size:18px;font-weight:700;margin-bottom:4px}
+.user-info-desktop p{font-size:13px;opacity:.95;font-weight:600}
+.header-right{display:flex;align-items:center;gap:12px;position:relative}
+.notif-btn-desktop{width:44px;height:44px;background:rgba(255,255,255,.2);backdrop-filter:blur(10px);border:none;border-radius:12px;cursor:pointer;position:relative;display:flex;align-items:center;justify-content:center;color:#fff}
+.notif-btn-desktop .badge{position:absolute;top:-4px;right:-4px;background:var(--red);color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:800;display:none;align-items:center;justify-content:center;border:2px solid var(--pd)}
+.notif-btn-desktop .badge.show{display:flex}
+
+/* CONTENT AREA */
+.content-area{padding:24px 28px;max-width:1400px;margin:0 auto}
+
 /* MOBILE APP CONTAINER */
 .mobile-app{max-width:480px;margin:0 auto;min-height:100vh;background:#fff;position:relative;overflow:hidden;box-shadow:0 0 30px rgba(0,0,0,.1)}
 
-/* HEADER WITH BACKGROUND IMAGE */
-.app-header{position:relative;height:200px;background:linear-gradient(135deg,rgba(124,58,237,.85),rgba(109,40,217,.9)),url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800') center/cover;overflow:hidden}
+/* HEADER MOBILE */
+.app-header{position:relative;height:180px;background:linear-gradient(135deg,rgba(124,58,237,.85),rgba(109,40,217,.9)),url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%237C3AED" width="1200" height="600"/><path fill="%236D28D9" d="M0 300L50 283.3C100 266.7 200 233.3 300 216.7C400 200 500 200 600 216.7C700 233.3 800 266.7 900 283.3C1000 300 1100 300 1150 300L1200 300L1200 600L1150 600C1100 600 1000 600 900 600C800 600 700 600 600 600C500 600 400 600 300 600C200 600 100 600 50 600L0 600Z"/></svg>') center/cover;overflow:hidden}
 .app-header::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,.3))}
 .header-top{position:relative;z-index:2;padding:16px;display:flex;justify-content:space-between;align-items:center}
 .user-info{display:flex;align-items:center;gap:12px}
 .user-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#F59E0B,#EF4444);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:18px;border:2px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.2)}
-.user-avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover}
 .user-greeting h2{color:#fff;font-size:16px;font-weight:700}
 .user-greeting p{color:rgba(255,255,255,.9);font-size:12px;margin-top:2px}
 .header-actions{display:flex;gap:8px}
-.header-btn{width:40px;height:40px;background:rgba(255,255,255,.2);backdrop-filter:blur(10px);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;position:relative}
+.header-btn{width:40px;height:40px;background:rgba(255,255,255,.2);backdrop-filter:blur(10px);border:none;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;position:relative;cursor:pointer}
 .header-btn .badge{position:absolute;top:-4px;right:-4px;background:var(--red);color:#fff;width:18px;height:18px;border-radius:50%;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;border:2px solid #fff}
 .header-location{position:absolute;bottom:16px;left:16px;right:16px;z-index:2;color:#fff}
 .header-location h1{font-size:22px;font-weight:800}
 .header-location p{font-size:12px;opacity:.9;margin-top:4px}
 
-/* MAIN CONTENT */
+/* MAIN CONTENT MOBILE */
 .main-content{padding:16px;padding-bottom:100px}
 
 /* STATS CARDS */
@@ -47,10 +83,10 @@ input,select,textarea{font-family:inherit}
 
 /* CHART CARD */
 .chart-card{background:#fff;border-radius:16px;padding:20px;margin-top:16px;box-shadow:0 2px 12px rgba(0,0,0,.04);border:1px solid var(--line)}
-.chart-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.chart-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px}
 .chart-header h3{font-size:16px;font-weight:700}
 .chart-nav{display:flex;align-items:center;gap:12px}
-.chart-nav button{width:32px;height:32px;border-radius:10px;background:var(--pt);color:var(--p);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700}
+.chart-nav button{width:32px;height:32px;border-radius:10px;background:var(--pt);color:var(--p);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;cursor:pointer}
 .chart-nav button:active{transform:scale(.95)}
 .chart-nav span{font-size:14px;font-weight:700;min-width:120px;text-align:center}
 
@@ -62,8 +98,6 @@ input,select,textarea{font-family:inherit}
 .bar.income{background:var(--blue)}
 .bar.expense{background:var(--ink)}
 .bar-label{font-size:9px;color:var(--muted);font-weight:600;text-align:center}
-.chart-y-axis{position:absolute;left:0;top:0;bottom:30px;display:flex;flex-direction:column;justify-content:space-between;pointer-events:none}
-.chart-y-axis span{font-size:9px;color:var(--muted);font-weight:600}
 
 .chart-legend{display:flex;justify-content:center;gap:20px;margin-top:12px}
 .legend-item{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);font-weight:600}
@@ -72,7 +106,7 @@ input,select,textarea{font-family:inherit}
 .legend-dot.expense{background:var(--ink)}
 
 /* IURAN BANNER */
-.iuran-banner{background:linear-gradient(135deg,#F97316,#EA580C);border-radius:16px;padding:16px;margin-top:16px;display:flex;align-items:center;justify-content:space-between;color:#fff;position:relative;overflow:hidden;box-shadow:0 8px 20px rgba(249,115,22,.3)}
+.iuran-banner{background:linear-gradient(135deg,#F97316,#EA580C);border-radius:16px;padding:16px;margin-top:16px;display:flex;align-items:center;justify-content:space-between;color:#fff;position:relative;overflow:hidden;box-shadow:0 8px 20px rgba(249,115,22,.3);cursor:pointer}
 .iuran-banner::before{content:"";position:absolute;right:-20px;top:-20px;width:120px;height:120px;background:rgba(255,255,255,.1);border-radius:50%}
 .iuran-banner::after{content:"";position:absolute;right:20px;bottom:-30px;width:80px;height:80px;background:rgba(255,255,255,.08);border-radius:50%}
 .iuran-info{position:relative;z-index:1}
@@ -80,27 +114,22 @@ input,select,textarea{font-family:inherit}
 .iuran-info .amount{font-size:22px;font-weight:800;margin-top:4px}
 .iuran-icon{position:relative;z-index:1;font-size:48px;opacity:.9}
 
-/* PENGUMUMAN */
+/* SECTION */
 .section-header{display:flex;justify-content:space-between;align-items:center;margin:20px 0 12px}
 .section-header h3{font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px}
 .section-header .badge-count{background:var(--red);color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
-.section-header .link{font-size:12px;color:var(--p);font-weight:700}
+.section-header .link{font-size:12px;color:var(--p);font-weight:700;cursor:pointer}
 
-.announcement-card{background:#fff;border-radius:14px;padding:14px;border:1px solid var(--line);margin-bottom:10px;display:flex;gap:12px;align-items:flex-start}
+/* CARDS */
+.announcement-card{background:#fff;border-radius:14px;padding:14px;border:1px solid var(--line);margin-bottom:10px;display:flex;gap:12px;align-items:flex-start;cursor:pointer;transition:all .2s}
+.announcement-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.08);border-color:#C4B5FD}
 .announcement-card .ann-icon{width:40px;height:40px;border-radius:10px;background:var(--pt);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
 .announcement-card .ann-content{flex:1;min-width:0}
 .announcement-card .ann-title{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:4px}
-.announcement-card .ann-meta{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.announcement-card .ann-meta{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .announcement-card .ann-meta .dot{width:4px;height:4px;border-radius:50%;background:var(--muted)}
 
-/* BERITA DUKA */
-.berita-card{background:#fff;border-radius:14px;padding:14px;border:1px solid var(--line);display:flex;align-items:center;gap:12px}
-.berita-card .berita-icon{width:40px;height:40px;border-radius:10px;background:#FEF2F2;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.berita-card .berita-content{flex:1}
-.berita-card .berita-title{font-size:13px;font-weight:700;color:var(--ink)}
-.berita-card .berita-date{font-size:11px;color:var(--muted);margin-top:2px}
-
-/* BOTTOM NAVIGATION */
+/* BOTTOM NAVIGATION MOBILE */
 .bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:#fff;border-top:1px solid var(--line);padding:8px 0 calc(8px + env(safe-area-inset-bottom));z-index:100;box-shadow:0 -4px 20px rgba(0,0,0,.05)}
 .bottom-nav-inner{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
 .nav-item{display:flex;flex-direction:column;align-items:center;gap:4px;padding:6px 4px;color:var(--muted);font-size:10px;font-weight:600;transition:all .2s;position:relative}
@@ -118,13 +147,15 @@ input,select,textarea{font-family:inherit}
 .login-header p{color:var(--muted);font-size:13px;margin-top:4px}
 .form-group{margin-bottom:14px}
 .form-group label{display:block;font-size:11px;font-weight:700;color:var(--ink2);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
-.form-group select,.form-group input{width:100%;padding:12px 14px;border:2px solid var(--line);border-radius:12px;font-size:14px;background:#fff;color:var(--ink)}
-.form-group select:focus,.form-group input:focus{outline:none;border-color:var(--p)}
-.btn{padding:12px 18px;border:none;border-radius:12px;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s;width:100%}
+.form-group select,.form-group input,.form-group textarea{width:100%;padding:12px 14px;border:2px solid var(--line);border-radius:12px;font-size:14px;background:#fff;color:var(--ink)}
+.form-group select:focus,.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--p)}
+.btn{padding:12px 18px;border:none;border-radius:12px;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s;width:100%;cursor:pointer}
 .btn:active{transform:scale(.98)}
 .btn-primary{background:linear-gradient(135deg,var(--p),var(--pd));color:#fff;box-shadow:0 8px 18px rgba(109,40,217,.3)}
 .btn-danger{background:var(--red);color:#fff}
 .btn-secondary{background:var(--line2);color:var(--ink2)}
+.btn-success{background:var(--green);color:#fff}
+.btn-sm{padding:8px 12px;font-size:11px;width:auto}
 .login-footer{text-align:center;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:11px;color:var(--muted)}
 .login-footer b{color:var(--pd)}
 
@@ -142,10 +173,60 @@ input,select,textarea{font-family:inherit}
 .sync-status{position:fixed;bottom:80px;right:12px;background:#fff;padding:6px 12px;border-radius:16px;font-size:11px;font-weight:600;box-shadow:0 4px 12px rgba(0,0,0,.1);display:flex;align-items:center;gap:6px;z-index:99}
 .sync-status .dot{width:7px;height:7px;border-radius:50%;background:var(--green)}
 
-/* HIDE ON DESKTOP */
-@media(min-width:481px){
-  body{background:#E5E7EB}
-  .mobile-app{border-radius:20px;margin:20px auto;min-height:calc(100vh - 40px);overflow:hidden}
+/* BADGE */
+.badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700}
+.b-green{background:#D1FAE5;color:#065F46}
+.b-yellow{background:#FEF3C7;color:#92400E}
+.b-red{background:#FEE2E2;color:#991B1B}
+.b-blue{background:#DBEAFE;color:#1E40AF}
+
+/* PAGE SECTIONS */
+.page-section{padding:16px 0}
+.page-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.page-header button{width:40px;height:40px;border-radius:12px;background:var(--pt);color:var(--p);display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer}
+.page-header h2{font-size:20px;font-weight:800}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .desktop-layout{display:none}
+  .mobile-app{display:block}
+  .bottom-nav{display:block}
+}
+
+@media(min-width:1025px){
+  .mobile-app{display:none}
+  .bottom-nav{display:none}
+  .desktop-layout{display:grid}
+  .content-area{padding:24px 28px}
+  
+  /* Desktop stats grid */
+  .stats-row{grid-template-columns:repeat(4,1fr);gap:16px}
+  .stat-card .stat-value{font-size:24px}
+  
+  /* Desktop chart */
+  .chart-card{padding:24px}
+  .bar-chart{height:200px}
+  .bar{width:20px}
+  
+  /* Desktop cards grid */
+  .cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  
+  /* Desktop iuran banner */
+  .iuran-banner{padding:20px}
+  .iuran-info .amount{font-size:28px}
+}
+
+@media(max-width:768px){
+  .stats-row{grid-template-columns:1fr 1fr}
+  .cards-grid{grid-template-columns:1fr}
+  .content-area{padding:16px}
+}
+
+@media(max-width:480px){
+  .stats-row{grid-template-columns:1fr}
+  .stat-card .stat-value{font-size:18px}
+  .chart-header{flex-direction:column;align-items:flex-start}
+  .chart-nav{width:100%;justify-content:space-between}
 }
 </style>
 </head>
@@ -167,16 +248,51 @@ input,select,textarea{font-family:inherit}
   </div>
 </div>
 
+<!-- DESKTOP LAYOUT -->
+<div class="desktop-layout" id="desktopLayout" style="display:none">
+  <!-- Sidebar -->
+  <div class="sidebar-desktop">
+    <div class="sidebar-header">
+      <h2><span class="logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span> Saung Kebun</h2>
+      <p>RT 11 / RW 44</p>
+    </div>
+    <div class="sidebar-menu" id="sidebarMenu"></div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-desktop">
+    <!-- Header -->
+    <div class="header-desktop">
+      <div class="header-left">
+        <div class="user-avatar-desktop" id="userAvatarDesktop">DR</div>
+        <div class="user-info-desktop">
+          <h2 id="userGreetingDesktop">Hallo, Dirham</h2>
+          <p>Saung Kebun · RT 11 / RW 44</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <button class="notif-btn-desktop" onclick="showNotif()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span class="badge" id="notifBadgeDesktop">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content-area" id="desktopContent"></div>
+  </div>
+</div>
+
 <!-- MOBILE APP -->
-<div class="mobile-app" id="app" style="display:none">
-  <!-- HEADER -->
+<div class="mobile-app" id="mobileApp" style="display:none">
+  <!-- Header -->
   <div class="app-header">
     <div class="header-top">
       <div class="user-info">
         <div class="user-avatar" id="userAvatar">DR</div>
         <div class="user-greeting">
           <h2 id="userGreeting">Hallo, Dirham</h2>
-          <p id="userLocation">Saung Kebun · RT 11 / RW 44</p>
+          <p>Saung Kebun · RT 11 / RW 44</p>
         </div>
       </div>
       <div class="header-actions">
@@ -187,71 +303,15 @@ input,select,textarea{font-family:inherit}
       </div>
     </div>
     <div class="header-location">
-      <h1>Selamat Datang </h1>
+      <h1>Selamat Datang</h1>
       <p>Portal Informasi Warga RT 11 RW 44</p>
     </div>
   </div>
 
-  <!-- MAIN CONTENT -->
-  <div class="main-content" id="mainContent">
-    <!-- Stats Row -->
-    <div class="stats-row">
-      <div class="stat-card">
-        <div class="stat-icon blue">💰</div>
-        <div class="stat-label">Saldo Kas RT</div>
-        <div class="stat-value" id="statSaldo">Rp 0</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon green">🏠</div>
-        <div class="stat-label">Hunian</div>
-        <div class="stat-value" id="statHunian">0</div>
-      </div>
-    </div>
+  <!-- Main Content -->
+  <div class="main-content" id="mobileContent"></div>
 
-    <!-- Chart Card -->
-    <div class="chart-card">
-      <div class="chart-header">
-        <h3>📊 Arus Kas</h3>
-        <div class="chart-nav">
-          <button onclick="changeMonth(-1)">‹</button>
-          <span id="chartMonth">Oktober 2026</span>
-          <button onclick="changeMonth(1)">›</button>
-        </div>
-      </div>
-      <div style="position:relative">
-        <div class="bar-chart" id="barChart"></div>
-      </div>
-      <div class="chart-legend">
-        <div class="legend-item"><div class="legend-dot income"></div>Pemasukan</div>
-        <div class="legend-item"><div class="legend-dot expense"></div>Pengeluaran</div>
-      </div>
-    </div>
-
-    <!-- Iuran Banner -->
-    <div class="iuran-banner" onclick="showPage('iuran')">
-      <div class="iuran-info">
-        <div class="label">Iuran Belum Lunas</div>
-        <div class="amount" id="iuranBelumLunas">Rp 0</div>
-      </div>
-      <div class="iuran-icon">💵</div>
-    </div>
-
-    <!-- Pengumuman -->
-    <div class="section-header">
-      <h3> Pengumuman Warga <span class="badge-count" id="pengumumanCount">0</span></h3>
-      <a class="link" onclick="showPage('pengumuman')">Lihat semua</a>
-    </div>
-    <div id="pengumumanList"></div>
-
-    <!-- Kegiatan -->
-    <div class="section-header">
-      <h3>📅 Kegiatan Mendatang</h3>
-      <a class="link" onclick="showPage('kegiatan')">Lihat semua</a>
-    </div>
-    <div id="kegiatanList"></div>
-  </div>
-
-  <!-- BOTTOM NAVIGATION -->
+  <!-- Bottom Navigation -->
   <nav class="bottom-nav">
     <div class="bottom-nav-inner">
       <button class="nav-item active" data-page="home" onclick="showPage('home')">
@@ -263,7 +323,7 @@ input,select,textarea{font-family:inherit}
         <span>Tagihan</span>
       </button>
       <button class="nav-item" data-page="iuran" onclick="showPage('iuran')">
-        <span class="nav-icon"></span>
+        <span class="nav-icon">✓</span>
         <span>Iuran</span>
       </button>
       <button class="nav-item" data-page="ronda" onclick="showPage('ronda')">
@@ -271,7 +331,7 @@ input,select,textarea{font-family:inherit}
         <span>Ronda</span>
       </button>
       <button class="nav-item" data-page="pengaduan" onclick="showPage('pengaduan')">
-        <span class="nav-icon">️</span>
+        <span class="nav-icon">⚠️</span>
         <span>Pengaduan</span>
         <span class="nav-badge" id="pengaduanBadge" style="display:none">0</span>
       </button>
@@ -306,7 +366,7 @@ const labelBulan=k=>{if(!k)return'-';const[y,m]=k.split('-');return BULAN[+m-1]+
 const initials=n=>String(n||'?').trim().split(/\s+/).map(x=>x[0]).join('').substr(0,2).toUpperCase();
 const roleLevel=r=>({'Ketua RT':4,'Bendahara':3,'Sekretaris':3,'Anggota Keamanan':2,'Warga':1}[r]||1);
 const isStaff=()=>currentUser&&roleLevel(currentUser.gol)>=3;
-const showToast=(m,t='success')=>{const e=$('toast');e.textContent=(t==='error'?' ':t==='info'?'ℹ️ ':'✅ ')+m;e.className='toast show '+t;clearTimeout(showToast._t);showToast._t=setTimeout(()=>e.className='toast',3000);};
+const showToast=(m,t='success')=>{const e=$('toast');e.textContent=(t==='error'?'❌ ':t==='info'?'ℹ️ ':'✅ ')+m;e.className='toast show '+t;clearTimeout(showToast._t);showToast._t=setTimeout(()=>e.className='toast',3000);};
 
 function updateSyncStatus(online){const ss=$('syncStatus');if(online){$('syncText').textContent='Online';}else{ss.querySelector('.dot').style.background='var(--red)';$('syncText').textContent='Offline';}}
 
@@ -356,11 +416,23 @@ function doLogin(){
 
 function enterApp(){
   $('loginPage').style.display='none';
-  $('app').style.display='block';
   $('loading').style.display='none';
-  $('userGreeting').textContent='Hallo, '+currentUser.nama.split(' ')[0];
-  $('userAvatar').textContent=initials(currentUser.nama);
-  renderDashboard();
+  
+  const isDesktop=window.innerWidth>=1025;
+  if(isDesktop){
+    $('desktopLayout').style.display='grid';
+    $('mobileApp').style.display='none';
+    $('userAvatarDesktop').textContent=initials(currentUser.nama);
+    $('userGreetingDesktop').textContent='Hallo, '+currentUser.nama.split(' ')[0];
+    buildSidebarMenu();
+    renderDesktopDashboard();
+  }else{
+    $('mobileApp').style.display='block';
+    $('desktopLayout').style.display='none';
+    $('userAvatar').textContent=initials(currentUser.nama);
+    $('userGreeting').textContent='Hallo, '+currentUser.nama.split(' ')[0];
+    renderMobileDashboard();
+  }
 }
 
 function doLogout(){
@@ -368,31 +440,512 @@ function doLogout(){
   currentUser=null;
   localStorage.removeItem('rtku_sess');
   $('loginPage').style.display='flex';
-  $('app').style.display='none';
+  $('desktopLayout').style.display='none';
+  $('mobileApp').style.display='none';
   $('loginPin').value='';
 }
 
 function resetData(){
-  if(!confirm('️ Reset semua data?'))return;
+  if(!confirm('⚠️ Reset semua data?'))return;
   if(!confirm('Yakin 100%?'))return;
   db.ref('/').set(defaultData).then(()=>{appData=JSON.parse(JSON.stringify(defaultData));saveDataToFirebase();populateLoginWarga();showToast('Data direset!');});
 }
 
 function showHelp(){alert('LOGIN:\n1. Pilih nama\n2. PIN: 1234\n\nHak akses:\n• Ketua RT/Bendahara: semua fitur\n• Warga: lihat dashboard, setor, lapor');}
 
-function showPage(p){
-  currentPage=p;
-  document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('active',n.dataset.page===p));
-  if(p==='home')renderDashboard();
-  else if(p==='iuran')renderIuranPage();
-  else if(p==='setoran')renderSetoranPage();
-  else if(p==='pengaduan')renderPengaduanPage();
-  else if(p==='ronda')renderRondaPage();
-  else if(p==='pengumuman')renderPengumumanPage();
-  else if(p==='kegiatan')renderKegiatanPage();
+function buildSidebarMenu(){
+  const menus=[
+    {id:'home',icon:'🏠',label:'Beranda'},
+    {id:'iuran',icon:'✓',label:'Iuran'},
+    {id:'setoran',icon:'💳',label:'Setoran'},
+    {id:'pengumuman',icon:'📢',label:'Pengumuman'},
+    {id:'kegiatan',icon:'',label:'Kegiatan'},
+    {id:'pengaduan',icon:'⚠️',label:'Pengaduan'},
+    {id:'ronda',icon:'🛡️',label:'Ronda'},
+    {id:'akun',icon:'⚙️',label:'Akun'}
+  ];
+  
+  let html='';
+  menus.forEach(m=>{
+    html+=`<div class="menu-item ${currentPage===m.id?'active':''}" data-page="${m.id}" onclick="showPage('${m.id}')"><span class="icon-wrap" style="font-size:20px">${m.icon}</span><span>${m.label}</span></div>`;
+  });
+  html+=`<div class="menu-item logout-item" onclick="doLogout()"><span class="icon-wrap" style="font-size:20px">🚪</span><span>Keluar</span></div>`;
+  $('sidebarMenu').innerHTML=html;
 }
 
-function renderDashboard(){
+function showPage(p){
+  currentPage=p;
+  
+  // Update active state
+  document.querySelectorAll('.menu-item').forEach(m=>m.classList.toggle('active',m.dataset.page===p));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('active',n.dataset.page===p));
+  
+  const isDesktop=window.innerWidth>=1025;
+  if(isDesktop){
+    if(p==='home')renderDesktopDashboard();
+    else if(p==='iuran')renderDesktopIuran();
+    else if(p==='setoran')renderDesktopSetoran();
+    else if(p==='pengaduan')renderDesktopPengaduan();
+    else if(p==='ronda')renderDesktopRonda();
+    else if(p==='pengumuman')renderDesktopPengumuman();
+    else if(p==='kegiatan')renderDesktopKegiatan();
+    else if(p==='akun')renderDesktopAkun();
+  }else{
+    if(p==='home')renderMobileDashboard();
+    else if(p==='iuran')renderMobileIuran();
+    else if(p==='setoran')renderMobileSetoran();
+    else if(p==='pengaduan')renderMobilePengaduan();
+    else if(p==='ronda')renderMobileRonda();
+    else if(p==='pengumuman')renderMobilePengumuman();
+    else if(p==='kegiatan')renderMobileKegiatan();
+  }
+}
+
+// ============ DESKTOP RENDERING ============
+function renderDesktopDashboard(){
+  const kas=appData.kas||[];
+  const sal=kas.reduce((s,k)=>s+(k.tipe==='Masuk'?k.nominal:-k.nominal),0);
+  const mk=kas.filter(k=>k.tipe==='Masuk').reduce((s,k)=>s+ +k.nominal,0);
+  const kl=kas.filter(k=>k.tipe==='Keluar').reduce((s,k)=>s+ +k.nominal,0);
+  const tt=(appData.warga||[]).length;
+  const b=bulanIni();
+  const ln=(appData.iuran||[]).filter(i=>i.bulan===b&&i.status==='Lunas').length;
+  const belumLunas=(tt-ln)*(appData.rt.iuranNominal||50000);
+  
+  let html=`
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-icon blue">💰</div>
+        <div class="stat-label">Saldo Kas RT</div>
+        <div class="stat-value">${rp(sal)}</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon green">📈</div>
+        <div class="stat-label">Pemasukan</div>
+        <div class="stat-value">${rp(mk)}</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#FEE2E2;color:var(--red)">📉</div>
+        <div class="stat-label">Pengeluaran</div>
+        <div class="stat-value">${rp(kl)}</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#FEF3C7;color:var(--orange)">🏠</div>
+        <div class="stat-label">Hunian</div>
+        <div class="stat-value">${tt}</div>
+      </div>
+    </div>
+
+    <div class="chart-card" style="margin-top:20px">
+      <div class="chart-header">
+        <h3>📊 Arus Kas</h3>
+        <div class="chart-nav">
+          <button onclick="changeMonth(-1)">‹</button>
+          <span id="chartMonthDesktop">${BULAN[currentMonth.getMonth()]} ${currentMonth.getFullYear()}</span>
+          <button onclick="changeMonth(1)">›</button>
+        </div>
+      </div>
+      <div style="position:relative">
+        <div class="bar-chart" id="barChartDesktop"></div>
+      </div>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-dot income"></div>Pemasukan</div>
+        <div class="legend-item"><div class="legend-dot expense"></div>Pengeluaran</div>
+      </div>
+    </div>
+
+    <div class="iuran-banner" onclick="showPage('iuran')">
+      <div class="iuran-info">
+        <div class="label">Iuran Belum Lunas</div>
+        <div class="amount">${rp(belumLunas)}</div>
+      </div>
+      <div class="iuran-icon">💵</div>
+    </div>
+
+    <div class="cards-grid" style="margin-top:20px">
+      <div>
+        <div class="section-header">
+          <h3>📢 Pengumuman <span class="badge-count">${(appData.pengumuman||[]).length}</span></h3>
+          <a class="link" onclick="showPage('pengumuman')">Lihat semua</a>
+        </div>
+        ${(appData.pengumuman||[]).slice(0,3).map(p=>`
+          <div class="announcement-card">
+            <div class="ann-icon">📢</div>
+            <div class="ann-content">
+              <div class="ann-title">${esc(p.judul)} ${p.pin?'📌':''}</div>
+              <div class="ann-meta"><span>${tglIndo(p.tgl)}</span><span class="dot"></span><span>${esc(p.oleh||'')}</span></div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+
+      <div>
+        <div class="section-header">
+          <h3>📅 Kegiatan Mendatang</h3>
+          <a class="link" onclick="showPage('kegiatan')">Lihat semua</a>
+        </div>
+        ${(appData.kegiatan||[]).filter(k=>k.status==='Akan Datang').slice(0,3).map(k=>`
+          <div class="announcement-card">
+            <div class="ann-icon" style="background:#D1FAE5">📅</div>
+            <div class="ann-content">
+              <div class="ann-title">${esc(k.judul)}</div>
+              <div class="ann-meta"><span>📅 ${tglIndo(k.tgl)}</span><span class="dot"></span><span>🕐 ${esc(k.waktuMulai||'-')}</span></div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+  
+  $('desktopContent').innerHTML=html;
+  renderDesktopChart();
+}
+
+function renderDesktopChart(){
+  const kas=appData.kas||[];
+  const year=currentMonth.getFullYear();
+  const month=currentMonth.getMonth();
+  $('chartMonthDesktop').textContent=BULAN[month]+' '+year;
+  
+  const monthKey=year+'-'+String(month+1).padStart(2,'0');
+  const transactions=kas.filter(k=>k.tgl&&k.tgl.startsWith(monthKey));
+  
+  const weeks=[
+    {label:'1-7',income:0,expense:0},
+    {label:'8-14',income:0,expense:0},
+    {label:'15-21',income:0,expense:0},
+    {label:'22-28',income:0,expense:0},
+    {label:'29-31',income:0,expense:0}
+  ];
+  
+  transactions.forEach(k=>{
+    const day=parseInt(k.tgl.split('-')[2]);
+    let weekIdx=0;
+    if(day>=8&&day<=14)weekIdx=1;
+    else if(day>=15&&day<=21)weekIdx=2;
+    else if(day>=22&&day<=28)weekIdx=3;
+    else if(day>=29)weekIdx=4;
+    if(k.tipe==='Masuk')weeks[weekIdx].income+=k.nominal;
+    else weeks[weekIdx].expense+=k.nominal;
+  });
+  
+  const maxVal=Math.max(...weeks.map(w=>Math.max(w.income,w.expense)),100000);
+  
+  $('barChartDesktop').innerHTML=weeks.map(w=>{
+    const incomeH=Math.max((w.income/maxVal)*170,4);
+    const expenseH=Math.max((w.expense/maxVal)*170,4);
+    return `
+      <div class="bar-group">
+        <div class="bar-pair">
+          <div class="bar income" style="height:${incomeH}px" title="Pemasukan: ${rp(w.income)}"></div>
+          <div class="bar expense" style="height:${expenseH}px" title="Pengeluaran: ${rp(w.expense)}"></div>
+        </div>
+        <div class="bar-label">${w.label}</div>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderDesktopIuran(){
+  const b=bulanIni();
+  const nom=appData.rt.iuranNominal||50000;
+  const m={};
+  (appData.iuran||[]).filter(i=>i.bulan===b).forEach(i=>m[i.wargaId]=i);
+  const l=appData.warga||[];
+  const ln=l.filter(w=>m[w.id]&&m[w.id].status==='Lunas').length;
+  const pct=l.length?Math.round(ln/l.length*100):0;
+  
+  let html=`
+    <div class="page-header">
+      <button onclick="showPage('home')">←</button>
+      <h2>Status Iuran</h2>
+    </div>
+    <div class="chart-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <div>
+          <div style="font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase">Progress Bulan Ini</div>
+          <div style="font-size:32px;font-weight:800;margin-top:4px">${ln}/${l.length}</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:13px;color:var(--muted)">${rp(nom)}/warga</div>
+          <div style="font-size:20px;font-weight:700;color:var(--p);margin-top:4px">${pct}%</div>
+        </div>
+      </div>
+      <div style="height:10px;background:var(--line2);border-radius:5px;overflow:hidden">
+        <div style="height:100%;background:linear-gradient(90deg,var(--green),#059669);width:${pct}%"></div>
+      </div>
+    </div>
+    <div style="margin-top:20px">
+      ${l.map(w=>{
+        const r=m[w.id],ok=r&&r.status==='Lunas';
+        return `<div class="announcement-card" style="${ok?'border-color:#BBF7D0;background:#F0FDF4':''}">
+          <div class="ann-icon" style="background:${ok?'#D1FAE5':'var(--pt)'}">${ok?'✅':'⏳'}</div>
+          <div class="ann-content">
+            <div class="ann-title">${esc(w.nama)} <span style="font-size:11px;color:var(--muted)">(${esc(w.blok)})</span></div>
+            <div class="ann-meta">${ok?'Lunas '+tglIndo(r.tgl):'Belum membayar'}</div>
+          </div>
+          ${!ok&&isStaff()?`<button class="btn btn-success btn-sm" onclick="toggleIuran('${w.id}','${b}',${nom})">Lunas</button>`:''}
+        </div>`;
+      }).join('')}
+    </div>
+  `;
+  
+  $('desktopContent').innerHTML=html;
+}
+
+async function toggleIuran(wid,b,nom){
+  const l=appData.iuran||[];
+  const i=l.findIndex(x=>x.wargaId===wid&&x.bulan===b);
+  if(i>-1){l[i]={...l[i],status:'Lunas',tgl:today()};}
+  else l.push({id:uid('I'),wargaId:wid,bulan:b,nominal:nom,status:'Lunas',tgl:today()});
+  appData.iuran=l;
+  await saveDataToFirebase();
+  showToast('Iuran dilunasi');
+  renderDesktopIuran();
+}
+
+function renderDesktopSetoran(){
+  let html=`
+    <div class="page-header">
+      <button onclick="showPage('home')">←</button>
+      <h2>Setoran Iuran</h2>
+    </div>
+    <div class="cards-grid">
+      <div class="chart-card">
+        <h3 style="margin-bottom:16px">💳 Form Setoran</h3>
+        <div class="form-group"><label>Bulan</label><select id="setorBulanDesktop"></select></div>
+        <div class="form-group"><label>Nominal</label><input type="number" id="setorNominalDesktop" value="${appData.rt.iuranNominal||50000}"></div>
+        <div class="form-group"><label>Metode</label><select id="setorMetodeDesktop"><option>Transfer Bank</option><option>E-Wallet</option><option>QRIS</option><option>Tunai</option></select></div>
+        <div class="form-group"><label>No. Referensi</label><input type="text" id="setorRefDesktop" placeholder="TRX..."></div>
+        <div class="form-group"><label>Catatan</label><textarea id="setorCatatanDesktop" rows="2"></textarea></div>
+        <button class="btn btn-primary" onclick="submitSetoranDesktop()">Kirim Setoran</button>
+      </div>
+      <div class="chart-card">
+        <h3 style="margin-bottom:16px">📋 Riwayat Saya</h3>
+        <div id="riwayatDesktop"></div>
+      </div>
+    </div>
+  `;
+  
+  $('desktopContent').innerHTML=html;
+  
+  const s=new Set([bulanIni()]);
+  const d=new Date();
+  for(let i=-2;i<6;i++){const x=new Date(d.getFullYear(),d.getMonth()+i,1);s.add(x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0'));}
+  $('setorBulanDesktop').innerHTML=[...s].sort().reverse().map(b=>`<option value="${b}" ${b===bulanIni()?'selected':''}>${labelBulan(b)}</option>`).join('');
+  
+  const mine=(appData.setoran||[]).filter(s=>s.wargaId===currentUser.id);
+  $('riwayatDesktop').innerHTML=mine.length?mine.map(s=>{
+    const bc=s.status==='Pending'?'b-yellow':s.status==='Dikonfirmasi'?'b-green':'b-red';
+    return `<div class="announcement-card">
+      <div class="ann-icon" style="background:${s.status==='Dikonfirmasi'?'#D1FAE5':s.status==='Pending'?'#FEF3C7':'#FEE2E2'}">${s.status==='Dikonfirmasi'?'✅':s.status==='Pending'?'⏳':''}</div>
+      <div class="ann-content">
+        <div class="ann-title">${labelBulan(s.bulan)} · ${rp(s.nominal)}</div>
+        <div class="ann-meta"><span class="badge ${bc}">${s.status}</span><span class="dot"></span><span>${tglIndo(s.tglSetor)}</span></div>
+      </div>
+    </div>`;
+  }).join(''):'<div style="text-align:center;padding:40px;color:var(--muted)">Belum pernah setor</div>';
+}
+
+async function submitSetoranDesktop(){
+  const bulan=$('setorBulanDesktop').value,nominal=parseInt($('setorNominalDesktop').value),metode=$('setorMetodeDesktop').value,ref=$('setorRefDesktop').value.trim(),catatan=$('setorCatatanDesktop').value.trim();
+  if(!nominal||nominal<1000)return showToast('Nominal min 1000','error');
+  const l=appData.setoran||[];
+  l.unshift({id:uid('S'),wargaId:currentUser.id,namaWarga:currentUser.nama,blok:currentUser.blok,bulan,nominal,metode,ref,catatan,bukti:[],status:'Pending',tglSetor:today(),tglKonfirmasi:null,dikonfirmasiOleh:null,alasan:''});
+  appData.setoran=l;
+  await saveDataToFirebase();
+  showToast('Setoran terkirim');
+  $('setorRefDesktop').value='';$('setorCatatanDesktop').value='';
+  renderDesktopSetoran();
+}
+
+function renderDesktopPengaduan(){
+  const l=(appData.lapor||[]).slice().sort((a,b)=>(b.tgl||'').localeCompare(a.tgl||''));
+  let html=`
+    <div class="page-header">
+      <button onclick="showPage('home')">←</button>
+      <h2>Pengaduan</h2>
+    </div>
+    <button class="btn btn-primary" style="margin-bottom:20px;max-width:300px" onclick="showLaporFormDesktop()">＋ Lapor Masalah</button>
+    <div class="cards-grid">
+  `;
+  
+  if(l.length){
+    l.forEach(x=>{
+      const w=appData.warga.find(v=>v.id===x.wargaId);
+      const bc=x.status==='Selesai'?'b-green':x.status==='Diproses'?'b-blue':x.status==='Ditolak'?'b-red':'b-yellow';
+      html+=`
+        <div class="announcement-card">
+          <div class="ann-icon" style="background:#FEE2E2">⚠️</div>
+          <div class="ann-content">
+            <div class="ann-title">${esc(x.judul)} <span class="badge ${bc}">${esc(x.status)}</span></div>
+            <div class="ann-meta"><span>${esc(x.kat)}</span><span class="dot"></span><span>${esc(w?w.nama:'Warga')}</span><span class="dot"></span><span>${tglIndo(x.tgl)}</span></div>
+            <div style="font-size:12px;color:var(--ink2);margin-top:6px">${esc(x.isi)}</div>
+          </div>
+        </div>
+      `;
+    });
+  }else{
+    html+=`<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--muted)"><div style="font-size:64px;margin-bottom:12px">⚠️</div><p>Belum ada pengaduan</p></div>`;
+  }
+  
+  html+=`</div>`;
+  $('desktopContent').innerHTML=html;
+}
+
+function showLaporFormDesktop(){
+  const modal=document.createElement('div');
+  modal.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px';
+  modal.innerHTML=`
+    <div style="background:#fff;border-radius:20px;padding:24px;width:100%;max-width:500px;max-height:90vh;overflow-y:auto">
+      <h3 style="font-size:20px;font-weight:800;margin-bottom:20px"> Lapor Masalah</h3>
+      <div class="form-group"><label>Kategori</label><select id="lKatDesktop"><option>Infrastruktur</option><option>Keamanan</option><option>Kebersihan</option><option>Sosial</option><option>Penerangan</option><option>Lainnya</option></select></div>
+      <div class="form-group"><label>Prioritas</label><select id="lPrioDesktop"><option>Rendah</option><option selected>Sedang</option><option>Tinggi</option><option>Darurat</option></select></div>
+      <div class="form-group"><label>Judul *</label><input id="lJudulDesktop" placeholder="Judul laporan"></div>
+      <div class="form-group"><label>Deskripsi *</label><textarea id="lIsiDesktop" rows="4" placeholder="Deskripsi masalah"></textarea></div>
+      <div style="display:flex;gap:10px">
+        <button class="btn btn-primary" onclick="saveLaporDesktop()">📤 Kirim Laporan</button>
+        <button class="btn btn-secondary" onclick="this.closest('div[style]').remove()">Batal</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+  modal.onclick=e=>{if(e.target===modal)modal.remove();};
+}
+
+async function saveLaporDesktop(){
+  const kat=$('lKatDesktop').value,prio=$('lPrioDesktop').value,judul=$('lJudulDesktop').value.trim(),isi=$('lIsiDesktop').value.trim();
+  if(!judul||!isi)return showToast('Lengkapi field','error');
+  const l=appData.lapor||[];
+  l.unshift({id:uid('L'),wargaId:currentUser.id,kat,prio,judul,isi,status:'Baru',tgl:today()});
+  appData.lapor=l;
+  await saveDataToFirebase();
+  document.querySelector('.modal')?.remove();
+  showToast('Laporan terkirim');
+  renderDesktopPengaduan();
+}
+
+function renderDesktopRonda(){
+  const l=(appData.ronda||[]).slice().sort((a,b)=>(a.tgl||'').localeCompare(b.tgl||''));
+  let html=`
+    <div class="page-header">
+      <button onclick="showPage('home')">←</button>
+      <h2>Jadwal Ronda</h2>
+    </div>
+    <div class="cards-grid">
+  `;
+  
+  if(l.length){
+    l.forEach(r=>{
+      html+=`
+        <div class="announcement-card">
+          <div class="ann-icon" style="background:#E0E7FF">️</div>
+          <div class="ann-content">
+            <div class="ann-title">${esc(r.shift)} · ${esc(r.waktu||'-')}</div>
+            <div class="ann-meta"><span>📅 ${tglIndo(r.tgl)}</span><span class="dot"></span><span>👤 ${esc(r.petugas)}</span></div>
+            ${r.catatan?`<div style="font-size:12px;color:var(--muted);margin-top:6px"> ${esc(r.catatan)}</div>`:''}
+          </div>
+        </div>
+      `;
+    });
+  }else{
+    html+=`<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--muted)"><div style="font-size:64px;margin-bottom:12px">🛡️</div><p>Belum ada jadwal ronda</p></div>`;
+  }
+  
+  html+=`</div>`;
+  $('desktopContent').innerHTML=html;
+}
+
+function renderDesktopPengumuman(){
+  const l=(appData.pengumuman||[]).slice().sort((a,b)=>(b.pin?1:0)-(a.pin?1:0));
+  let html=`
+    <div class="page-header">
+      <button onclick="showPage('home')">←</button>
+      <h2>Pengumuman</h2>
+    </div>
+    <div class="cards-grid">
+  `;
+  
+  if(l.length){
+    l.forEach(p=>{
+      html+=`
+        <div class="announcement-card">
+          <div class="ann-icon" style="background:#EDE9FE">📢</div>
+          <div class="ann-content">
+            <div class="ann-title">${esc(p.judul)} ${p.pin?'📌':''}</div>
+            <div style="font-size:13px;color:var(--ink2);margin:8px 0;line-height:1.5">${esc(p.isi)}</div>
+            <div class="ann-meta"><span>📅 ${tglIndo(p.tgl)}</span><span class="dot"></span><span>👤 ${esc(p.oleh||'')}</span></div>
+          </div>
+        </div>
+      `;
+    });
+  }else{
+    html+=`<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--muted)"><div style="font-size:64px;margin-bottom:12px">📢</div><p>Belum ada pengumuman</p></div>`;
+  }
+  
+  html+=`</div>`;
+  $('desktopContent').innerHTML=html;
+}
+
+function renderDesktopKegiatan(){
+  const l=(appData.kegiatan||[]).slice().sort((a,b)=>(b.tgl||'').localeCompare(a.tgl||''));
+  let html=`
+    <div class="page-header">
+      <button onclick="showPage('home')">←</button>
+      <h2>Kegiatan</h2>
+    </div>
+    <div class="cards-grid">
+  `;
+  
+  if(l.length){
+    l.forEach(k=>{
+      html+=`
+        <div class="announcement-card">
+          <div class="ann-icon" style="background:#D1FAE5"></div>
+          <div class="ann-content">
+            <div class="ann-title">${esc(k.judul)}</div>
+            <div class="ann-meta"><span>📅 ${tglIndo(k.tgl)}</span><span class="dot"></span><span>🕐 ${esc(k.waktuMulai||'-')}</span></div>
+            <div style="font-size:12px;color:var(--ink2);margin-top:6px">📍 ${esc(k.lokasi||'-')} · 👤 ${esc(k.penanggungJawab||'-')}</div>
+          </div>
+        </div>
+      `;
+    });
+  }else{
+    html+=`<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--muted)"><div style="font-size:64px;margin-bottom:12px">📅</div><p>Tidak ada kegiatan</p></div>`;
+  }
+  
+  html+=`</div>`;
+  $('desktopContent').innerHTML=html;
+}
+
+function renderDesktopAkun(){
+  if(!currentUser)return;
+  const w=currentUser;
+  let html=`
+    <div class="page-header">
+      <button onclick="showPage('home')">←</button>
+      <h2>Akun Saya</h2>
+    </div>
+    <div class="chart-card" style="max-width:600px">
+      <div style="text-align:center;padding:20px 0">
+        <div style="width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--pd));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:40px;margin:0 auto 16px">${initials(w.nama)}</div>
+        <h3 style="font-size:24px;font-weight:800">${esc(w.nama)}</h3>
+        <p style="color:var(--muted);margin-top:4px"><span class="badge b-purple">${esc(w.gol)}</span></p>
+      </div>
+      <div style="border-top:1px solid var(--line);padding-top:16px">
+        <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line2)"><span style="color:var(--muted);font-size:13px">Blok</span><span style="font-weight:600">${esc(w.blok)}</span></div>
+        <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line2)"><span style="color:var(--muted);font-size:13px">HP</span><span style="font-weight:600">${esc(w.hp||'-')}</span></div>
+        <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line2)"><span style="color:var(--muted);font-size:13px">Pekerjaan</span><span style="font-weight:600">${esc(w.pekerjaan||'-')}</span></div>
+        <div style="display:flex;justify-content:space-between;padding:12px 0"><span style="color:var(--muted);font-size:13px">PIN</span><span style="font-weight:600">•••• <span class="badge b-gray">tersembunyi</span></span></div>
+      </div>
+      <button class="btn btn-danger" style="margin-top:20px" onclick="doLogout()">Keluar dari Portal</button>
+    </div>
+  `;
+  $('desktopContent').innerHTML=html;
+}
+
+// ============ MOBILE RENDERING ============
+function renderMobileDashboard(){
   const kas=appData.kas||[];
   const sal=kas.reduce((s,k)=>s+(k.tipe==='Masuk'?k.nominal:-k.nominal),0);
   const tt=(appData.warga||[]).length;
@@ -400,39 +953,79 @@ function renderDashboard(){
   const ln=(appData.iuran||[]).filter(i=>i.bulan===b&&i.status==='Lunas').length;
   const belumLunas=(tt-ln)*(appData.rt.iuranNominal||50000);
   
-  $('statSaldo').textContent=rp(sal);
-  $('statHunian').textContent=tt;
-  $('iuranBelumLunas').textContent=rp(belumLunas);
-  
-  // Chart
-  renderChart();
-  
-  // Pengumuman
-  const pengumuman=(appData.pengumuman||[]).slice(0,3);
-  $('pengumumanCount').textContent=pengumuman.length;
-  $('pengumumanList').innerHTML=pengumuman.length?pengumuman.map(p=>`
-    <div class="announcement-card">
-      <div class="ann-icon">📢</div>
-      <div class="ann-content">
-        <div class="ann-title">${esc(p.judul)} ${p.pin?'📌':''}</div>
-        <div class="ann-meta"><span>${tglIndo(p.tgl)}</span><span class="dot"></span><span>${esc(p.oleh||'')}</span></div>
+  let html=`
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-icon blue">💰</div>
+        <div class="stat-label">Saldo Kas RT</div>
+        <div class="stat-value">${rp(sal)}</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon green">🏠</div>
+        <div class="stat-label">Hunian</div>
+        <div class="stat-value">${tt}</div>
       </div>
     </div>
-  `).join(''):'<div style="text-align:center;padding:20px;color:var(--muted);font-size:13px">Belum ada pengumuman</div>';
-  
-  // Kegiatan
-  const kegiatan=(appData.kegiatan||[]).filter(k=>k.status==='Akan Datang').slice(0,2);
-  $('kegiatanList').innerHTML=kegiatan.length?kegiatan.map(k=>`
-    <div class="announcement-card">
-      <div class="ann-icon" style="background:#D1FAE5">📅</div>
-      <div class="ann-content">
-        <div class="ann-title">${esc(k.judul)}</div>
-        <div class="ann-meta"><span>📅 ${tglIndo(k.tgl)}</span><span class="dot"></span><span>🕐 ${esc(k.waktuMulai||'-')}</span></div>
+
+    <div class="chart-card">
+      <div class="chart-header">
+        <h3>📊 Arus Kas</h3>
+        <div class="chart-nav">
+          <button onclick="changeMonth(-1)">‹</button>
+          <span id="chartMonth">${BULAN[currentMonth.getMonth()]} ${currentMonth.getFullYear()}</span>
+          <button onclick="changeMonth(1)">›</button>
+        </div>
+      </div>
+      <div style="position:relative">
+        <div class="bar-chart" id="barChart"></div>
+      </div>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-dot income"></div>Pemasukan</div>
+        <div class="legend-item"><div class="legend-dot expense"></div>Pengeluaran</div>
       </div>
     </div>
-  `).join(''):'<div style="text-align:center;padding:20px;color:var(--muted);font-size:13px">Tidak ada kegiatan mendatang</div>';
+
+    <div class="iuran-banner" onclick="showPage('iuran')">
+      <div class="iuran-info">
+        <div class="label">Iuran Belum Lunas</div>
+        <div class="amount">${rp(belumLunas)}</div>
+      </div>
+      <div class="iuran-icon"></div>
+    </div>
+
+    <div class="section-header">
+      <h3>📢 Pengumuman <span class="badge-count">${(appData.pengumuman||[]).length}</span></h3>
+      <a class="link" onclick="showPage('pengumuman')">Lihat semua</a>
+    </div>
+    ${(appData.pengumuman||[]).slice(0,3).map(p=>`
+      <div class="announcement-card">
+        <div class="ann-icon">📢</div>
+        <div class="ann-content">
+          <div class="ann-title">${esc(p.judul)} ${p.pin?'':''}</div>
+          <div class="ann-meta"><span>${tglIndo(p.tgl)}</span><span class="dot"></span><span>${esc(p.oleh||'')}</span></div>
+        </div>
+      </div>
+    `).join('')}
+
+    <div class="section-header">
+      <h3>📅 Kegiatan Mendatang</h3>
+      <a class="link" onclick="showPage('kegiatan')">Lihat semua</a>
+    </div>
+    ${(appData.kegiatan||[]).filter(k=>k.status==='Akan Datang').slice(0,2).map(k=>`
+      <div class="announcement-card">
+        <div class="ann-icon" style="background:#D1FAE5">📅</div>
+        <div class="ann-content">
+          <div class="ann-title">${esc(k.judul)}</div>
+          <div class="ann-meta"><span>📅 ${tglIndo(k.tgl)}</span><span class="dot"></span><span>🕐 ${esc(k.waktuMulai||'-')}</span></div>
+        </div>
+      </div>
+    `).join('')}
+  `;
   
-  // Notif badge
+  $('mobileContent').innerHTML=html;
+  renderMobileChart();
+  
+  // Update badges
   const c=(appData.lapor||[]).filter(l=>l.status==='Baru').length;
   $('notifBadge').textContent=c;
   $('notifBadge').style.display=c>0?'flex':'none';
@@ -440,7 +1033,7 @@ function renderDashboard(){
   if(pb){pb.textContent=c;pb.style.display=c>0?'flex':'none';}
 }
 
-function renderChart(){
+function renderMobileChart(){
   const kas=appData.kas||[];
   const year=currentMonth.getFullYear();
   const month=currentMonth.getMonth();
@@ -449,7 +1042,6 @@ function renderChart(){
   const monthKey=year+'-'+String(month+1).padStart(2,'0');
   const transactions=kas.filter(k=>k.tgl&&k.tgl.startsWith(monthKey));
   
-  // Group by week
   const weeks=[
     {label:'1-7',income:0,expense:0},
     {label:'8-14',income:0,expense:0},
@@ -488,31 +1080,34 @@ function renderChart(){
 
 function changeMonth(delta){
   currentMonth.setMonth(currentMonth.getMonth()+delta);
-  renderChart();
+  const isDesktop=window.innerWidth>=1025;
+  if(isDesktop)renderDesktopChart();
+  else renderMobileChart();
 }
 
-function renderIuranPage(){
+function renderMobileIuran(){
   const b=bulanIni();
   const nom=appData.rt.iuranNominal||50000;
   const m={};
   (appData.iuran||[]).filter(i=>i.bulan===b).forEach(i=>m[i.wargaId]=i);
   const l=appData.warga||[];
   const ln=l.filter(w=>m[w.id]&&m[w.id].status==='Lunas').length;
+  const pct=l.length?Math.round(ln/l.length*100):0;
   
-  $('mainContent').innerHTML=`
-    <div style="padding:16px 0">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-        <button onclick="showPage('home')" style="width:40px;height:40px;border-radius:12px;background:var(--pt);color:var(--p);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
-        <h2 style="font-size:20px;font-weight:800">Status Iuran</h2>
+  $('mobileContent').innerHTML=`
+    <div class="page-section">
+      <div class="page-header">
+        <button onclick="showPage('home')">←</button>
+        <h2>Status Iuran</h2>
       </div>
-      <div class="stat-card" style="margin-bottom:16px">
-        <div class="stat-label">Progress Bulan Ini</div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
-          <div class="stat-value" style="font-size:24px">${ln}/${l.length}</div>
+      <div class="chart-card">
+        <div style="font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;margin-bottom:8px">Progress Bulan Ini</div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div style="font-size:28px;font-weight:800">${ln}/${l.length}</div>
           <div style="font-size:13px;color:var(--muted)">${rp(nom)}/warga</div>
         </div>
         <div style="height:8px;background:var(--line2);border-radius:4px;margin-top:12px;overflow:hidden">
-          <div style="height:100%;background:linear-gradient(90deg,var(--green),#059669);width:${l.length?Math.round(ln/l.length*100):0}%"></div>
+          <div style="height:100%;background:linear-gradient(90deg,var(--green),#059669);width:${pct}%"></div>
         </div>
       </div>
       ${l.map(w=>{
@@ -523,37 +1118,26 @@ function renderIuranPage(){
             <div class="ann-title">${esc(w.nama)} <span style="font-size:11px;color:var(--muted)">(${esc(w.blok)})</span></div>
             <div class="ann-meta">${ok?'Lunas '+tglIndo(r.tgl):'Belum membayar'}</div>
           </div>
-          ${!ok&&isStaff()?`<button class="btn btn-sm" style="background:var(--green);color:#fff;padding:8px 12px;font-size:11px;width:auto" onclick="toggleIuran('${w.id}','${b}',${nom})">Lunas</button>`:''}
+          ${!ok&&isStaff()?`<button class="btn btn-success btn-sm" onclick="toggleIuran('${w.id}','${b}',${nom})">Lunas</button>`:''}
         </div>`;
       }).join('')}
     </div>
   `;
 }
 
-async function toggleIuran(wid,b,nom){
-  const l=appData.iuran||[];
-  const i=l.findIndex(x=>x.wargaId===wid&&x.bulan===b);
-  if(i>-1){l[i]={...l[i],status:'Lunas',tgl:today()};}
-  else l.push({id:uid('I'),wargaId:wid,bulan:b,nominal:nom,status:'Lunas',tgl:today()});
-  appData.iuran=l;
-  await saveDataToFirebase();
-  showToast('Iuran dilunasi');
-  renderIuranPage();
-}
-
-function renderSetoranPage(){
-  $('mainContent').innerHTML=`
-    <div style="padding:16px 0">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-        <button onclick="showPage('home')" style="width:40px;height:40px;border-radius:12px;background:var(--pt);color:var(--p);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
-        <h2 style="font-size:20px;font-weight:800">Setoran Iuran</h2>
+function renderMobileSetoran(){
+  $('mobileContent').innerHTML=`
+    <div class="page-section">
+      <div class="page-header">
+        <button onclick="showPage('home')">←</button>
+        <h2>Setoran Iuran</h2>
       </div>
       <div class="chart-card">
         <div class="form-group"><label>Bulan</label><select id="setorBulan"></select></div>
         <div class="form-group"><label>Nominal</label><input type="number" id="setorNominal" value="${appData.rt.iuranNominal||50000}"></div>
         <div class="form-group"><label>Metode</label><select id="setorMetode"><option>Transfer Bank</option><option>E-Wallet</option><option>QRIS</option><option>Tunai</option></select></div>
         <div class="form-group"><label>No. Referensi</label><input type="text" id="setorRef" placeholder="TRX..."></div>
-        <div class="form-group"><label>Catatan</label><textarea id="setorCatatan" rows="2" style="width:100%;padding:12px;border:2px solid var(--line);border-radius:12px;font-size:14px"></textarea></div>
+        <div class="form-group"><label>Catatan</label><textarea id="setorCatatan" rows="2"></textarea></div>
         <button class="btn btn-primary" onclick="submitSetoran()">Kirim Setoran</button>
       </div>
       <div class="section-header"><h3>📋 Riwayat Saya</h3></div>
@@ -570,13 +1154,13 @@ function renderSetoranPage(){
   $('riwayatList').innerHTML=mine.length?mine.map(s=>{
     const bc=s.status==='Pending'?'b-yellow':s.status==='Dikonfirmasi'?'b-green':'b-red';
     return `<div class="announcement-card">
-      <div class="ann-icon" style="background:${s.status==='Dikonfirmasi'?'#D1FAE5':s.status==='Pending'?'#FEF3C7':'#FEE2E2'}">${s.status==='Dikonfirmasi'?'✅':s.status==='Pending'?'⏳':'❌'}</div>
+      <div class="ann-icon" style="background:${s.status==='Dikonfirmasi'?'#D1FAE5':s.status==='Pending'?'#FEF3C7':'#FEE2E2'}">${s.status==='Dikonfirmasi'?'✅':s.status==='Pending'?'⏳':''}</div>
       <div class="ann-content">
         <div class="ann-title">${labelBulan(s.bulan)} · ${rp(s.nominal)}</div>
-        <div class="ann-meta"><span class="badge ${bc}" style="padding:2px 8px;border-radius:10px;font-size:10px">${s.status}</span><span class="dot"></span><span>${tglIndo(s.tglSetor)}</span></div>
+        <div class="ann-meta"><span class="badge ${bc}">${s.status}</span><span class="dot"></span><span>${tglIndo(s.tglSetor)}</span></div>
       </div>
     </div>`;
-  }).join(''):'<div style="text-align:center;padding:20px;color:var(--muted);font-size:13px">Belum pernah setor</div>';
+  }).join(''):'<div style="text-align:center;padding:40px 20px;color:var(--muted);font-size:13px">Belum pernah setor</div>';
 }
 
 async function submitSetoran(){
@@ -588,16 +1172,16 @@ async function submitSetoran(){
   await saveDataToFirebase();
   showToast('Setoran terkirim');
   $('setorRef').value='';$('setorCatatan').value='';
-  renderSetoranPage();
+  renderMobileSetoran();
 }
 
-function renderPengaduanPage(){
+function renderMobilePengaduan(){
   const l=(appData.lapor||[]).slice().sort((a,b)=>(b.tgl||'').localeCompare(a.tgl||''));
-  $('mainContent').innerHTML=`
-    <div style="padding:16px 0">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-        <button onclick="showPage('home')" style="width:40px;height:40px;border-radius:12px;background:var(--pt);color:var(--p);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
-        <h2 style="font-size:20px;font-weight:800">Pengaduan</h2>
+  $('mobileContent').innerHTML=`
+    <div class="page-section">
+      <div class="page-header">
+        <button onclick="showPage('home')">←</button>
+        <h2>Pengaduan</h2>
       </div>
       <button class="btn btn-primary" style="margin-bottom:16px" onclick="showLaporForm()">＋ Lapor Masalah</button>
       ${l.length?l.map(x=>{
@@ -606,12 +1190,12 @@ function renderPengaduanPage(){
         return `<div class="announcement-card">
           <div class="ann-icon" style="background:#FEE2E2">⚠️</div>
           <div class="ann-content">
-            <div class="ann-title">${esc(x.judul)} <span class="badge ${bc}" style="padding:2px 8px;border-radius:10px;font-size:10px">${esc(x.status)}</span></div>
+            <div class="ann-title">${esc(x.judul)} <span class="badge ${bc}">${esc(x.status)}</span></div>
             <div class="ann-meta"><span>${esc(x.kat)}</span><span class="dot"></span><span>${esc(w?w.nama:'Warga')}</span><span class="dot"></span><span>${tglIndo(x.tgl)}</span></div>
             <div style="font-size:12px;color:var(--ink2);margin-top:6px">${esc(x.isi)}</div>
           </div>
         </div>`;
-      }).join(''):'<div style="text-align:center;padding:40px 20px;color:var(--muted)"><div style="font-size:48px;margin-bottom:12px"></div><p>Belum ada pengaduan</p></div>'}
+      }).join(''):'<div style="text-align:center;padding:40px 20px;color:var(--muted)"><div style="font-size:48px;margin-bottom:12px">⚠️</div><p>Belum ada pengaduan</p></div>'}
     </div>
   `;
 }
@@ -626,7 +1210,7 @@ function showLaporForm(){
       <div class="form-group"><label>Kategori</label><select id="lKat"><option>Infrastruktur</option><option>Keamanan</option><option>Kebersihan</option><option>Sosial</option><option>Penerangan</option><option>Lainnya</option></select></div>
       <div class="form-group"><label>Prioritas</label><select id="lPrio"><option>Rendah</option><option selected>Sedang</option><option>Tinggi</option><option>Darurat</option></select></div>
       <div class="form-group"><label>Judul *</label><input id="lJudul" placeholder="Judul laporan"></div>
-      <div class="form-group"><label>Deskripsi *</label><textarea id="lIsi" rows="3" placeholder="Deskripsi masalah" style="width:100%;padding:12px;border:2px solid var(--line);border-radius:12px;font-size:14px"></textarea></div>
+      <div class="form-group"><label>Deskripsi *</label><textarea id="lIsi" rows="3" placeholder="Deskripsi masalah"></textarea></div>
       <button class="btn btn-primary" onclick="saveLaporFromModal()">📤 Kirim Laporan</button>
       <button class="btn btn-secondary" style="margin-top:8px" onclick="this.closest('div[style]').remove()">Batal</button>
     </div>
@@ -644,16 +1228,16 @@ async function saveLaporFromModal(){
   await saveDataToFirebase();
   document.querySelector('.modal')?.remove();
   showToast('Laporan terkirim');
-  renderPengaduanPage();
+  renderMobilePengaduan();
 }
 
-function renderRondaPage(){
+function renderMobileRonda(){
   const l=(appData.ronda||[]).slice().sort((a,b)=>(a.tgl||'').localeCompare(b.tgl||''));
-  $('mainContent').innerHTML=`
-    <div style="padding:16px 0">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-        <button onclick="showPage('home')" style="width:40px;height:40px;border-radius:12px;background:var(--pt);color:var(--p);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
-        <h2 style="font-size:20px;font-weight:800">Jadwal Ronda</h2>
+  $('mobileContent').innerHTML=`
+    <div class="page-section">
+      <div class="page-header">
+        <button onclick="showPage('home')">←</button>
+        <h2>Jadwal Ronda</h2>
       </div>
       ${l.length?l.map(r=>`
         <div class="announcement-card">
@@ -669,19 +1253,19 @@ function renderRondaPage(){
   `;
 }
 
-function renderPengumumanPage(){
+function renderMobilePengumuman(){
   const l=(appData.pengumuman||[]).slice().sort((a,b)=>(b.pin?1:0)-(a.pin?1:0));
-  $('mainContent').innerHTML=`
-    <div style="padding:16px 0">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-        <button onclick="showPage('home')" style="width:40px;height:40px;border-radius:12px;background:var(--pt);color:var(--p);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
-        <h2 style="font-size:20px;font-weight:800">Pengumuman</h2>
+  $('mobileContent').innerHTML=`
+    <div class="page-section">
+      <div class="page-header">
+        <button onclick="showPage('home')">←</button>
+        <h2>Pengumuman</h2>
       </div>
       ${l.length?l.map(p=>`
         <div class="announcement-card">
           <div class="ann-icon" style="background:#EDE9FE">📢</div>
           <div class="ann-content">
-            <div class="ann-title">${esc(p.judul)} ${p.pin?'':''}</div>
+            <div class="ann-title">${esc(p.judul)} ${p.pin?'📌':''}</div>
             <div style="font-size:12px;color:var(--ink2);margin:6px 0">${esc(p.isi)}</div>
             <div class="ann-meta"><span>${tglIndo(p.tgl)}</span><span class="dot"></span><span>${esc(p.oleh||'')}</span></div>
           </div>
@@ -691,20 +1275,20 @@ function renderPengumumanPage(){
   `;
 }
 
-function renderKegiatanPage(){
+function renderMobileKegiatan(){
   const l=(appData.kegiatan||[]).slice().sort((a,b)=>(b.tgl||'').localeCompare(a.tgl||''));
-  $('mainContent').innerHTML=`
-    <div style="padding:16px 0">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-        <button onclick="showPage('home')" style="width:40px;height:40px;border-radius:12px;background:var(--pt);color:var(--p);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
-        <h2 style="font-size:20px;font-weight:800">Kegiatan</h2>
+  $('mobileContent').innerHTML=`
+    <div class="page-section">
+      <div class="page-header">
+        <button onclick="showPage('home')">←</button>
+        <h2>Kegiatan</h2>
       </div>
       ${l.length?l.map(k=>`
         <div class="announcement-card">
           <div class="ann-icon" style="background:#D1FAE5">📅</div>
           <div class="ann-content">
             <div class="ann-title">${esc(k.judul)}</div>
-            <div class="ann-meta"><span>📅 ${tglIndo(k.tgl)}</span><span class="dot"></span><span>🕐 ${esc(k.waktuMulai||'-')}</span></div>
+            <div class="ann-meta"><span>📅 ${tglIndo(k.tgl)}</span><span class="dot"></span><span> ${esc(k.waktuMulai||'-')}</span></div>
             <div style="font-size:12px;color:var(--ink2);margin-top:6px">📍 ${esc(k.lokasi||'-')} · 👤 ${esc(k.penanggungJawab||'-')}</div>
           </div>
         </div>
@@ -716,8 +1300,29 @@ function renderKegiatanPage(){
 function showNotif(){
   const pd=(appData.setoran||[]).filter(s=>s.status==='Pending').length;
   const br=(appData.lapor||[]).filter(s=>s.status==='Baru').length;
-  alert(`🔔 Notifikasi:\n\n📤 ${pd} setoran menunggu\n ${br} pengaduan baru`);
+  alert(`🔔 Notifikasi:\n\n📤 ${pd} setoran menunggu\n⚠️ ${br} pengaduan baru`);
 }
+
+// Handle resize
+window.addEventListener('resize',()=>{
+  if(currentUser){
+    const isDesktop=window.innerWidth>=1025;
+    if(isDesktop&&$('mobileApp').style.display==='block'){
+      $('mobileApp').style.display='none';
+      $('desktopLayout').style.display='grid';
+      $('userAvatarDesktop').textContent=initials(currentUser.nama);
+      $('userGreetingDesktop').textContent='Hallo, '+currentUser.nama.split(' ')[0];
+      buildSidebarMenu();
+      renderDesktopDashboard();
+    }else if(!isDesktop&&$('desktopLayout').style.display==='grid'){
+      $('desktopLayout').style.display='none';
+      $('mobileApp').style.display='block';
+      $('userAvatar').textContent=initials(currentUser.nama);
+      $('userGreeting').textContent='Hallo, '+currentUser.nama.split(' ')[0];
+      renderMobileDashboard();
+    }
+  }
+});
 
 (async function init(){
   await loadDataFromFirebase();
