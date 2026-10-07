@@ -2,12 +2,12 @@
 <html lang="id">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portal Management RT - Saung Kebun RT 11 RW 44</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+*{margin:0;padding:0;box-sizing:border-box}
 :root{
   --primary:#7C3AED;
   --primary-dark:#6D28D9;
@@ -23,20 +23,19 @@
   --border:#E5E7EB;
   --bg:#F9FAFB;
   --card:#FFFFFF;
-  --shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06);
-  --shadow-lg:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);
+  --shadow:0 4px 6px -1px rgba(0,0,0,.1);
+  --shadow-lg:0 10px 15px -3px rgba(0,0,0,.1);
   --radius:12px;
   --radius-lg:16px;
   --sbw:260px;
 }
-
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);line-height:1.6;overflow-x:hidden}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);line-height:1.6}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
 input,select,textarea{font-family:inherit}
 ::-webkit-scrollbar{width:6px}
 ::-webkit-scrollbar-thumb{background:#C4B5FD;border-radius:8px}
 
-/* LOGIN PAGE */
+/* LOGIN */
 .login-container{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);padding:20px}
 .login-box{background:white;border-radius:20px;padding:40px;max-width:420px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.3)}
 .login-logo{text-align:center;margin-bottom:30px}
@@ -146,10 +145,11 @@ input,select,textarea{font-family:inherit}
 .spinner{width:48px;height:48px;border:4px solid var(--light-gray);border-top-color:var(--primary);border-radius:50%;animation:spin 1s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* PAGE SECTIONS */
-.page-section{display:none}
-.page-section.active{display:block;animation:fadeIn .3s ease-out}
-@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+/* PAGE HEADER */
+.page-header{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+.page-header button{width:42px;height:42px;border-radius:12px;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;transition:all .2s}
+.page-header button:hover{background:var(--primary);color:white}
+.page-header h2{font-size:22px;font-weight:800}
 
 /* TOOLBAR */
 .toolbar{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}
@@ -174,17 +174,16 @@ input,select,textarea{font-family:inherit}
 .header-location{position:absolute;bottom:16px;left:16px;right:16px;z-index:2;color:#fff}
 .header-location h1{font-size:22px;font-weight:800}
 .header-location p{font-size:12px;opacity:.9;margin-top:4px}
-
 .main-content{padding:16px;padding-bottom:100px}
 .stats-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:-40px;position:relative;z-index:3}
 .stat-card-mobile{background:#fff;border-radius:16px;padding:16px;box-shadow:0 4px 20px rgba(0,0,0,.08);border:1px solid var(--border)}
 .stat-card-mobile .stat-icon-mobile{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;font-size:18px}
 .stat-card-mobile .stat-icon-mobile.blue{background:#DBEAFE;color:var(--secondary)}
 .stat-card-mobile .stat-icon-mobile.green{background:#D1FAE5;color:var(--success)}
-.stat-card-mobile .stat-label{font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
-.stat-card-mobile .stat-value{font-size:20px;font-weight:800;color:var(--ink);margin-top:4px}
+.stat-card-mobile .stat-label{font-size:11px;color:var(--gray);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.stat-card-mobile .stat-value{font-size:20px;font-weight:800;color:var(--dark);margin-top:4px}
 
-/* BOTTOM NAVIGATION SWIPEABLE */
+/* BOTTOM NAV */
 .bottom-nav-container{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;z-index:100}
 .bottom-nav{background:#fff;border-top:1px solid var(--border);padding:8px 0 calc(8px + env(safe-area-inset-bottom));box-shadow:0 -4px 20px rgba(0,0,0,.05)}
 .bottom-nav-inner{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none}
@@ -193,9 +192,6 @@ input,select,textarea{font-family:inherit}
 .nav-item.active{color:var(--primary)}
 .nav-item .nav-icon{width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:20px}
 .nav-item .nav-badge{position:absolute;top:2px;right:50%;transform:translateX(12px);background:var(--danger);color:#fff;width:16px;height:16px;border-radius:50%;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center}
-
-/* SWIPE INDICATOR */
-.swipe-indicator{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);width:40px;height:4px;background:var(--border);border-radius:2px;margin-bottom:4px}
 
 /* RESPONSIVE */
 @media(max-width:1024px){
@@ -377,14 +373,13 @@ input,select,textarea{font-family:inherit}
 
     <!-- Content Area -->
     <div class="content-area" id="desktopContent">
-      <!-- Dynamic content will be rendered here -->
+      <!-- Dynamic content -->
     </div>
   </div>
 </div>
 
 <!-- MOBILE APP -->
 <div class="mobile-app" id="mobileApp" style="display:none">
-  <!-- Header -->
   <div class="app-header">
     <div class="header-top">
       <div class="user-info-mobile">
@@ -406,15 +401,8 @@ input,select,textarea{font-family:inherit}
       <p>Portal Informasi Warga RT 11 RW 44</p>
     </div>
   </div>
-
-  <!-- Main Content -->
-  <div class="main-content" id="mobileContent">
-    <!-- Dynamic content will be rendered here -->
-  </div>
-
-  <!-- Bottom Navigation Swipeable -->
+  <div class="main-content" id="mobileContent"></div>
   <div class="bottom-nav-container">
-    <div class="swipe-indicator"></div>
     <nav class="bottom-nav">
       <div class="bottom-nav-inner" id="bottomNavInner">
         <button class="nav-item active" data-page="dashboard" onclick="showPage('dashboard')">
@@ -452,12 +440,8 @@ input,select,textarea{font-family:inherit}
         <i class="fas fa-times"></i>
       </button>
     </div>
-    <div class="modal-body" id="modalBody">
-      <!-- Dynamic content -->
-    </div>
-    <div class="modal-footer" id="modalFooter">
-      <!-- Dynamic buttons -->
-    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-footer" id="modalFooter"></div>
   </div>
 </div>
 
@@ -505,11 +489,8 @@ const defaultData = {
     rt: '11',
     rw: '44',
     iuranNominal: 50000,
-    bank: {
-      nama: 'Bank Mandiri',
-      rek: '123-00-456789-0',
-      an: 'Kas RT 11 Saung Kebun'
-    }
+    bank: {nama: 'Bank Mandiri', rek: '123-00-456789-0', an: 'Kas RT 11 Saung Kebun'},
+    lpjPublished: false
   },
   warga: [
     {id:'W001', nama:'Dirham Rozi', blok:'A01', hp:'081234567890', gol:'Ketua RT', status:'Tetap', pekerjaan:'Wiraswasta', pin:'1234'},
@@ -545,7 +526,8 @@ const defaultData = {
   surat: [],
   tamu: [],
   voting: [],
-  inventaris: []
+  inventaris: [],
+  setoran: []
 };
 
 // Utility Functions
@@ -561,6 +543,7 @@ const labelBulan = k => { if(!k) return '-'; const[y,m]=k.split('-'); return BUL
 const initials = n => String(n||'?').trim().split(/\s+/).map(x=>x[0]).join('').substr(0,2).toUpperCase();
 const roleLevel = r => ({'Ketua RT':4,'Bendahara':3,'Sekretaris':3,'Anggota Keamanan':2,'Warga':1}[r]||1);
 const isStaff = () => currentUser && roleLevel(currentUser.gol) >= 3;
+const isBendahara = () => currentUser && currentUser.gol === 'Bendahara';
 const canEdit = () => currentUser && (currentUser.gol === 'Ketua RT' || currentUser.gol === 'Bendahara');
 
 // Toast Notification
@@ -620,6 +603,7 @@ const normalize = () => {
   if(!appData.rt) appData.rt = defaultData.rt;
   if(!appData.rt.bank) appData.rt.bank = defaultData.rt.bank;
   if(appData.rt.iuranNominal == null) appData.rt.iuranNominal = 50000;
+  if(appData.rt.lpjPublished == null) appData.rt.lpjPublished = false;
   if(!Array.isArray(appData.warga)) appData.warga = [];
   appData.warga.forEach(w => { if(!w.pin) w.pin = '1234'; });
   ['iuran','kas','setoran','pengumuman','kegiatan','lapor','tamu','surat','voting','ronda','inventaris'].forEach(k => {
@@ -694,6 +678,7 @@ function showPage(page) {
   document.querySelectorAll('.menu-item').forEach(m => m.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   
+  // Find and activate menu item
   const menuItems = document.querySelectorAll('.menu-item');
   menuItems.forEach(m => {
     if (m.onclick && m.onclick.toString().includes(`'${page}'`)) {
@@ -701,6 +686,7 @@ function showPage(page) {
     }
   });
   
+  // Find and activate nav item
   const navItems = document.querySelectorAll('.nav-item');
   navItems.forEach(n => {
     if (n.dataset.page === page) {
@@ -810,7 +796,7 @@ function renderDesktopDashboard() {
           <h3><i class="fas fa-bullhorn"></i> Pengumuman Terbaru</h3>
           <button class="btn btn-secondary btn-sm" onclick="showPage('pengumuman')">Lihat Semua</button>
         </div>
-        <div class="card-body" id="pengumumanDashboard">
+        <div class="card-body">
           ${(appData.pengumuman || []).slice(0, 3).map(p => `
             <div style="padding:16px;border:1px solid var(--border);border-radius:10px;margin-bottom:12px">
               <h4 style="font-size:14px;font-weight:700;margin-bottom:8px">${esc(p.judul)} ${p.pin ? '<i class="fas fa-thumbtack" style="color:var(--warning)"></i>' : ''}</h4>
@@ -946,59 +932,61 @@ function renderDesktopWarga() {
   }
   
   let html = `
-    <div class="page-section active">
-      <div class="toolbar">
-        <div class="search-box">
-          <i class="fas fa-search"></i>
-          <input type="text" placeholder="Cari nama, blok, atau jabatan..." id="searchWarga" oninput="renderDesktopWarga()">
-        </div>
-        ${canEdit() ? `<button class="btn btn-primary" onclick="showWargaForm()"><i class="fas fa-plus"></i> Tambah Warga</button>` : ''}
+    <div class="page-header">
+      <button onclick="showPage('dashboard')"><i class="fas fa-arrow-left"></i></button>
+      <h2>Data Warga</h2>
+    </div>
+    <div class="toolbar">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Cari nama, blok, atau jabatan..." id="searchWarga" oninput="renderDesktopWarga()">
       </div>
-      <div class="content-card">
-        <div class="card-body">
-          <table class="data-table">
-            <thead>
+      ${canEdit() ? `<button class="btn btn-primary" onclick="showWargaForm()"><i class="fas fa-plus"></i> Tambah Warga</button>` : ''}
+    </div>
+    <div class="content-card">
+      <div class="card-body">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Blok</th>
+              <th>Jabatan</th>
+              <th>Status</th>
+              <th>HP</th>
+              ${canEdit() ? '<th>Aksi</th>' : ''}
+            </tr>
+          </thead>
+          <tbody>
+            ${warga.length ? warga.map(w => `
               <tr>
-                <th>Nama</th>
-                <th>Blok</th>
-                <th>Jabatan</th>
-                <th>Status</th>
-                <th>HP</th>
-                ${canEdit() ? '<th>Aksi</th>' : ''}
-              </tr>
-            </thead>
-            <tbody>
-              ${warga.length ? warga.map(w => `
-                <tr>
-                  <td>
-                    <div style="display:flex;align-items:center;gap:12px">
-                      <div style="width:40px;height:40px;border-radius:50%;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-weight:700">
-                        ${initials(w.nama)}
-                      </div>
-                      <div>
-                        <div style="font-weight:600">${esc(w.nama)}</div>
-                        <div style="font-size:12px;color:var(--gray)">${esc(w.pekerjaan || '-')}</div>
-                      </div>
+                <td>
+                  <div style="display:flex;align-items:center;gap:12px">
+                    <div style="width:40px;height:40px;border-radius:50%;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-weight:700">
+                      ${initials(w.nama)}
                     </div>
-                  </td>
-                  <td>${esc(w.blok)}</td>
-                  <td><span class="status-badge info">${esc(w.gol)}</span></td>
-                  <td><span class="status-badge success">${esc(w.status)}</span></td>
-                  <td>${esc(w.hp || '-')}</td>
-                  ${canEdit() ? `
-                  <td>
-                    <button class="btn btn-secondary btn-sm" onclick="editWarga('${w.id}')">
-                      <i class="fas fa-edit"></i>
-                    </button>
-                    <button class="btn btn-danger btn-sm" onclick="deleteWarga('${w.id}')">
-                      <i class="fas fa-trash"></i>
-                    </button>
-                  </td>` : ''}
-                </tr>
-              `).join('') : '<tr><td colspan="' + (canEdit() ? 6 : 5) + '" style="text-align:center;padding:40px;color:var(--gray)">Tidak ada data warga</td></tr>'}
-            </tbody>
-          </table>
-        </div>
+                    <div>
+                      <div style="font-weight:600">${esc(w.nama)}</div>
+                      <div style="font-size:12px;color:var(--gray)">${esc(w.pekerjaan || '-')}</div>
+                    </div>
+                  </div>
+                </td>
+                <td>${esc(w.blok)}</td>
+                <td><span class="status-badge info">${esc(w.gol)}</span></td>
+                <td><span class="status-badge success">${esc(w.status)}</span></td>
+                <td>${esc(w.hp || '-')}</td>
+                ${canEdit() ? `
+                <td>
+                  <button class="btn btn-secondary btn-sm" onclick="editWarga('${w.id}')">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn btn-danger btn-sm" onclick="deleteWarga('${w.id}')">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>` : ''}
+              </tr>
+            `).join('') : '<tr><td colspan="' + (canEdit() ? 6 : 5) + '" style="text-align:center;padding:40px;color:var(--gray)">Tidak ada data warga</td></tr>'}
+          </tbody>
+        </table>
       </div>
     </div>
   `;
@@ -1116,62 +1104,60 @@ function renderDesktopIuran() {
   const pct = l.length ? Math.round(ln / l.length * 100) : 0;
   
   let html = `
-    <div class="page-section active">
-      <div class="page-header" style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
-        <button class="btn btn-secondary" onclick="showPage('dashboard')" style="width:42px;height:42px"><i class="fas fa-arrow-left"></i></button>
-        <h2 style="font-size:22px;font-weight:800">Status Iuran</h2>
-      </div>
-      <div class="content-card">
-        <div class="card-body">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
-            <div>
-              <div style="font-size:11px;color:var(--gray);font-weight:700;text-transform:uppercase">Progress Bulan Ini</div>
-              <div style="font-size:36px;font-weight:800;margin-top:4px">${ln}/${l.length}</div>
-            </div>
-            <div style="text-align:right">
-              <div style="font-size:13px;color:var(--gray)">${rp(nom)}/warga</div>
-              <div style="font-size:24px;font-weight:700;color:var(--primary);margin-top:4px">${pct}%</div>
-            </div>
+    <div class="page-header">
+      <button onclick="showPage('dashboard')"><i class="fas fa-arrow-left"></i></button>
+      <h2>Status Iuran</h2>
+    </div>
+    <div class="content-card">
+      <div class="card-body">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+          <div>
+            <div style="font-size:11px;color:var(--gray);font-weight:700;text-transform:uppercase">Progress Bulan Ini</div>
+            <div style="font-size:36px;font-weight:800;margin-top:4px">${ln}/${l.length}</div>
           </div>
-          <div style="height:10px;background:var(--light-gray);border-radius:5px;overflow:hidden;margin-bottom:24px">
-            <div style="height:100%;background:linear-gradient(90deg,var(--success),#059669);width:${pct}%"></div>
+          <div style="text-align:right">
+            <div style="font-size:13px;color:var(--gray)">${rp(nom)}/warga</div>
+            <div style="font-size:24px;font-weight:700;color:var(--primary);margin-top:4px">${pct}%</div>
           </div>
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Nama</th>
-                <th>Blok</th>
-                <th>Status</th>
-                <th>Tanggal</th>
-                ${canEdit() ? '<th>Aksi</th>' : ''}
-              </tr>
-            </thead>
-            <tbody>
-              ${l.map(w => {
-                const r = m[w.id], ok = r && r.status === 'Lunas';
-                return `
-                  <tr style="${ok ? 'background:#F0FDF4' : ''}">
-                    <td>
-                      <div style="display:flex;align-items:center;gap:12px">
-                        <div style="width:40px;height:40px;border-radius:50%;background:${ok ? '#D1FAE5' : 'var(--primary-light)'};color:${ok ? 'var(--success)' : 'var(--primary)'};display:flex;align-items:center;justify-content:center;font-weight:700">
-                          ${ok ? '✓' : initials(w.nama)}
-                        </div>
-                        <div style="font-weight:600">${esc(w.nama)}</div>
-                      </div>
-                    </td>
-                    <td>${esc(w.blok)}</td>
-                    <td><span class="status-badge ${ok ? 'success' : 'warning'}">${ok ? 'Lunas' : 'Belum Bayar'}</span></td>
-                    <td>${ok ? tglIndo(r.tgl) : '-'}</td>
-                    ${canEdit() ? `
-                    <td>
-                      ${!ok ? `<button class="btn btn-success btn-sm" onclick="toggleIuran('${w.id}','${b}',${nom})"><i class="fas fa-check"></i> Tandai Lunas</button>` : ''}
-                    </td>` : ''}
-                  </tr>
-                `;
-              }).join('')}
-            </tbody>
-          </table>
         </div>
+        <div style="height:10px;background:var(--light-gray);border-radius:5px;overflow:hidden;margin-bottom:24px">
+          <div style="height:100%;background:linear-gradient(90deg,var(--success),#059669);width:${pct}%"></div>
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Blok</th>
+              <th>Status</th>
+              <th>Tanggal</th>
+              ${canEdit() ? '<th>Aksi</th>' : ''}
+            </tr>
+          </thead>
+          <tbody>
+            ${l.map(w => {
+              const r = m[w.id], ok = r && r.status === 'Lunas';
+              return `
+                <tr style="${ok ? 'background:#F0FDF4' : ''}">
+                  <td>
+                    <div style="display:flex;align-items:center;gap:12px">
+                      <div style="width:40px;height:40px;border-radius:50%;background:${ok ? '#D1FAE5' : 'var(--primary-light)'};color:${ok ? 'var(--success)' : 'var(--primary)'};display:flex;align-items:center;justify-content:center;font-weight:700">
+                        ${ok ? '✓' : initials(w.nama)}
+                      </div>
+                      <div style="font-weight:600">${esc(w.nama)}</div>
+                    </div>
+                  </td>
+                  <td>${esc(w.blok)}</td>
+                  <td><span class="status-badge ${ok ? 'success' : 'warning'}">${ok ? 'Lunas' : 'Belum Bayar'}</span></td>
+                  <td>${ok ? tglIndo(r.tgl) : '-'}</td>
+                  ${canEdit() ? `
+                  <td>
+                    ${!ok ? `<button class="btn btn-success btn-sm" onclick="toggleIuran('${w.id}','${b}',${nom})"><i class="fas fa-check"></i> Tandai Lunas</button>` : ''}
+                  </td>` : ''}
+                </tr>
+              `;
+            }).join('')}
+          </tbody>
+        </table>
       </div>
     </div>
   `;
@@ -1202,63 +1188,61 @@ function renderDesktopKeuangan() {
   const kl = kas.filter(k => k.tipe === 'Keluar').reduce((s, k) => s + k.nominal, 0);
   
   let html = `
-    <div class="page-section active">
-      <div class="page-header" style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
-        <button class="btn btn-secondary" onclick="showPage('dashboard')" style="width:42px;height:42px"><i class="fas fa-arrow-left"></i></button>
-        <h2 style="font-size:22px;font-weight:800">Keuangan RT</h2>
+    <div class="page-header">
+      <button onclick="showPage('dashboard')"><i class="fas fa-arrow-left"></i></button>
+      <h2>Keuangan RT</h2>
+    </div>
+    <div class="stats-grid" style="margin-bottom:24px">
+      <div class="stat-card">
+        <div class="stat-icon green"><i class="fas fa-wallet"></i></div>
+        <div class="stat-value">${rp(sal)}</div>
+        <div class="stat-label">Saldo Kas</div>
       </div>
-      <div class="stats-grid" style="margin-bottom:24px">
-        <div class="stat-card">
-          <div class="stat-icon green"><i class="fas fa-wallet"></i></div>
-          <div class="stat-value">${rp(sal)}</div>
-          <div class="stat-label">Saldo Kas</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon blue"><i class="fas fa-arrow-up"></i></div>
-          <div class="stat-value">${rp(mk)}</div>
-          <div class="stat-label">Pemasukan</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon orange"><i class="fas fa-arrow-down"></i></div>
-          <div class="stat-value">${rp(kl)}</div>
-          <div class="stat-label">Pengeluaran</div>
-        </div>
+      <div class="stat-card">
+        <div class="stat-icon blue"><i class="fas fa-arrow-up"></i></div>
+        <div class="stat-value">${rp(mk)}</div>
+        <div class="stat-label">Pemasukan</div>
       </div>
-      <div class="content-card">
-        <div class="card-header">
-          <h3><i class="fas fa-list"></i> Mutasi Kas</h3>
-          ${canEdit() ? `<button class="btn btn-primary btn-sm" onclick="showTransaksiForm()"><i class="fas fa-plus"></i> Tambah Transaksi</button>` : ''}
-        </div>
-        <div class="card-body">
-          <table class="data-table">
-            <thead>
+      <div class="stat-card">
+        <div class="stat-icon orange"><i class="fas fa-arrow-down"></i></div>
+        <div class="stat-value">${rp(kl)}</div>
+        <div class="stat-label">Pengeluaran</div>
+      </div>
+    </div>
+    <div class="content-card">
+      <div class="card-header">
+        <h3><i class="fas fa-list"></i> Mutasi Kas</h3>
+        ${canEdit() ? `<button class="btn btn-primary btn-sm" onclick="showTransaksiForm()"><i class="fas fa-plus"></i> Tambah Transaksi</button>` : ''}
+      </div>
+      <div class="card-body">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Tanggal</th>
+              <th>Uraian</th>
+              <th>Kategori</th>
+              <th style="text-align:right">Jumlah</th>
+              ${canEdit() ? '<th>Aksi</th>' : ''}
+            </tr>
+          </thead>
+          <tbody>
+            ${kas.length ? kas.map(k => `
               <tr>
-                <th>Tanggal</th>
-                <th>Uraian</th>
-                <th>Kategori</th>
-                <th style="text-align:right">Jumlah</th>
-                ${canEdit() ? '<th>Aksi</th>' : ''}
+                <td>${tglIndo(k.tgl)}</td>
+                <td><strong>${esc(k.urai)}</strong></td>
+                <td><span class="status-badge ${k.kat === 'Iuran Warga' ? 'info' : 'success'}">${esc(k.kat)}</span></td>
+                <td style="text-align:right;font-weight:700;color:${k.tipe === 'Masuk' ? 'var(--success)' : 'var(--danger)'}">
+                  ${k.tipe === 'Masuk' ? '+' : '-'}${rp(k.nominal)}
+                </td>
+                ${canEdit() ? `
+                <td>
+                  <button class="btn btn-secondary btn-sm" onclick="editTransaksi('${k.id}')"><i class="fas fa-edit"></i></button>
+                  <button class="btn btn-danger btn-sm" onclick="deleteTransaksi('${k.id}')"><i class="fas fa-trash"></i></button>
+                </td>` : ''}
               </tr>
-            </thead>
-            <tbody>
-              ${kas.length ? kas.map(k => `
-                <tr>
-                  <td>${tglIndo(k.tgl)}</td>
-                  <td><strong>${esc(k.urai)}</strong></td>
-                  <td><span class="status-badge ${k.kat === 'Iuran Warga' ? 'info' : 'success'}">${esc(k.kat)}</span></td>
-                  <td style="text-align:right;font-weight:700;color:${k.tipe === 'Masuk' ? 'var(--success)' : 'var(--danger)'}">
-                    ${k.tipe === 'Masuk' ? '+' : '-'}${rp(k.nominal)}
-                  </td>
-                  ${canEdit() ? `
-                  <td>
-                    <button class="btn btn-secondary btn-sm" onclick="editTransaksi('${k.id}')"><i class="fas fa-edit"></i></button>
-                    <button class="btn btn-danger btn-sm" onclick="deleteTransaksi('${k.id}')"><i class="fas fa-trash"></i></button>
-                  </td>` : ''}
-                </tr>
-              `).join('') : '<tr><td colspan="' + (canEdit() ? 5 : 4) + '" style="text-align:center;padding:40px;color:var(--gray)">Tidak ada transaksi</td></tr>'}
-            </tbody>
-          </table>
-        </div>
+            `).join('') : '<tr><td colspan="' + (canEdit() ? 5 : 4) + '" style="text-align:center;padding:40px;color:var(--gray)">Tidak ada transaksi</td></tr>'}
+          </tbody>
+        </table>
       </div>
     </div>
   `;
@@ -1397,69 +1381,67 @@ function renderDesktopSetoran() {
   const mine = (appData.setoran || []).filter(s => s.wargaId === currentUser.id);
   
   let html = `
-    <div class="page-section active">
-      <div class="page-header" style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
-        <button class="btn btn-secondary" onclick="showPage('dashboard')" style="width:42px;height:42px"><i class="fas fa-arrow-left"></i></button>
-        <h2 style="font-size:22px;font-weight:800">Setoran Online</h2>
-      </div>
-      <div class="content-grid">
-        <div class="content-card">
-          <div class="card-header">
-            <h3><i class="fas fa-upload"></i> Form Setoran</h3>
-          </div>
-          <div class="card-body">
-            <div class="form-group">
-              <label>Bulan *</label>
-              <select class="form-control" id="setorBulan">
-                ${[bulanIni()].map(b => `<option value="${b}">${labelBulan(b)}</option>`).join('')}
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Nominal *</label>
-              <input type="number" class="form-control" id="setorNominal" value="${appData.rt.iuranNominal || 50000}">
-            </div>
-            <div class="form-group">
-              <label>Metode *</label>
-              <select class="form-control" id="setorMetode">
-                <option>Transfer Bank</option>
-                <option>E-Wallet</option>
-                <option>QRIS</option>
-                <option>Tunai</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>No. Referensi</label>
-              <input type="text" class="form-control" id="setorRef" placeholder="TRX...">
-            </div>
-            <div class="form-group">
-              <label>Catatan</label>
-              <textarea class="form-control" id="setorCatatan" rows="3"></textarea>
-            </div>
-            <button class="btn btn-primary" onclick="submitSetoranDesktop()"><i class="fas fa-paper-plane"></i> Kirim Setoran</button>
-          </div>
+    <div class="page-header">
+      <button onclick="showPage('dashboard')"><i class="fas fa-arrow-left"></i></button>
+      <h2>Setoran Online</h2>
+    </div>
+    <div class="content-grid">
+      <div class="content-card">
+        <div class="card-header">
+          <h3><i class="fas fa-upload"></i> Form Setoran</h3>
         </div>
-        <div class="content-card">
-          <div class="card-header">
-            <h3><i class="fas fa-history"></i> Riwayat Setoran Saya</h3>
+        <div class="card-body">
+          <div class="form-group">
+            <label>Bulan *</label>
+            <select class="form-control" id="setorBulan">
+              ${[bulanIni()].map(b => `<option value="${b}">${labelBulan(b)}</option>`).join('')}
+            </select>
           </div>
-          <div class="card-body">
-            ${mine.length ? mine.map(s => {
-              const bc = s.status === 'Pending' ? 'warning' : s.status === 'Dikonfirmasi' ? 'success' : 'danger';
-              return `
-                <div style="padding:16px;border:1px solid var(--border);border-radius:10px;margin-bottom:12px">
-                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-                    <h4 style="font-size:14px;font-weight:700">${labelBulan(s.bulan)}</h4>
-                    <span class="status-badge ${bc}">${s.status}</span>
-                  </div>
-                  <div style="font-size:18px;font-weight:800;color:var(--primary);margin-bottom:8px">${rp(s.nominal)}</div>
-                  <div style="font-size:12px;color:var(--gray)">
-                    <i class="fas fa-calendar"></i> ${tglIndo(s.tglSetor)} · 
-                    <i class="fas fa-credit-card"></i> ${esc(s.metode)}
-                  </div>
+          <div class="form-group">
+            <label>Nominal *</label>
+            <input type="number" class="form-control" id="setorNominal" value="${appData.rt.iuranNominal || 50000}">
+          </div>
+          <div class="form-group">
+            <label>Metode *</label>
+            <select class="form-control" id="setorMetode">
+              <option>Transfer Bank</option>
+              <option>E-Wallet</option>
+              <option>QRIS</option>
+              <option>Tunai</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>No. Referensi</label>
+            <input type="text" class="form-control" id="setorRef" placeholder="TRX...">
+          </div>
+          <div class="form-group">
+            <label>Catatan</label>
+            <textarea class="form-control" id="setorCatatan" rows="3"></textarea>
+          </div>
+          <button class="btn btn-primary" onclick="submitSetoranDesktop()"><i class="fas fa-paper-plane"></i> Kirim Setoran</button>
+        </div>
+      </div>
+      <div class="content-card">
+        <div class="card-header">
+          <h3><i class="fas fa-history"></i> Riwayat Setoran Saya</h3>
+        </div>
+        <div class="card-body">
+          ${mine.length ? mine.map(s => {
+            const bc = s.status === 'Pending' ? 'warning' : s.status === 'Dikonfirmasi' ? 'success' : 'danger';
+            return `
+              <div style="padding:16px;border:1px solid var(--border);border-radius:10px;margin-bottom:12px">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+                  <h4 style="font-size:14px;font-weight:700">${labelBulan(s.bulan)}</h4>
+                  <span class="status-badge ${bc}">${s.status}</span>
                 </div>
-              `;
-            }).join('') : '<p style="text-align:center;color:var(--gray);padding:40px">Belum pernah setor</p>'}
-          </div>
+                <div style="font-size:18px;font-weight:800;color:var(--primary);margin-bottom:8px">${rp(s.nominal)}</div>
+                <div style="font-size:12px;color:var(--gray)">
+                  <i class="fas fa-calendar"></i> ${tglIndo(s.tglSetor)} · 
+                  <i class="fas fa-credit-card"></i> ${esc(s.metode)}
+                </div>
+              </div>
+            `;
+          }).join('') : '<p style="text-align:center;color:var(--gray);padding:40px">Belum pernah setor</p>'}
         </div>
       </div>
     </div>
@@ -1507,34 +1489,32 @@ function renderDesktopPengumuman() {
   const l = (appData.pengumuman || []).slice().sort((a, b) => (b.pin ? 1 : 0) - (a.pin ? 1 : 0));
   
   let html = `
-    <div class="page-section active">
-      <div class="page-header" style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
-        <button class="btn btn-secondary" onclick="showPage('dashboard')" style="width:42px;height:42px"><i class="fas fa-arrow-left"></i></button>
-        <h2 style="font-size:22px;font-weight:800">Pengumuman</h2>
-      </div>
-      ${canEdit() ? `<button class="btn btn-primary" style="margin-bottom:20px" onclick="showPengumumanForm()"><i class="fas fa-plus"></i> Tambah Pengumuman</button>` : ''}
-      <div class="content-grid">
-        ${l.map(p => `
-          <div class="content-card">
-            <div class="card-body">
-              <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px">
-                <h3 style="font-size:16px;font-weight:700">${esc(p.judul)} ${p.pin ? '<i class="fas fa-thumbtack" style="color:var(--warning)"></i>' : ''}</h3>
-                <span class="status-badge info">${esc(p.kat || '')}</span>
-              </div>
-              <p style="font-size:14px;color:var(--gray);margin-bottom:16px;line-height:1.6">${esc(p.isi)}</p>
-              <div style="font-size:12px;color:var(--gray);display:flex;gap:16px">
-                <span><i class="fas fa-calendar"></i> ${tglIndo(p.tgl)}</span>
-                <span><i class="fas fa-user"></i> ${esc(p.oleh || '')}</span>
-              </div>
-              ${canEdit() ? `
-              <div style="margin-top:16px;display:flex;gap:8px">
-                <button class="btn btn-secondary btn-sm" onclick="editPengumuman('${p.id}')"><i class="fas fa-edit"></i> Edit</button>
-                <button class="btn btn-danger btn-sm" onclick="deletePengumuman('${p.id}')"><i class="fas fa-trash"></i> Hapus</button>
-              </div>` : ''}
+    <div class="page-header">
+      <button onclick="showPage('dashboard')"><i class="fas fa-arrow-left"></i></button>
+      <h2>Pengumuman</h2>
+    </div>
+    ${canEdit() ? `<button class="btn btn-primary" style="margin-bottom:20px" onclick="showPengumumanForm()"><i class="fas fa-plus"></i> Tambah Pengumuman</button>` : ''}
+    <div class="content-grid">
+      ${l.map(p => `
+        <div class="content-card">
+          <div class="card-body">
+            <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px">
+              <h3 style="font-size:16px;font-weight:700">${esc(p.judul)} ${p.pin ? '<i class="fas fa-thumbtack" style="color:var(--warning)"></i>' : ''}</h3>
+              <span class="status-badge info">${esc(p.kat || '')}</span>
             </div>
+            <p style="font-size:14px;color:var(--gray);margin-bottom:16px;line-height:1.6">${esc(p.isi)}</p>
+            <div style="font-size:12px;color:var(--gray);display:flex;gap:16px">
+              <span><i class="fas fa-calendar"></i> ${tglIndo(p.tgl)}</span>
+              <span><i class="fas fa-user"></i> ${esc(p.oleh || '')}</span>
+            </div>
+            ${canEdit() ? `
+            <div style="margin-top:16px;display:flex;gap:8px">
+              <button class="btn btn-secondary btn-sm" onclick="editPengumuman('${p.id}')"><i class="fas fa-edit"></i> Edit</button>
+              <button class="btn btn-danger btn-sm" onclick="deletePengumuman('${p.id}')"><i class="fas fa-trash"></i> Hapus</button>
+            </div>` : ''}
           </div>
-        `).join('') || '<div class="content-card"><div class="card-body" style="text-align:center;padding:60px;color:var(--gray)"><i class="fas fa-bullhorn" style="font-size:48px;margin-bottom:16px"></i><p>Belum ada pengumuman</p></div></div>'}
-      </div>
+        </div>
+      `).join('') || '<div class="content-card"><div class="card-body" style="text-align:center;padding:60px;color:var(--gray)"><i class="fas fa-bullhorn" style="font-size:48px;margin-bottom:16px"></i><p>Belum ada pengumuman</p></div></div>'}
     </div>
   `;
   
@@ -1615,42 +1595,40 @@ function renderDesktopKegiatan() {
   const l = (appData.kegiatan || []).slice().sort((a, b) => (b.tgl || '').localeCompare(a.tgl || ''));
   
   let html = `
-    <div class="page-section active">
-      <div class="page-header" style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
-        <button class="btn btn-secondary" onclick="showPage('dashboard')" style="width:42px;height:42px"><i class="fas fa-arrow-left"></i></button>
-        <h2 style="font-size:22px;font-weight:800">Kegiatan RT</h2>
-      </div>
-      ${canEdit() ? `<button class="btn btn-primary" style="margin-bottom:20px" onclick="showKegiatanForm()"><i class="fas fa-plus"></i> Tambah Kegiatan</button>` : ''}
-      <div class="content-grid">
-        ${l.map(k => {
-          const statusClass = k.status === 'Selesai' ? 'success' : k.status === 'Sedang Berlangsung' ? 'info' : k.status === 'Dibatalkan' ? 'danger' : 'warning';
-          return `
-            <div class="content-card">
-              <div class="card-body">
-                <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px">
-                  <h3 style="font-size:16px;font-weight:700">${esc(k.judul)}</h3>
-                  <span class="status-badge ${statusClass}">${esc(k.status)}</span>
-                </div>
-                <div style="font-size:12px;color:var(--gray);margin-bottom:12px">
-                  <span class="status-badge info" style="margin-right:8px">${esc(k.kategori || '')}</span>
-                </div>
-                <div style="font-size:13px;color:var(--gray);margin-bottom:16px">
-                  <div style="margin-bottom:6px"><i class="fas fa-calendar"></i> ${tglIndo(k.tgl)}</div>
-                  <div style="margin-bottom:6px"><i class="fas fa-clock"></i> ${esc(k.waktuMulai || '-')} - ${esc(k.waktuSelesai || '-')}</div>
-                  <div style="margin-bottom:6px"><i class="fas fa-map-marker-alt"></i> ${esc(k.lokasi || '-')}</div>
-                  <div><i class="fas fa-user"></i> PJ: ${esc(k.penanggungJawab || '-')}</div>
-                </div>
-                ${k.deskripsi ? `<p style="font-size:13px;color:var(--gray);margin-bottom:16px">${esc(k.deskripsi)}</p>` : ''}
-                ${canEdit() ? `
-                <div style="display:flex;gap:8px">
-                  <button class="btn btn-secondary btn-sm" onclick="editKegiatan('${k.id}')"><i class="fas fa-edit"></i> Edit</button>
-                  <button class="btn btn-danger btn-sm" onclick="deleteKegiatan('${k.id}')"><i class="fas fa-trash"></i> Hapus</button>
-                </div>` : ''}
+    <div class="page-header">
+      <button onclick="showPage('dashboard')"><i class="fas fa-arrow-left"></i></button>
+      <h2>Kegiatan RT</h2>
+    </div>
+    ${canEdit() ? `<button class="btn btn-primary" style="margin-bottom:20px" onclick="showKegiatanForm()"><i class="fas fa-plus"></i> Tambah Kegiatan</button>` : ''}
+    <div class="content-grid">
+      ${l.map(k => {
+        const statusClass = k.status === 'Selesai' ? 'success' : k.status === 'Sedang Berlangsung' ? 'info' : k.status === 'Dibatalkan' ? 'danger' : 'warning';
+        return `
+          <div class="content-card">
+            <div class="card-body">
+              <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px">
+                <h3 style="font-size:16px;font-weight:700">${esc(k.judul)}</h3>
+                <span class="status-badge ${statusClass}">${esc(k.status)}</span>
               </div>
+              <div style="font-size:12px;color:var(--gray);margin-bottom:12px">
+                <span class="status-badge info" style="margin-right:8px">${esc(k.kategori || '')}</span>
+              </div>
+              <div style="font-size:13px;color:var(--gray);margin-bottom:16px">
+                <div style="margin-bottom:6px"><i class="fas fa-calendar"></i> ${tglIndo(k.tgl)}</div>
+                <div style="margin-bottom:6px"><i class="fas fa-clock"></i> ${esc(k.waktuMulai || '-')} - ${esc(k.waktuSelesai || '-')}</div>
+                <div style="margin-bottom:6px"><i class="fas fa-map-marker-alt"></i> ${esc(k.lokasi || '-')}</div>
+                <div><i class="fas fa-user"></i> PJ: ${esc(k.penanggungJawab || '-')}</div>
+              </div>
+              ${k.deskripsi ? `<p style="font-size:13px;color:var(--gray);margin-bottom:16px">${esc(k.deskripsi)}</p>` : ''}
+              ${canEdit() ? `
+              <div style="display:flex;gap:8px">
+                <button class="btn btn-secondary btn-sm" onclick="editKegiatan('${k.id}')"><i class="fas fa-edit"></i> Edit</button>
+                <button class="btn btn-danger btn-sm" onclick="deleteKegiatan('${k.id}')"><i class="fas fa-trash"></i> Hapus</button>
+              </div>` : ''}
             </div>
-          `;
-        }).join('') || '<div class="content-card"><div class="card-body" style="text-align:center;padding:60px;color:var(--gray)"><i class="fas fa-calendar-alt" style="font-size:48px;margin-bottom:16px"></i><p>Tidak ada kegiatan</p></div></div>'}
-      </div>
+          </div>
+        `;
+      }).join('') || '<div class="content-card"><div class="card-body" style="text-align:center;padding:60px;color:var(--gray)"><i class="fas fa-calendar-alt" style="font-size:48px;margin-bottom:16px"></i><p>Tidak ada kegiatan</p></div></div>'}
     </div>
   `;
   
@@ -1758,42 +1736,40 @@ function renderDesktopPengaduan() {
   const l = (appData.lapor || []).slice().sort((a, b) => (b.tgl || '').localeCompare(a.tgl || ''));
   
   let html = `
-    <div class="page-section active">
-      <div class="page-header" style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
-        <button class="btn btn-secondary" onclick="showPage('dashboard')" style="width:42px;height:42px"><i class="fas fa-arrow-left"></i></button>
-        <h2 style="font-size:22px;font-weight:800">Pengaduan</h2>
-      </div>
-      <button class="btn btn-primary" style="margin-bottom:20px" onclick="showLaporForm()"><i class="fas fa-plus"></i> Lapor Masalah</button>
-      <div class="content-grid">
-        ${l.map(x => {
-          const w = appData.warga.find(v => v.id === x.wargaId);
-          const bc = x.status === 'Selesai' ? 'success' : x.status === 'Diproses' ? 'info' : x.status === 'Ditolak' ? 'danger' : 'warning';
-          return `
-            <div class="content-card">
-              <div class="card-body">
-                <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px">
-                  <h3 style="font-size:16px;font-weight:700">${esc(x.judul)}</h3>
-                  <span class="status-badge ${bc}">${esc(x.status)}</span>
-                </div>
-                <div style="font-size:12px;color:var(--gray);margin-bottom:12px">
-                  <span class="status-badge info" style="margin-right:8px">${esc(x.kat)}</span>
-                  <span class="status-badge warning">${esc(x.prio || 'Sedang')}</span>
-                </div>
-                <p style="font-size:13px;color:var(--gray);margin-bottom:16px">${esc(x.isi)}</p>
-                <div style="font-size:12px;color:var(--gray);display:flex;gap:16px">
-                  <span><i class="fas fa-user"></i> ${esc(w ? w.nama : 'Warga')}</span>
-                  <span><i class="fas fa-calendar"></i> ${tglIndo(x.tgl)}</span>
-                </div>
-                ${canEdit() ? `
-                <div style="margin-top:16px;display:flex;gap:8px">
-                  <button class="btn btn-secondary btn-sm" onclick="editLapor('${x.id}')"><i class="fas fa-edit"></i> Edit</button>
-                  <button class="btn btn-danger btn-sm" onclick="deleteLapor('${x.id}')"><i class="fas fa-trash"></i> Hapus</button>
-                </div>` : ''}
+    <div class="page-header">
+      <button onclick="showPage('dashboard')"><i class="fas fa-arrow-left"></i></button>
+      <h2>Pengaduan</h2>
+    </div>
+    <button class="btn btn-primary" style="margin-bottom:20px" onclick="showLaporForm()"><i class="fas fa-plus"></i> Lapor Masalah</button>
+    <div class="content-grid">
+      ${l.map(x => {
+        const w = appData.warga.find(v => v.id === x.wargaId);
+        const bc = x.status === 'Selesai' ? 'success' : x.status === 'Diproses' ? 'info' : x.status === 'Ditolak' ? 'danger' : 'warning';
+        return `
+          <div class="content-card">
+            <div class="card-body">
+              <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px">
+                <h3 style="font-size:16px;font-weight:700">${esc(x.judul)}</h3>
+                <span class="status-badge ${bc}">${esc(x.status)}</span>
               </div>
+              <div style="font-size:12px;color:var(--gray);margin-bottom:12px">
+                <span class="status-badge info" style="margin-right:8px">${esc(x.kat)}</span>
+                <span class="status-badge warning">${esc(x.prio || 'Sedang')}</span>
+              </div>
+              <p style="font-size:13px;color:var(--gray);margin-bottom:16px">${esc(x.isi)}</p>
+              <div style="font-size:12px;color:var(--gray);display:flex;gap:16px">
+                <span><i class="fas fa-user"></i> ${esc(w ? w.nama : 'Warga')}</span>
+                <span><i class="fas fa-calendar"></i> ${tglIndo(x.tgl)}</span>
+              </div>
+              ${canEdit() ? `
+              <div style="margin-top:16px;display:flex;gap:8px">
+                <button class="btn btn-secondary btn-sm" onclick="editLapor('${x.id}')"><i class="fas fa-edit"></i> Edit</button>
+                <button class="btn btn-danger btn-sm" onclick="deleteLapor('${x.id}')"><i class="fas fa-trash"></i> Hapus</button>
+              </div>` : ''}
             </div>
-          `;
-        }).join('') || '<div class="content-card"><div class="card-body" style="text-align:center;padding:60px;color:var(--gray)"><i class="fas fa-exclamation-triangle" style="font-size:48px;margin-bottom:16px"></i><p>Belum ada pengaduan</p></div></div>'}
-      </div>
+          </div>
+        `;
+      }).join('') || '<div class="content-card"><div class="card-body" style="text-align:center;padding:60px;color:var(--gray)"><i class="fas fa-exclamation-triangle" style="font-size:48px;margin-bottom:16px"></i><p>Belum ada pengaduan</p></div></div>'}
     </div>
   `;
   
@@ -1882,35 +1858,33 @@ function renderDesktopRonda() {
   const l = (appData.ronda || []).slice().sort((a, b) => (a.tgl || '').localeCompare(b.tgl || ''));
   
   let html = `
-    <div class="page-section active">
-      <div class="page-header" style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
-        <button class="btn btn-secondary" onclick="showPage('dashboard')" style="width:42px;height:42px"><i class="fas fa-arrow-left"></i></button>
-        <h2 style="font-size:22px;font-weight:800">Jadwal Ronda</h2>
-      </div>
-      ${canEdit() ? `<button class="btn btn-primary" style="margin-bottom:20px" onclick="showRondaForm()"><i class="fas fa-plus"></i> Tambah Jadwal</button>` : ''}
-      <div class="content-grid">
-        ${l.map(r => `
-          <div class="content-card">
-            <div class="card-body">
-              <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px">
-                <h3 style="font-size:16px;font-weight:700">${esc(r.shift)}</h3>
-                <span class="status-badge info">${esc(r.waktu || '-')}</span>
-              </div>
-              <div style="font-size:13px;color:var(--gray);margin-bottom:16px">
-                <div style="margin-bottom:6px"><i class="fas fa-calendar"></i> ${tglIndo(r.tgl)}</div>
-                <div style="margin-bottom:6px"><i class="fas fa-user"></i> ${esc(r.petugas)}</div>
-                <div><i class="fas fa-map-marker-alt"></i> Blok ${esc(r.blok || '-')}</div>
-              </div>
-              ${r.catatan ? `<p style="font-size:13px;color:var(--gray);margin-bottom:16px"><i class="fas fa-sticky-note"></i> ${esc(r.catatan)}</p>` : ''}
-              ${canEdit() ? `
-              <div style="display:flex;gap:8px">
-                <button class="btn btn-secondary btn-sm" onclick="editRonda('${r.id}')"><i class="fas fa-edit"></i> Edit</button>
-                <button class="btn btn-danger btn-sm" onclick="deleteRonda('${r.id}')"><i class="fas fa-trash"></i> Hapus</button>
-              </div>` : ''}
+    <div class="page-header">
+      <button onclick="showPage('dashboard')"><i class="fas fa-arrow-left"></i></button>
+      <h2>Jadwal Ronda</h2>
+    </div>
+    ${canEdit() ? `<button class="btn btn-primary" style="margin-bottom:20px" onclick="showRondaForm()"><i class="fas fa-plus"></i> Tambah Jadwal</button>` : ''}
+    <div class="content-grid">
+      ${l.map(r => `
+        <div class="content-card">
+          <div class="card-body">
+            <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:12px">
+              <h3 style="font-size:16px;font-weight:700">${esc(r.shift)}</h3>
+              <span class="status-badge info">${esc(r.waktu || '-')}</span>
             </div>
+            <div style="font-size:13px;color:var(--gray);margin-bottom:16px">
+              <div style="margin-bottom:6px"><i class="fas fa-calendar"></i> ${tglIndo(r.tgl)}</div>
+              <div style="margin-bottom:6px"><i class="fas fa-user"></i> ${esc(r.petugas)}</div>
+              <div><i class="fas fa-map-marker-alt"></i> Blok ${esc(r.blok || '-')}</div>
+            </div>
+            ${r.catatan ? `<p style="font-size:13px;color:var(--gray);margin-bottom:16px"><i class="fas fa-sticky-note"></i> ${esc(r.catatan)}</p>` : ''}
+            ${canEdit() ? `
+            <div style="display:flex;gap:8px">
+              <button class="btn btn-secondary btn-sm" onclick="editRonda('${r.id}')"><i class="fas fa-edit"></i> Edit</button>
+              <button class="btn btn-danger btn-sm" onclick="deleteRonda('${r.id}')"><i class="fas fa-trash"></i> Hapus</button>
+            </div>` : ''}
           </div>
-        `).join('') || '<div class="content-card"><div class="card-body" style="text-align:center;padding:60px;color:var(--gray)"><i class="fas fa-shield-alt" style="font-size:48px;margin-bottom:16px"></i><p>Belum ada jadwal ronda</p></div></div>'}
-      </div>
+        </div>
+      `).join('') || '<div class="content-card"><div class="card-body" style="text-align:center;padding:60px;color:var(--gray)"><i class="fas fa-shield-alt" style="font-size:48px;margin-bottom:16px"></i><p>Belum ada jadwal ronda</p></div></div>'}
     </div>
   `;
   
@@ -1998,48 +1972,46 @@ function renderDesktopSurat() {
   const l = (appData.surat || []).slice().sort((a, b) => (b.tgl || '').localeCompare(a.tgl || ''));
   
   let html = `
-    <div class="page-section active">
-      <div class="page-header" style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
-        <button class="btn btn-secondary" onclick="showPage('dashboard')" style="width:42px;height:42px"><i class="fas fa-arrow-left"></i></button>
-        <h2 style="font-size:22px;font-weight:800">Surat Menyurat</h2>
-      </div>
-      <button class="btn btn-primary" style="margin-bottom:20px" onclick="showSuratForm()"><i class="fas fa-plus"></i> Ajukan Surat</button>
-      <div class="content-card">
-        <div class="card-body">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Jenis Surat</th>
-                <th>Pemohon</th>
-                <th>Keperluan</th>
-                <th>Status</th>
-                <th>Tanggal</th>
-                <th>Aksi</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${l.length ? l.map(s => {
-                const w = appData.warga.find(x => x.id === s.wargaId);
-                const bc = s.status === 'Selesai' ? 'success' : s.status === 'Diproses' ? 'info' : s.status === 'Ditolak' ? 'danger' : 'warning';
-                return `
-                  <tr>
-                    <td><strong>${esc(s.jenis)}</strong></td>
-                    <td>${esc(w ? w.nama : '-')}</td>
-                    <td>${esc(s.keperluan || '-')}</td>
-                    <td><span class="status-badge ${bc}">${esc(s.status)}</span></td>
-                    <td>${tglIndo(s.tgl)}</td>
-                    <td>
-                      ${canEdit() || s.wargaId === currentUser.id ? `
-                        <button class="btn btn-secondary btn-sm" onclick="editSurat('${s.id}')"><i class="fas fa-edit"></i></button>
-                        ${canEdit() ? `<button class="btn btn-danger btn-sm" onclick="deleteSurat('${s.id}')"><i class="fas fa-trash"></i></button>` : ''}
-                      ` : '-'}
-                    </td>
-                  </tr>
-                `;
-              }).join('') : '<tr><td colspan="6" style="text-align:center;padding:40px;color:var(--gray)">Belum ada surat</td></tr>'}
-            </tbody>
-          </table>
-        </div>
+    <div class="page-header">
+      <button onclick="showPage('dashboard')"><i class="fas fa-arrow-left"></i></button>
+      <h2>Surat Menyurat</h2>
+    </div>
+    <button class="btn btn-primary" style="margin-bottom:20px" onclick="showSuratForm()"><i class="fas fa-plus"></i> Ajukan Surat</button>
+    <div class="content-card">
+      <div class="card-body">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Jenis Surat</th>
+              <th>Pemohon</th>
+              <th>Keperluan</th>
+              <th>Status</th>
+              <th>Tanggal</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${l.length ? l.map(s => {
+              const w = appData.warga.find(x => x.id === s.wargaId);
+              const bc = s.status === 'Selesai' ? 'success' : s.status === 'Diproses' ? 'info' : s.status === 'Ditolak' ? 'danger' : 'warning';
+              return `
+                <tr>
+                  <td><strong>${esc(s.jenis)}</strong></td>
+                  <td>${esc(w ? w.nama : '-')}</td>
+                  <td>${esc(s.keperluan || '-')}</td>
+                  <td><span class="status-badge ${bc}">${esc(s.status)}</span></td>
+                  <td>${tglIndo(s.tgl)}</td>
+                  <td>
+                    ${canEdit() || s.wargaId === currentUser.id ? `
+                      <button class="btn btn-secondary btn-sm" onclick="editSurat('${s.id}')"><i class="fas fa-edit"></i></button>
+                      ${canEdit() ? `<button class="btn btn-danger btn-sm" onclick="deleteSurat('${s.id}')"><i class="fas fa-trash"></i></button>` : ''}
+                    ` : '-'}
+                  </td>
+                </tr>
+              `;
+            }).join('') : '<tr><td colspan="6" style="text-align:center;padding:40px;color:var(--gray)">Belum ada surat</td></tr>'}
+          </tbody>
+        </table>
       </div>
     </div>
   `;
@@ -2128,48 +2100,46 @@ function renderDesktopTamu() {
   const l = (appData.tamu || []).slice().sort((a, b) => (b.tglMasuk || '').localeCompare(a.tglMasuk || ''));
   
   let html = `
-    <div class="page-section active">
-      <div class="page-header" style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
-        <button class="btn btn-secondary" onclick="showPage('dashboard')" style="width:42px;height:42px"><i class="fas fa-arrow-left"></i></button>
-        <h2 style="font-size:22px;font-weight:800">Buku Tamu</h2>
-      </div>
-      ${canEdit() ? `<button class="btn btn-primary" style="margin-bottom:20px" onclick="showTamuForm()"><i class="fas fa-plus"></i> Tambah Tamu</button>` : ''}
-      <div class="content-card">
-        <div class="card-body">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Nama</th>
-                <th>Asal</th>
-                <th>Keperluan</th>
-                <th>Penjamin</th>
-                <th>Tgl Masuk</th>
-                <th>Status</th>
-                ${canEdit() ? '<th>Aksi</th>' : ''}
-              </tr>
-            </thead>
-            <tbody>
-              ${l.length ? l.map(t => {
-                const bc = t.status === 'Menginap' ? 'warning' : 'success';
-                return `
-                  <tr>
-                    <td><strong>${esc(t.nama)}</strong></td>
-                    <td>${esc(t.asal)}</td>
-                    <td>${esc(t.keperluan || '-')}</td>
-                    <td>${esc(t.penjamin || '-')}</td>
-                    <td>${tglIndo(t.tglMasuk)}</td>
-                    <td><span class="status-badge ${bc}">${esc(t.status)}</span></td>
-                    ${canEdit() ? `
-                    <td>
-                      <button class="btn btn-secondary btn-sm" onclick="editTamu('${t.id}')"><i class="fas fa-edit"></i></button>
-                      <button class="btn btn-danger btn-sm" onclick="deleteTamu('${t.id}')"><i class="fas fa-trash"></i></button>
-                    </td>` : ''}
-                  </tr>
-                `;
-              }).join('') : '<tr><td colspan="' + (canEdit() ? 7 : 6) + '" style="text-align:center;padding:40px;color:var(--gray)">Belum ada tamu</td></tr>'}
-            </tbody>
-          </table>
-        </div>
+    <div class="page-header">
+      <button onclick="showPage('dashboard')"><i class="fas fa-arrow-left"></i></button>
+      <h2>Buku Tamu</h2>
+    </div>
+    ${canEdit() ? `<button class="btn btn-primary" style="margin-bottom:20px" onclick="showTamuForm()"><i class="fas fa-plus"></i> Tambah Tamu</button>` : ''}
+    <div class="content-card">
+      <div class="card-body">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Asal</th>
+              <th>Keperluan</th>
+              <th>Penjamin</th>
+              <th>Tgl Masuk</th>
+              <th>Status</th>
+              ${canEdit() ? '<th>Aksi</th>' : ''}
+            </tr>
+          </thead>
+          <tbody>
+            ${l.length ? l.map(t => {
+              const bc = t.status === 'Menginap' ? 'warning' : 'success';
+              return `
+                <tr>
+                  <td><strong>${esc(t.nama)}</strong></td>
+                  <td>${esc(t.asal)}</td>
+                  <td>${esc(t.keperluan || '-')}</td>
+                  <td>${esc(t.penjamin || '-')}</td>
+                  <td>${tglIndo(t.tglMasuk)}</td>
+                  <td><span class="status-badge ${bc}">${esc(t.status)}</span></td>
+                  ${canEdit() ? `
+                  <td>
+                    <button class="btn btn-secondary btn-sm" onclick="editTamu('${t.id}')"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-danger btn-sm" onclick="deleteTamu('${t.id}')"><i class="fas fa-trash"></i></button>
+                  </td>` : ''}
+                </tr>
+              `;
+            }).join('') : '<tr><td colspan="' + (canEdit() ? 7 : 6) + '" style="text-align:center;padding:40px;color:var(--gray)">Belum ada tamu</td></tr>'}
+          </tbody>
+        </table>
       </div>
     </div>
   `;
@@ -2274,51 +2244,49 @@ function renderDesktopVoting() {
   const l = (appData.voting || []).slice().sort((a, b) => (b.tgl || '').localeCompare(a.tgl || ''));
   
   let html = `
-    <div class="page-section active">
-      <div class="page-header" style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
-        <button class="btn btn-secondary" onclick="showPage('dashboard')" style="width:42px;height:42px"><i class="fas fa-arrow-left"></i></button>
-        <h2 style="font-size:22px;font-weight:800">Voting / Jajak Pendapat</h2>
-      </div>
-      ${canEdit() ? `<button class="btn btn-primary" style="margin-bottom:20px" onclick="showVotingForm()"><i class="fas fa-plus"></i> Buat Voting</button>` : ''}
-      <div class="content-grid">
-        ${l.map(v => {
-          const tot = v.pilihan.reduce((s, p) => s + (p.votes || 0), 0);
-          return `
-            <div class="content-card">
-              <div class="card-body">
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
-                  <h3 style="font-size:16px;font-weight:700">${esc(v.pertanyaan)}</h3>
-                  <span class="status-badge ${v.status === 'Aktif' ? 'success' : 'info'}">${esc(v.status)}</span>
-                </div>
-                <div style="font-size:12px;color:var(--gray);margin-bottom:16px">
-                  <i class="fas fa-calendar"></i> ${tglIndo(v.tgl)} · 
-                  <i class="fas fa-users"></i> ${tot} suara
-                </div>
-                ${v.pilihan.map((p, i) => {
-                  const pc = tot ? Math.round((p.votes || 0) / tot * 100) : 0;
-                  return `
-                    <div style="margin-bottom:12px">
-                      <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-                        <span style="font-size:13px;font-weight:600">${i + 1}. ${esc(p.text)}</span>
-                        <span style="font-size:12px;color:var(--gray)">${p.votes || 0} (${pc}%)</span>
-                      </div>
-                      <div style="height:8px;background:var(--light-gray);border-radius:4px;overflow:hidden">
-                        <div style="height:100%;background:var(--primary);width:${pc}%"></div>
-                      </div>
-                    </div>
-                  `;
-                }).join('')}
-                ${v.status === 'Aktif' ? `<button class="btn btn-primary btn-sm" style="margin-top:12px;width:100%" onclick="voteVoting('${v.id}')"><i class="fas fa-vote-yea"></i> Vote Sekarang</button>` : ''}
-                ${canEdit() ? `
-                <div style="margin-top:12px;display:flex;gap:8px">
-                  <button class="btn btn-secondary btn-sm" onclick="editVoting('${v.id}')"><i class="fas fa-edit"></i> Edit</button>
-                  <button class="btn btn-danger btn-sm" onclick="deleteVoting('${v.id}')"><i class="fas fa-trash"></i> Hapus</button>
-                </div>` : ''}
+    <div class="page-header">
+      <button onclick="showPage('dashboard')"><i class="fas fa-arrow-left"></i></button>
+      <h2>Voting / Jajak Pendapat</h2>
+    </div>
+    ${canEdit() ? `<button class="btn btn-primary" style="margin-bottom:20px" onclick="showVotingForm()"><i class="fas fa-plus"></i> Buat Voting</button>` : ''}
+    <div class="content-grid">
+      ${l.map(v => {
+        const tot = v.pilihan.reduce((s, p) => s + (p.votes || 0), 0);
+        return `
+          <div class="content-card">
+            <div class="card-body">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+                <h3 style="font-size:16px;font-weight:700">${esc(v.pertanyaan)}</h3>
+                <span class="status-badge ${v.status === 'Aktif' ? 'success' : 'info'}">${esc(v.status)}</span>
               </div>
+              <div style="font-size:12px;color:var(--gray);margin-bottom:16px">
+                <i class="fas fa-calendar"></i> ${tglIndo(v.tgl)} · 
+                <i class="fas fa-users"></i> ${tot} suara
+              </div>
+              ${v.pilihan.map((p, i) => {
+                const pc = tot ? Math.round((p.votes || 0) / tot * 100) : 0;
+                return `
+                  <div style="margin-bottom:12px">
+                    <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+                      <span style="font-size:13px;font-weight:600">${i + 1}. ${esc(p.text)}</span>
+                      <span style="font-size:12px;color:var(--gray)">${p.votes || 0} (${pc}%)</span>
+                    </div>
+                    <div style="height:8px;background:var(--light-gray);border-radius:4px;overflow:hidden">
+                      <div style="height:100%;background:var(--primary);width:${pc}%"></div>
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+              ${v.status === 'Aktif' ? `<button class="btn btn-primary btn-sm" style="margin-top:12px;width:100%" onclick="voteVoting('${v.id}')"><i class="fas fa-vote-yea"></i> Vote Sekarang</button>` : ''}
+              ${canEdit() ? `
+              <div style="margin-top:12px;display:flex;gap:8px">
+                <button class="btn btn-secondary btn-sm" onclick="editVoting('${v.id}')"><i class="fas fa-edit"></i> Edit</button>
+                <button class="btn btn-danger btn-sm" onclick="deleteVoting('${v.id}')"><i class="fas fa-trash"></i> Hapus</button>
+              </div>` : ''}
             </div>
-          `;
-        }).join('') || '<div class="content-card"><div class="card-body" style="text-align:center;padding:60px;color:var(--gray)"><i class="fas fa-poll" style="font-size:48px;margin-bottom:16px"></i><p>Belum ada voting</p></div></div>'}
-      </div>
+          </div>
+        `;
+      }).join('') || '<div class="content-card"><div class="card-body" style="text-align:center;padding:60px;color:var(--gray)"><i class="fas fa-poll" style="font-size:48px;margin-bottom:16px"></i><p>Belum ada voting</p></div></div>'}
     </div>
   `;
   
@@ -2441,46 +2409,44 @@ function renderDesktopInventaris() {
   const l = appData.inventaris || [];
   
   let html = `
-    <div class="page-section active">
-      <div class="page-header" style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
-        <button class="btn btn-secondary" onclick="showPage('dashboard')" style="width:42px;height:42px"><i class="fas fa-arrow-left"></i></button>
-        <h2 style="font-size:22px;font-weight:800">Inventaris RT</h2>
-      </div>
-      ${canEdit() ? `<button class="btn btn-primary" style="margin-bottom:20px" onclick="showInventarisForm()"><i class="fas fa-plus"></i> Tambah Barang</button>` : ''}
-      <div class="content-card">
-        <div class="card-body">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Nama Barang</th>
-                <th>Kategori</th>
-                <th>Jumlah</th>
-                <th>Kondisi</th>
-                <th>Lokasi</th>
-                ${canEdit() ? '<th>Aksi</th>' : ''}
-              </tr>
-            </thead>
-            <tbody>
-              ${l.length ? l.map(inv => {
-                const bc = inv.kondisi === 'Baik' ? 'success' : inv.kondisi === 'Rusak Ringan' ? 'warning' : 'danger';
-                return `
-                  <tr>
-                    <td><strong>${esc(inv.nama)}</strong></td>
-                    <td>${esc(inv.kategori || '-')}</td>
-                    <td>${inv.jumlah || 0}</td>
-                    <td><span class="status-badge ${bc}">${esc(inv.kondisi || 'Baik')}</span></td>
-                    <td>${esc(inv.lokasi || '-')}</td>
-                    ${canEdit() ? `
-                    <td>
-                      <button class="btn btn-secondary btn-sm" onclick="editInventaris('${inv.id}')"><i class="fas fa-edit"></i></button>
-                      <button class="btn btn-danger btn-sm" onclick="deleteInventaris('${inv.id}')"><i class="fas fa-trash"></i></button>
-                    </td>` : ''}
-                  </tr>
-                `;
-              }).join('') : '<tr><td colspan="' + (canEdit() ? 6 : 5) + '" style="text-align:center;padding:40px;color:var(--gray)">Belum ada inventaris</td></tr>'}
-            </tbody>
-          </table>
-        </div>
+    <div class="page-header">
+      <button onclick="showPage('dashboard')"><i class="fas fa-arrow-left"></i></button>
+      <h2>Inventaris RT</h2>
+    </div>
+    ${canEdit() ? `<button class="btn btn-primary" style="margin-bottom:20px" onclick="showInventarisForm()"><i class="fas fa-plus"></i> Tambah Barang</button>` : ''}
+    <div class="content-card">
+      <div class="card-body">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Nama Barang</th>
+              <th>Kategori</th>
+              <th>Jumlah</th>
+              <th>Kondisi</th>
+              <th>Lokasi</th>
+              ${canEdit() ? '<th>Aksi</th>' : ''}
+            </tr>
+          </thead>
+          <tbody>
+            ${l.length ? l.map(inv => {
+              const bc = inv.kondisi === 'Baik' ? 'success' : inv.kondisi === 'Rusak Ringan' ? 'warning' : 'danger';
+              return `
+                <tr>
+                  <td><strong>${esc(inv.nama)}</strong></td>
+                  <td>${esc(inv.kategori || '-')}</td>
+                  <td>${inv.jumlah || 0}</td>
+                  <td><span class="status-badge ${bc}">${esc(inv.kondisi || 'Baik')}</span></td>
+                  <td>${esc(inv.lokasi || '-')}</td>
+                  ${canEdit() ? `
+                  <td>
+                    <button class="btn btn-secondary btn-sm" onclick="editInventaris('${inv.id}')"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-danger btn-sm" onclick="deleteInventaris('${inv.id}')"><i class="fas fa-trash"></i></button>
+                  </td>` : ''}
+                </tr>
+              `;
+            }).join('') : '<tr><td colspan="' + (canEdit() ? 6 : 5) + '" style="text-align:center;padding:40px;color:var(--gray)">Belum ada inventaris</td></tr>'}
+          </tbody>
+        </table>
       </div>
     </div>
   `;
@@ -2568,39 +2534,37 @@ function renderDesktopProfil() {
   const w = currentUser;
   
   let html = `
-    <div class="page-section active">
-      <div class="page-header" style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
-        <button class="btn btn-secondary" onclick="showPage('dashboard')" style="width:42px;height:42px"><i class="fas fa-arrow-left"></i></button>
-        <h2 style="font-size:22px;font-weight:800">Profil Saya</h2>
-      </div>
-      <div class="content-card" style="max-width:600px">
-        <div class="card-body">
-          <div style="text-align:center;padding:20px 0">
-            <div style="width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:40px;margin:0 auto 16px">${initials(w.nama)}</div>
-            <h3 style="font-size:24px;font-weight:800">${esc(w.nama)}</h3>
-            <p style="color:var(--gray);margin-top:4px"><span class="status-badge info">${esc(w.gol)}</span></p>
-          </div>
-          <div style="border-top:1px solid var(--border);padding-top:16px">
-            <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)">
-              <span style="color:var(--gray);font-size:13px">Blok</span>
-              <span style="font-weight:600">${esc(w.blok)}</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)">
-              <span style="color:var(--gray);font-size:13px">HP</span>
-              <span style="font-weight:600">${esc(w.hp || '-')}</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)">
-              <span style="color:var(--gray);font-size:13px">Pekerjaan</span>
-              <span style="font-weight:600">${esc(w.pekerjaan || '-')}</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;padding:12px 0">
-              <span style="color:var(--gray);font-size:13px">PIN</span>
-              <span style="font-weight:600">•••• <span class="status-badge info">tersembunyi</span></span>
-            </div>
-          </div>
-          <button class="btn btn-primary" style="margin-top:20px" onclick="editProfil()"><i class="fas fa-edit"></i> Edit Profil</button>
-          <button class="btn btn-danger" style="margin-top:12px" onclick="doLogout()"><i class="fas fa-sign-out-alt"></i> Keluar</button>
+    <div class="page-header">
+      <button onclick="showPage('dashboard')"><i class="fas fa-arrow-left"></i></button>
+      <h2>Profil Saya</h2>
+    </div>
+    <div class="content-card" style="max-width:600px">
+      <div class="card-body">
+        <div style="text-align:center;padding:20px 0">
+          <div style="width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:40px;margin:0 auto 16px">${initials(w.nama)}</div>
+          <h3 style="font-size:24px;font-weight:800">${esc(w.nama)}</h3>
+          <p style="color:var(--gray);margin-top:4px"><span class="status-badge info">${esc(w.gol)}</span></p>
         </div>
+        <div style="border-top:1px solid var(--border);padding-top:16px">
+          <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)">
+            <span style="color:var(--gray);font-size:13px">Blok</span>
+            <span style="font-weight:600">${esc(w.blok)}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)">
+            <span style="color:var(--gray);font-size:13px">HP</span>
+            <span style="font-weight:600">${esc(w.hp || '-')}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)">
+            <span style="color:var(--gray);font-size:13px">Pekerjaan</span>
+            <span style="font-weight:600">${esc(w.pekerjaan || '-')}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:12px 0">
+            <span style="color:var(--gray);font-size:13px">PIN</span>
+            <span style="font-weight:600">•••• <span class="status-badge info">tersembunyi</span></span>
+          </div>
+        </div>
+        <button class="btn btn-primary" style="margin-top:20px" onclick="editProfil()"><i class="fas fa-edit"></i> Edit Profil</button>
+        <button class="btn btn-danger" style="margin-top:12px" onclick="doLogout()"><i class="fas fa-sign-out-alt"></i> Keluar</button>
       </div>
     </div>
   `;
@@ -2673,43 +2637,41 @@ function renderDesktopPengaturan() {
   const b = appData.rt.bank || {};
   
   let html = `
-    <div class="page-section active">
-      <div class="page-header" style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
-        <button class="btn btn-secondary" onclick="showPage('dashboard')" style="width:42px;height:42px"><i class="fas fa-arrow-left"></i></button>
-        <h2 style="font-size:22px;font-weight:800">Pengaturan</h2>
-      </div>
-      <div class="content-grid">
-        <div class="content-card">
-          <div class="card-header">
-            <h3><i class="fas fa-cog"></i> Pengaturan Rekening</h3>
-          </div>
-          <div class="card-body">
-            <div class="form-group">
-              <label>Nama Bank</label>
-              <input type="text" class="form-control" id="rBank" value="${esc(b.nama || '')}">
-            </div>
-            <div class="form-group">
-              <label>Nomor Rekening</label>
-              <input type="text" class="form-control" id="rRek" value="${esc(b.rek || '')}">
-            </div>
-            <div class="form-group">
-              <label>Atas Nama</label>
-              <input type="text" class="form-control" id="rAn" value="${esc(b.an || '')}">
-            </div>
-            <button class="btn btn-primary" onclick="saveRekening()"><i class="fas fa-save"></i> Simpan</button>
-          </div>
+    <div class="page-header">
+      <button onclick="showPage('dashboard')"><i class="fas fa-arrow-left"></i></button>
+      <h2>Pengaturan</h2>
+    </div>
+    <div class="content-grid">
+      <div class="content-card">
+        <div class="card-header">
+          <h3><i class="fas fa-cog"></i> Pengaturan Rekening</h3>
         </div>
-        <div class="content-card">
-          <div class="card-header">
-            <h3><i class="fas fa-database"></i> Backup & Restore</h3>
+        <div class="card-body">
+          <div class="form-group">
+            <label>Nama Bank</label>
+            <input type="text" class="form-control" id="rBank" value="${esc(b.nama || '')}">
           </div>
-          <div class="card-body">
-            <p style="font-size:13px;color:var(--gray);margin-bottom:16px">Data otomatis tersimpan di Firebase Cloud. Download backup JSON untuk cadangan lokal.</p>
-            <div style="display:flex;gap:12px;flex-wrap:wrap">
-              <button class="btn btn-primary" onclick="downloadBackup()"><i class="fas fa-download"></i> Download Backup</button>
-              <button class="btn btn-secondary" onclick="document.getElementById('restoreFile').click()"><i class="fas fa-upload"></i> Restore Backup</button>
-              <input type="file" id="restoreFile" accept=".json" style="display:none" onchange="restoreBackup(event)">
-            </div>
+          <div class="form-group">
+            <label>Nomor Rekening</label>
+            <input type="text" class="form-control" id="rRek" value="${esc(b.rek || '')}">
+          </div>
+          <div class="form-group">
+            <label>Atas Nama</label>
+            <input type="text" class="form-control" id="rAn" value="${esc(b.an || '')}">
+          </div>
+          <button class="btn btn-primary" onclick="saveRekening()"><i class="fas fa-save"></i> Simpan</button>
+        </div>
+      </div>
+      <div class="content-card">
+        <div class="card-header">
+          <h3><i class="fas fa-database"></i> Backup & Restore</h3>
+        </div>
+        <div class="card-body">
+          <p style="font-size:13px;color:var(--gray);margin-bottom:16px">Data otomatis tersimpan di Firebase Cloud. Download backup JSON untuk cadangan lokal.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <button class="btn btn-primary" onclick="downloadBackup()"><i class="fas fa-download"></i> Download Backup</button>
+            <button class="btn btn-secondary" onclick="document.getElementById('restoreFile').click()"><i class="fas fa-upload"></i> Restore Backup</button>
+            <input type="file" id="restoreFile" accept=".json" style="display:none" onchange="restoreBackup(event)">
           </div>
         </div>
       </div>
@@ -2783,75 +2745,73 @@ function renderDesktopLaporan() {
   const f = kas.filter(k => k.tgl && k.tgl.startsWith(b)).sort((a, c) => (c.tgl || '').localeCompare(a.tgl || ''));
   
   let html = `
-    <div class="page-section active">
-      <div class="page-header" style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
-        <button class="btn btn-secondary" onclick="showPage('dashboard')" style="width:42px;height:42px"><i class="fas fa-arrow-left"></i></button>
-        <h2 style="font-size:22px;font-weight:800">Laporan Pertanggungjawaban</h2>
+    <div class="page-header">
+      <button onclick="showPage('dashboard')"><i class="fas fa-arrow-left"></i></button>
+      <h2>Laporan Pertanggungjawaban</h2>
+    </div>
+    <div class="content-card">
+      <div class="card-header">
+        <h3><i class="fas fa-file-alt"></i> LPJ - ${labelBulan(b)}</h3>
+        <div style="display:flex;gap:8px">
+          <button class="btn ${appData.rt.lpjPublished ? 'btn-secondary' : 'btn-success'} btn-sm" onclick="togglePublishLPJ()">
+            ${appData.rt.lpjPublished ? '<i class="fas fa-lock"></i> Unpublish' : '<i class="fas fa-share"></i> Publish ke Warga'}
+          </button>
+          <button class="btn btn-secondary btn-sm" onclick="window.print()"><i class="fas fa-print"></i> Cetak</button>
+        </div>
       </div>
-      <div class="content-card">
-        <div class="card-header">
-          <h3><i class="fas fa-file-alt"></i> LPJ - ${labelBulan(b)}</h3>
-          <div style="display:flex;gap:8px">
-            <button class="btn ${appData.rt.lpjPublished ? 'btn-secondary' : 'btn-success'} btn-sm" onclick="togglePublishLPJ()">
-              ${appData.rt.lpjPublished ? '<i class="fas fa-lock"></i> Unpublish' : '<i class="fas fa-share"></i> Publish ke Warga'}
-            </button>
-            <button class="btn btn-secondary btn-sm" onclick="window.print()"><i class="fas fa-print"></i> Cetak</button>
+      <div class="card-body">
+        <div class="info-box" style="background:${appData.rt.lpjPublished ? '#F0FDF4' : 'var(--primary-light)'};border:1px solid ${appData.rt.lpjPublished ? '#BBF7D0' : '#DDD6FE'};border-radius:10px;padding:16px;margin-bottom:20px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+            <h4 style="font-size:14px;font-weight:700">Status: <span class="status-badge ${appData.rt.lpjPublished ? 'success' : 'warning'}">${appData.rt.lpjPublished ? 'Dipublish' : 'Belum Dipublish'}</span></h4>
+          </div>
+          <p style="font-size:12px;color:var(--gray)">${appData.rt.lpjPublished ? '✅ Warga dapat melihat laporan ini.' : '⚠️ Laporan belum terlihat oleh warga.'}</p>
+        </div>
+        <div class="stats-grid" style="margin-bottom:20px">
+          <div class="stat-card">
+            <div class="stat-icon green"><i class="fas fa-wallet"></i></div>
+            <div class="stat-value">${rp(sal)}</div>
+            <div class="stat-label">Saldo Akhir</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon blue"><i class="fas fa-arrow-up"></i></div>
+            <div class="stat-value">${rp(mk)}</div>
+            <div class="stat-label">Total Pemasukan</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon orange"><i class="fas fa-arrow-down"></i></div>
+            <div class="stat-value">${rp(kl)}</div>
+            <div class="stat-label">Total Pengeluaran</div>
           </div>
         </div>
-        <div class="card-body">
-          <div class="info-box" style="background:${appData.rt.lpjPublished ? '#F0FDF4' : 'var(--pt)'};border:1px solid ${appData.rt.lpjPublished ? '#BBF7D0' : '#DDD6FE'};border-radius:10px;padding:16px;margin-bottom:20px">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-              <h4 style="font-size:14px;font-weight:700">Status: <span class="status-badge ${appData.rt.lpjPublished ? 'success' : 'warning'}">${appData.rt.lpjPublished ? 'Dipublish' : 'Belum Dipublish'}</span></h4>
-            </div>
-            <p style="font-size:12px;color:var(--gray)">${appData.rt.lpjPublished ? '✅ Warga dapat melihat laporan ini.' : '⚠️ Laporan belum terlihat oleh warga.'}</p>
-          </div>
-          <div class="stats-grid" style="margin-bottom:20px">
-            <div class="stat-card">
-              <div class="stat-icon green"><i class="fas fa-wallet"></i></div>
-              <div class="stat-value">${rp(sal)}</div>
-              <div class="stat-label">Saldo Akhir</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-icon blue"><i class="fas fa-arrow-up"></i></div>
-              <div class="stat-value">${rp(mk)}</div>
-              <div class="stat-label">Total Pemasukan</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-icon orange"><i class="fas fa-arrow-down"></i></div>
-              <div class="stat-value">${rp(kl)}</div>
-              <div class="stat-label">Total Pengeluaran</div>
-            </div>
-          </div>
-          <h4 style="font-size:14px;font-weight:700;margin-bottom:12px"><i class="fas fa-list"></i> Detail Transaksi</h4>
-          <table class="data-table">
-            <thead>
+        <h4 style="font-size:14px;font-weight:700;margin-bottom:12px"><i class="fas fa-list"></i> Detail Transaksi</h4>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Tanggal</th>
+              <th>Uraian</th>
+              <th>Kategori</th>
+              <th style="text-align:right">Jumlah</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${f.map((k, i) => `
               <tr>
-                <th>No</th>
-                <th>Tanggal</th>
-                <th>Uraian</th>
-                <th>Kategori</th>
-                <th style="text-align:right">Jumlah</th>
+                <td>${i + 1}</td>
+                <td>${tglIndo(k.tgl)}</td>
+                <td><strong>${esc(k.urai)}</strong><br><span class="status-badge ${k.tipe === 'Masuk' ? 'success' : 'danger'}">${k.tipe}</span></td>
+                <td>${esc(k.kat)}</td>
+                <td style="text-align:right;font-weight:700;color:${k.tipe === 'Masuk' ? 'var(--success)' : 'var(--danger)'}">${k.tipe === 'Masuk' ? '+' : '-'}${rp(k.nominal)}</td>
               </tr>
-            </thead>
-            <tbody>
-              ${f.map((k, i) => `
-                <tr>
-                  <td>${i + 1}</td>
-                  <td>${tglIndo(k.tgl)}</td>
-                  <td><strong>${esc(k.urai)}</strong><br><span class="status-badge ${k.tipe === 'Masuk' ? 'success' : 'danger'}">${k.tipe}</span></td>
-                  <td>${esc(k.kat)}</td>
-                  <td style="text-align:right;font-weight:700;color:${k.tipe === 'Masuk' ? 'var(--success)' : 'var(--danger)'}">${k.tipe === 'Masuk' ? '+' : '-'}${rp(k.nominal)}</td>
-                </tr>
-              `).join('')}
-            </tbody>
-            <tfoot>
-              <tr style="background:var(--primary-light);font-weight:700">
-                <td colspan="4" style="text-align:right">SALDO AKHIR:</td>
-                <td style="text-align:right;color:var(--primary);font-size:16px">${rp(sal)}</td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
+            `).join('')}
+          </tbody>
+          <tfoot>
+            <tr style="background:var(--primary-light);font-weight:700">
+              <td colspan="4" style="text-align:right">SALDO AKHIR:</td>
+              <td style="text-align:right;color:var(--primary);font-size:16px">${rp(sal)}</td>
+            </tr>
+          </tfoot>
+        </table>
       </div>
     </div>
   `;
@@ -2872,7 +2832,7 @@ function showNotif() {
   const pd = (appData.setoran || []).filter(s => s.status === 'Pending').length;
   const br = (appData.lapor || []).filter(s => s.status === 'Baru').length;
   const kg = (appData.kegiatan || []).filter(k => k.status === 'Akan Datang').length;
-  alert(`🔔 Notifikasi:\n\n ${pd} setoran menunggu\n️ ${br} pengaduan baru\n ${kg} kegiatan akan datang`);
+  alert(`🔔 Notifikasi:\n\n📤 ${pd} setoran menunggu\n⚠️ ${br} pengaduan baru\n📅 ${kg} kegiatan akan datang`);
 }
 
 // Theme Toggle
@@ -2907,9 +2867,9 @@ function renderMobileDashboard() {
       <div class="chart-header">
         <h3 style="font-size:16px;font-weight:700">📊 Arus Kas</h3>
         <div class="chart-nav">
-          <button onclick="changeMonth(-1)" style="width:32px;height:32px;border-radius:10px;background:var(--pt);color:var(--p);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700">‹</button>
+          <button onclick="changeMonth(-1)" style="width:32px;height:32px;border-radius:10px;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700">‹</button>
           <span id="chartMonth" style="font-size:14px;font-weight:700;min-width:120px;text-align:center">${BULAN[currentMonth.getMonth()]} ${currentMonth.getFullYear()}</span>
-          <button onclick="changeMonth(1)" style="width:32px;height:32px;border-radius:10px;background:var(--pt);color:var(--p);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700">›</button>
+          <button onclick="changeMonth(1)" style="width:32px;height:32px;border-radius:10px;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700">›</button>
         </div>
       </div>
       <div style="position:relative">
@@ -2931,28 +2891,28 @@ function renderMobileDashboard() {
 
     <div class="section-header" style="display:flex;justify-content:space-between;align-items:center;margin:20px 0 12px">
       <h3 style="font-size:16px;font-weight:700">📢 Pengumuman <span class="badge-count" style="background:var(--danger);color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:800;display:inline-flex;align-items:center;justify-content:center">${(appData.pengumuman||[]).length}</span></h3>
-      <a class="link" style="font-size:12px;color:var(--p);font-weight:700;cursor:pointer" onclick="showPage('pengumuman')">Lihat semua</a>
+      <a class="link" style="font-size:12px;color:var(--primary);font-weight:700;cursor:pointer" onclick="showPage('pengumuman')">Lihat semua</a>
     </div>
     ${(appData.pengumuman || []).slice(0, 3).map(p => `
       <div class="announcement-card" style="background:#fff;border-radius:14px;padding:14px;border:1px solid var(--border);margin-bottom:10px;display:flex;gap:12px;align-items:flex-start;cursor:pointer">
-        <div class="ann-icon" style="width:40px;height:40px;border-radius:10px;background:var(--pt);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0"></div>
+        <div class="ann-icon" style="width:40px;height:40px;border-radius:10px;background:var(--primary-light);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0"></div>
         <div class="ann-content" style="flex:1;min-width:0">
-          <div class="ann-title" style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:4px">${esc(p.judul)} ${p.pin ? '' : ''}</div>
+          <div class="ann-title" style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:4px">${esc(p.judul)} ${p.pin ? '📌' : ''}</div>
           <div class="ann-meta" style="font-size:11px;color:var(--gray);display:flex;align-items:center;gap:6px"><span>${tglIndo(p.tgl)}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>${esc(p.oleh || '')}</span></div>
         </div>
       </div>
     `).join('')}
 
     <div class="section-header" style="display:flex;justify-content:space-between;align-items:center;margin:20px 0 12px">
-      <h3 style="font-size:16px;font-weight:700"> Kegiatan Mendatang</h3>
-      <a class="link" style="font-size:12px;color:var(--p);font-weight:700;cursor:pointer" onclick="showPage('kegiatan')">Lihat semua</a>
+      <h3 style="font-size:16px;font-weight:700">📅 Kegiatan Mendatang</h3>
+      <a class="link" style="font-size:12px;color:var(--primary);font-weight:700;cursor:pointer" onclick="showPage('kegiatan')">Lihat semua</a>
     </div>
     ${(appData.kegiatan || []).filter(k => k.status === 'Akan Datang').slice(0, 2).map(k => `
       <div class="announcement-card" style="background:#fff;border-radius:14px;padding:14px;border:1px solid var(--border);margin-bottom:10px;display:flex;gap:12px;align-items:flex-start;cursor:pointer">
-        <div class="ann-icon" style="width:40px;height:40px;border-radius:10px;background:#D1FAE5;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0"></div>
+        <div class="ann-icon" style="width:40px;height:40px;border-radius:10px;background:#D1FAE5;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">📅</div>
         <div class="ann-content" style="flex:1;min-width:0">
-          <div class="ann-title" style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:4px">${esc(k.judul)}</div>
-          <div class="ann-meta" style="font-size:11px;color:var(--gray);display:flex;align-items:center;gap:6px"><span> ${tglIndo(k.tgl)}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>🕐 ${esc(k.waktuMulai || '-')}</span></div>
+          <div class="ann-title" style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:4px">${esc(k.judul)}</div>
+          <div class="ann-meta" style="font-size:11px;color:var(--gray);display:flex;align-items:center;gap:6px"><span>📅 ${tglIndo(k.tgl)}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>🕐 ${esc(k.waktuMulai || '-')}</span></div>
         </div>
       </div>
     `).join('')}
@@ -2999,6 +2959,13 @@ function renderMobileChart() {
   }).join('');
 }
 
+function changeMonth(delta) {
+  currentMonth.setMonth(currentMonth.getMonth() + delta);
+  const isDesktop = window.innerWidth >= 1025;
+  if (isDesktop) renderDesktopChart();
+  else renderMobileChart();
+}
+
 function renderMobileIuran() {
   const b = bulanIni();
   const nom = appData.rt.iuranNominal || 50000;
@@ -3011,7 +2978,7 @@ function renderMobileIuran() {
   $('mobileContent').innerHTML = `
     <div class="page-section">
       <div class="page-header" style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-        <button onclick="showPage('dashboard')" style="width:40px;height:40px;border-radius:12px;background:var(--pt);color:var(--p);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
+        <button onclick="showPage('dashboard')" style="width:40px;height:40px;border-radius:12px;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
         <h2 style="font-size:20px;font-weight:800">Status Iuran</h2>
       </div>
       <div class="chart-card" style="background:#fff;border-radius:16px;padding:20px;margin-bottom:16px;box-shadow:0 2px 12px rgba(0,0,0,.04);border:1px solid var(--border)">
@@ -3027,9 +2994,9 @@ function renderMobileIuran() {
       ${l.map(w => {
         const r = m[w.id], ok = r && r.status === 'Lunas';
         return `<div class="announcement-card" style="background:#fff;border-radius:14px;padding:14px;border:1px solid ${ok ? '#BBF7D0' : 'var(--border)'};margin-bottom:10px;display:flex;gap:12px;align-items:center">
-          <div class="ann-icon" style="width:40px;height:40px;border-radius:10px;background:${ok ? '#D1FAE5' : 'var(--pt)'};display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">${ok ? '✅' : '⏳'}</div>
+          <div class="ann-icon" style="width:40px;height:40px;border-radius:10px;background:${ok ? '#D1FAE5' : 'var(--primary-light)'};display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">${ok ? '✅' : '⏳'}</div>
           <div class="ann-content" style="flex:1;min-width:0">
-            <div class="ann-title" style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:4px">${esc(w.nama)} <span style="font-size:11px;color:var(--gray)">(${esc(w.blok)})</span></div>
+            <div class="ann-title" style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:4px">${esc(w.nama)} <span style="font-size:11px;color:var(--gray)">(${esc(w.blok)})</span></div>
             <div class="ann-meta" style="font-size:11px;color:var(--gray)">${ok ? 'Lunas ' + tglIndo(r.tgl) : 'Belum membayar'}</div>
           </div>
           ${!ok && isStaff() ? `<button class="btn btn-success btn-sm" style="padding:8px 12px;font-size:11px" onclick="toggleIuran('${w.id}','${b}',${nom})">Lunas</button>` : ''}
@@ -3043,7 +3010,7 @@ function renderMobileSetoran() {
   $('mobileContent').innerHTML = `
     <div class="page-section">
       <div class="page-header" style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-        <button onclick="showPage('dashboard')" style="width:40px;height:40px;border-radius:12px;background:var(--pt);color:var(--p);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
+        <button onclick="showPage('dashboard')" style="width:40px;height:40px;border-radius:12px;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
         <h2 style="font-size:20px;font-weight:800">Setoran Iuran</h2>
       </div>
       <div class="chart-card" style="background:#fff;border-radius:16px;padding:20px;margin-bottom:16px;box-shadow:0 2px 12px rgba(0,0,0,.04);border:1px solid var(--border)">
@@ -3070,7 +3037,7 @@ function renderMobileSetoran() {
     return `<div class="announcement-card" style="background:#fff;border-radius:14px;padding:14px;border:1px solid var(--border);margin-bottom:10px;display:flex;gap:12px;align-items:center">
       <div class="ann-icon" style="width:40px;height:40px;border-radius:10px;background:${s.status === 'Dikonfirmasi' ? '#D1FAE5' : s.status === 'Pending' ? '#FEF3C7' : '#FEE2E2'};display:flex;align-items:center;justify-content:center;font-size:20px">${s.status === 'Dikonfirmasi' ? '✅' : s.status === 'Pending' ? '⏳' : '❌'}</div>
       <div class="ann-content" style="flex:1;min-width:0">
-        <div class="ann-title" style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:4px">${labelBulan(s.bulan)} · ${rp(s.nominal)}</div>
+        <div class="ann-title" style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:4px">${labelBulan(s.bulan)} · ${rp(s.nominal)}</div>
         <div class="ann-meta" style="font-size:11px;color:var(--gray);display:flex;align-items:center;gap:6px"><span class="status-badge ${bc}">${s.status}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>${tglIndo(s.tglSetor)}</span></div>
       </div>
     </div>`;
@@ -3116,7 +3083,7 @@ function renderMobilePengaduan() {
   $('mobileContent').innerHTML = `
     <div class="page-section">
       <div class="page-header" style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-        <button onclick="showPage('dashboard')" style="width:40px;height:40px;border-radius:12px;background:var(--pt);color:var(--p);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
+        <button onclick="showPage('dashboard')" style="width:40px;height:40px;border-radius:12px;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
         <h2 style="font-size:20px;font-weight:800">Pengaduan</h2>
       </div>
       <button class="btn btn-primary" style="margin-bottom:16px" onclick="showLaporForm()"><i class="fas fa-plus"></i> Lapor Masalah</button>
@@ -3124,9 +3091,9 @@ function renderMobilePengaduan() {
         const w = appData.warga.find(v => v.id === x.wargaId);
         const bc = x.status === 'Selesai' ? 'success' : x.status === 'Diproses' ? 'info' : x.status === 'Ditolak' ? 'danger' : 'warning';
         return `<div class="announcement-card" style="background:#fff;border-radius:14px;padding:14px;border:1px solid var(--border);margin-bottom:10px;display:flex;gap:12px;align-items:flex-start">
-          <div class="ann-icon" style="width:40px;height:40px;border-radius:10px;background:#FEE2E2;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">️</div>
+          <div class="ann-icon" style="width:40px;height:40px;border-radius:10px;background:#FEE2E2;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">⚠️</div>
           <div class="ann-content" style="flex:1;min-width:0">
-            <div class="ann-title" style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:4px">${esc(x.judul)} <span class="status-badge ${bc}" style="padding:2px 8px;border-radius:10px;font-size:10px">${esc(x.status)}</span></div>
+            <div class="ann-title" style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:4px">${esc(x.judul)} <span class="status-badge ${bc}" style="padding:2px 8px;border-radius:10px;font-size:10px">${esc(x.status)}</span></div>
             <div class="ann-meta" style="font-size:11px;color:var(--gray);display:flex;align-items:center;gap:6px;margin-bottom:6px"><span>${esc(x.kat)}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>${esc(w ? w.nama : 'Warga')}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>${tglIndo(x.tgl)}</span></div>
             <div style="font-size:12px;color:var(--gray)">${esc(x.isi)}</div>
           </div>
@@ -3175,14 +3142,14 @@ function renderMobileRonda() {
   $('mobileContent').innerHTML = `
     <div class="page-section">
       <div class="page-header" style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-        <button onclick="showPage('dashboard')" style="width:40px;height:40px;border-radius:12px;background:var(--pt);color:var(--p);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
+        <button onclick="showPage('dashboard')" style="width:40px;height:40px;border-radius:12px;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
         <h2 style="font-size:20px;font-weight:800">Jadwal Ronda</h2>
       </div>
       ${l.length ? l.map(r => `
         <div class="announcement-card" style="background:#fff;border-radius:14px;padding:14px;border:1px solid var(--border);margin-bottom:10px;display:flex;gap:12px;align-items:flex-start">
           <div class="ann-icon" style="width:40px;height:40px;border-radius:10px;background:#E0E7FF;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">️</div>
           <div class="ann-content" style="flex:1;min-width:0">
-            <div class="ann-title" style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:4px">${esc(r.shift)} · ${esc(r.waktu || '-')}</div>
+            <div class="ann-title" style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:4px">${esc(r.shift)} · ${esc(r.waktu || '-')}</div>
             <div class="ann-meta" style="font-size:11px;color:var(--gray);display:flex;align-items:center;gap:6px;margin-bottom:6px"><span>📅 ${tglIndo(r.tgl)}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>👤 ${esc(r.petugas)}</span></div>
             ${r.catatan ? `<div style="font-size:12px;color:var(--gray)">📝 ${esc(r.catatan)}</div>` : ''}
           </div>
@@ -3197,19 +3164,19 @@ function renderMobilePengumuman() {
   $('mobileContent').innerHTML = `
     <div class="page-section">
       <div class="page-header" style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-        <button onclick="showPage('dashboard')" style="width:40px;height:40px;border-radius:12px;background:var(--pt);color:var(--p);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
+        <button onclick="showPage('dashboard')" style="width:40px;height:40px;border-radius:12px;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
         <h2 style="font-size:20px;font-weight:800">Pengumuman</h2>
       </div>
       ${l.length ? l.map(p => `
         <div class="announcement-card" style="background:#fff;border-radius:14px;padding:14px;border:1px solid var(--border);margin-bottom:10px;display:flex;gap:12px;align-items:flex-start">
           <div class="ann-icon" style="width:40px;height:40px;border-radius:10px;background:#EDE9FE;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">📢</div>
           <div class="ann-content" style="flex:1;min-width:0">
-            <div class="ann-title" style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:4px">${esc(p.judul)} ${p.pin ? '📌' : ''}</div>
+            <div class="ann-title" style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:4px">${esc(p.judul)} ${p.pin ? '📌' : ''}</div>
             <div style="font-size:12px;color:var(--gray);margin:6px 0">${esc(p.isi)}</div>
-            <div class="ann-meta" style="font-size:11px;color:var(--gray);display:flex;align-items:center;gap:6px"><span>📅 ${tglIndo(p.tgl)}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span> ${esc(p.oleh || '')}</span></div>
+            <div class="ann-meta" style="font-size:11px;color:var(--gray);display:flex;align-items:center;gap:6px"><span>📅 ${tglIndo(p.tgl)}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>👤 ${esc(p.oleh || '')}</span></div>
           </div>
         </div>
-      `).join('') : '<div style="text-align:center;padding:40px 20px;color:var(--gray)"><div style="font-size:48px;margin-bottom:12px">📢</div><p>Belum ada pengumuman</p></div>'}
+      `).join('') : '<div style="text-align:center;padding:40px 20px;color:var(--gray)"><div style="font-size:48px;margin-bottom:12px"></div><p>Belum ada pengumuman</p></div>'}
     </div>
   `;
 }
@@ -3219,19 +3186,19 @@ function renderMobileKegiatan() {
   $('mobileContent').innerHTML = `
     <div class="page-section">
       <div class="page-header" style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-        <button onclick="showPage('dashboard')" style="width:40px;height:40px;border-radius:12px;background:var(--pt);color:var(--p);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
+        <button onclick="showPage('dashboard')" style="width:40px;height:40px;border-radius:12px;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
         <h2 style="font-size:20px;font-weight:800">Kegiatan</h2>
       </div>
       ${l.length ? l.map(k => `
         <div class="announcement-card" style="background:#fff;border-radius:14px;padding:14px;border:1px solid var(--border);margin-bottom:10px;display:flex;gap:12px;align-items:flex-start">
           <div class="ann-icon" style="width:40px;height:40px;border-radius:10px;background:#D1FAE5;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">📅</div>
           <div class="ann-content" style="flex:1;min-width:0">
-            <div class="ann-title" style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:4px">${esc(k.judul)}</div>
+            <div class="ann-title" style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:4px">${esc(k.judul)}</div>
             <div class="ann-meta" style="font-size:11px;color:var(--gray);display:flex;align-items:center;gap:6px;margin-bottom:6px"><span>📅 ${tglIndo(k.tgl)}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>🕐 ${esc(k.waktuMulai || '-')}</span></div>
             <div style="font-size:12px;color:var(--gray)">📍 ${esc(k.lokasi || '-')} · 👤 ${esc(k.penanggungJawab || '-')}</div>
           </div>
         </div>
-      `).join('') : '<div style="text-align:center;padding:40px 20px;color:var(--gray)"><div style="font-size:48px;margin-bottom:12px"></div><p>Tidak ada kegiatan</p></div>'}
+      `).join('') : '<div style="text-align:center;padding:40px 20px;color:var(--gray)"><div style="font-size:48px;margin-bottom:12px">📅</div><p>Tidak ada kegiatan</p></div>'}
     </div>
   `;
 }
@@ -3242,7 +3209,7 @@ function renderMobileProfil() {
   $('mobileContent').innerHTML = `
     <div class="page-section">
       <div class="page-header" style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-        <button onclick="showPage('dashboard')" style="width:40px;height:40px;border-radius:12px;background:var(--pt);color:var(--p);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
+        <button onclick="showPage('dashboard')" style="width:40px;height:40px;border-radius:12px;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
         <h2 style="font-size:20px;font-weight:800">Profil Saya</h2>
       </div>
       <div class="chart-card" style="background:#fff;border-radius:16px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.04);border:1px solid var(--border)">
@@ -3319,7 +3286,7 @@ function renderMobilePengaturan() {
   $('mobileContent').innerHTML = `
     <div class="page-section">
       <div class="page-header" style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-        <button onclick="showPage('dashboard')" style="width:40px;height:40px;border-radius:12px;background:var(--pt);color:var(--p);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
+        <button onclick="showPage('dashboard')" style="width:40px;height:40px;border-radius:12px;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
         <h2 style="font-size:20px;font-weight:800">Pengaturan</h2>
       </div>
       <div class="chart-card" style="background:#fff;border-radius:16px;padding:20px;margin-bottom:16px;box-shadow:0 2px 12px rgba(0,0,0,.04);border:1px solid var(--border)">
@@ -3390,7 +3357,7 @@ window.addEventListener('resize', () => {
       const w = (appData.warga || []).find(x => x.id === d.id);
       if (w && Date.now() - d.t < 7 * 864e5) {
         currentUser = w;
-        enterApp();
+        doLogin();
         showToast('Selamat datang kembali!', 'info');
         return;
       }
@@ -3409,8 +3376,8 @@ $('loginPin').addEventListener('keypress', e => {
   if (e.key === 'Enter') doLogin();
 });
 
-window.addEventListener('online', () => updateSyncStatus(true));
-window.addEventListener('offline', () => updateSyncStatus(false));
+window.addEventListener('online', () => showToast('Online', 'info'));
+window.addEventListener('offline', () => showToast('Offline', 'error'));
 </script>
 </body>
 </html>
