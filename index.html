@@ -6,6 +6,7 @@
 <title>Portal Saung Kebun RT 11 RW 44</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+/* CSS SAMA SEPERTI SEBELUMNYA */
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--p:#7C3AED;--pd:#6D28D9;--pdd:#5B21B6;--pt:#EDE9FE;--pt2:#F5F3FF;--ink:#1F2937;--ink2:#374151;--muted:#6B7280;--muted2:#9CA3AF;--line:#E5E7EB;--line2:#F3F4F6;--bg:#F4F4F8;--card:#fff;--green:#10B981;--red:#EF4444;--blue:#3B82F6;--sbw:260px}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
@@ -84,26 +85,20 @@ button{font-family:inherit;cursor:pointer}input,select,textarea{font-family:inhe
 
 .back-bar{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid var(--line)}
 .back-bar h2{font-size:22px;font-weight:800;color:var(--ink);flex:1;display:flex;align-items:center;gap:10px}
-.back-bar .btn-back{display:flex;align-items:center;gap:6px}
 
 .card{background:var(--card);border-radius:16px;padding:22px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.04);border:1px solid #ECECF3}
 .card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px}
 .card-header h3{font-size:17px;font-weight:700;display:flex;align-items:center;gap:8px}
-.card-header .link{font-size:13px;color:var(--pd);font-weight:700;cursor:pointer}
 .section-title{font-size:15px;font-weight:800;color:var(--ink);margin:20px 0 12px;display:flex;align-items:center;gap:8px}
 .section-title::before{content:"";width:4px;height:18px;background:linear-gradient(180deg,var(--p),var(--pdd));border-radius:3px}
-.form-box{border:1px dashed #C4B5FD;border-radius:14px;padding:16px;background:var(--pt2);margin-bottom:16px}
 
 .finance-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .finance-item{padding:16px;border-radius:12px;border:1px solid transparent}
 .finance-item.green{background:#F0FDF4;border-color:#BBF7D0}
 .finance-item.blue{background:#EFF6FF;border-color:#BFDBFE}
-.finance-item.orange{background:#FFF7ED;border-color:#FED7AA}
-.finance-item.purple{background:var(--pt);border-color:#DDD6FE}
 .finance-item.red{background:#FEF2F2;border-color:#FECACA}
 .finance-item .label{font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase;margin-bottom:6px}
 .finance-item .value{font-size:20px;font-weight:800;color:var(--ink)}
-.finance-item .icon-wrap{margin-top:8px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.7);border-radius:8px}
 
 .menu-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
 .menu-box{display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 8px;background:#fff;border:1px solid var(--line);border-radius:14px;cursor:pointer;transition:all .2s}
@@ -116,145 +111,55 @@ button{font-family:inherit;cursor:pointer}input,select,textarea{font-family:inhe
 .mi-3{background:linear-gradient(135deg,#EDE9FE,#DDD6FE)}
 .mi-4{background:linear-gradient(135deg,#FEE2E2,#FECACA)}
 .mi-5{background:linear-gradient(135deg,#FEF3C7,#FDE68A)}
-.mi-6{background:linear-gradient(135deg,#FCE7F3,#FBCFE8)}
-.mi-7{background:linear-gradient(135deg,#CCFBF1,#99F6E4)}
-.mi-8{background:linear-gradient(135deg,#E0E7FF,#C7D2FE)}
-.mi-9{background:linear-gradient(135deg,#FED7AA,#FDBA74)}
 
 .data-item{display:flex;align-items:center;gap:13px;padding:14px;border:1px solid var(--line);border-radius:14px;margin-bottom:10px;background:#fff;transition:all .18s}
 .data-item:hover{box-shadow:0 6px 16px rgba(0,0,0,.07);border-color:#C4B5FD}
 .data-avatar{width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,var(--p),var(--pd));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;flex-shrink:0}
 .data-info{flex:1;min-width:0}
-.data-info .name{font-size:14.5px;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.data-info .detail{font-size:12px;color:var(--muted2);margin-top:2px;line-height:1.5}
-.data-info .detail b{color:var(--ink2);font-weight:600}
-.data-actions{display:flex;gap:6px;flex-shrink:0}
+.data-info .name{font-size:14.5px;font-weight:700;color:var(--ink)}
+.data-info .detail{font-size:12px;color:var(--muted2);margin-top:2px}
 .data-actions button{padding:7px 11px;border:none;border-radius:9px;font-size:13px;font-weight:700}
 .btn-edit{background:#EDE9FE;color:var(--pdd)}
-.btn-edit:hover{background:#DDD6FE}
-.btn-del{background:#FEE2E2;color:#DC2626}
-.pin-tag{font-size:9.5px;color:var(--green);font-weight:800;background:#D1FAE5;padding:2px 7px;border-radius:8px}
 
 .badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700}
 .b-green{background:#D1FAE5;color:#065F46}
-.b-yellow{background:#FEF3C7;color:#92400E}
 .b-red{background:#FEE2E2;color:#991B1B}
-.b-blue{background:#DBEAFE;color:#1E40AF}
-.b-gray{background:#F1F5F9;color:#475569}
-.b-purple{background:var(--pt);color:var(--pdd)}
+.b-yellow{background:#FEF3C7;color:#92400E}
 
 .row-item{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--line2)}
-.row-item:last-child{border-bottom:none}
 .row-item .ri-title{font-size:14px;font-weight:600}
 .row-item .ri-meta{font-size:12px;color:var(--muted2);margin-top:2px}
 .row-item .ri-amt{font-weight:800;font-size:14.5px}
 .amt-in{color:var(--green)}.amt-out{color:var(--red)}
 
 .voting-option{padding:11px 14px;background:#FAFAFF;border:2px solid var(--line);border-radius:11px;margin-bottom:7px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
-.voting-option:hover{border-color:var(--p);background:var(--pt)}
-.vbar{height:7px;background:#E5E7EB;border-radius:4px;overflow:hidden;margin:0 0 9px}
-.vbar>div{height:100%;background:linear-gradient(90deg,var(--p),var(--pd));transition:width .6s}
-
 .progress{height:10px;background:#E5E7EB;border-radius:5px;overflow:hidden;margin-top:10px}
 .progress>div{height:100%;background:linear-gradient(90deg,var(--p),var(--pd));transition:width .8s}
+
+.action-row{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.action-btn{flex:1;min-width:110px;padding:12px;border:none;border-radius:11px;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;gap:6px;background:var(--p);color:#fff}
 
 .empty{text-align:center;padding:46px 20px;color:var(--muted2)}
 .empty-icon{font-size:50px;margin-bottom:12px;opacity:.45}
 
-.toast{position:fixed;top:22px;left:50%;transform:translateX(-50%) translateY(-130px);background:var(--pd);color:#fff;padding:14px 24px;border-radius:13px;font-size:14px;font-weight:700;z-index:4000;opacity:0;transition:all .4s;box-shadow:0 14px 30px rgba(0,0,0,.25);max-width:90vw;text-align:center}
+.toast{position:fixed;top:22px;left:50%;transform:translateX(-50%) translateY(-130px);background:var(--pd);color:#fff;padding:14px 24px;border-radius:13px;font-size:14px;font-weight:700;z-index:4000;opacity:0;transition:all .4s}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-.toast.error{background:var(--red)}.toast.info{background:var(--blue)}
-
-.modal{position:fixed;inset:0;background:rgba(15,23,42,.55);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;z-index:1000;padding:18px}
-.modal.active{display:flex}
-.modal-content{background:#fff;border-radius:22px;padding:24px;max-width:560px;width:100%;max-height:88vh;overflow-y:auto;animation:ms .3s}
-@keyframes ms{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
-.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
-.modal-header h3{font-size:18px;font-weight:800}
-.modal-close{background:var(--line2);border:none;width:34px;height:34px;border-radius:50%;font-size:17px;color:var(--ink2)}
-
-.info-box{background:var(--pt);border:1px solid #DDD6FE;border-radius:14px;padding:16px;margin-bottom:16px}
-.info-box.green{background:#F0FDF4;border-color:#BBF7D0}
-.info-box-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px}
-.info-box-header h4{font-size:14px;font-weight:700}
-.info-box-header button{background:#fff;border:1px solid #DDD6FE;padding:6px 12px;border-radius:8px;font-size:11px;font-weight:700;color:var(--pd)}
-.bank-info{background:#fff;border-radius:10px;padding:12px 14px;border:1px solid #DDD6FE}
-.bank-info .bn{font-size:12px;color:var(--muted)}
-.bank-info .acc{font-size:17px;font-weight:800;font-family:'Courier New',monospace}
-.bank-info .an{font-size:12px;color:var(--muted);margin-top:3px}
-.info-box .note{font-size:11.5px;color:var(--muted);margin-top:8px}
-
-.search-box{position:relative;margin-bottom:14px}
-.search-box input{width:100%;padding:12px 16px 12px 44px;border:2px solid var(--line);border-radius:12px;font-size:14px}
-.search-box input:focus{outline:none;border-color:var(--p)}
-.search-box .si{position:absolute;left:15px;top:50%;transform:translateY(-50%);font-size:17px;opacity:.5}
-
-.filter-row{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
-.filter-row select{flex:1;min-width:140px;padding:11px 12px;border:2px solid var(--line);border-radius:11px;font-size:13px;background:#fff}
-.action-row{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
-.action-btn{flex:1;min-width:110px;padding:12px;border:none;border-radius:11px;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;gap:6px}
-.action-btn:active{transform:scale(.96)}
-.action-btn.add{background:linear-gradient(135deg,var(--p),var(--pd));color:#fff}
-.action-btn.reset{background:var(--line2);color:var(--ink2)}
-.action-btn.pdf{background:var(--red);color:#fff}
-
-.photo-upload-area{border:2px dashed #C4B5FD;border-radius:12px;padding:18px;text-align:center;cursor:pointer;background:#fff}
-.photo-upload-area:hover{border-color:var(--p);background:var(--pt2)}
-.photo-upload-area input{display:none}
-.photo-upload-area .ui{font-size:30px;margin-bottom:6px}
-.photo-upload-area .ut{font-size:13px;color:var(--muted);font-weight:600}
-.photo-preview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:10px;margin-top:12px}
-.photo-preview-item{position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;border:2px solid var(--line)}
-.photo-preview-item img{width:100%;height:100%;object-fit:cover;cursor:pointer}
-.photo-preview-item .rp{position:absolute;top:4px;right:4px;width:24px;height:24px;background:var(--red);color:#fff;border:none;border-radius:50%;font-size:13px;font-weight:700}
-.photo-count{font-size:11px;color:var(--muted);margin-top:8px;font-weight:600}
-
-.kegiatan-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:14px;transition:all .2s}
-.kegiatan-card:hover{box-shadow:0 6px 16px rgba(0,0,0,.08);border-color:#C4B5FD}
-.kegiatan-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px}
-.kegiatan-header h4{font-size:16px;font-weight:800;color:var(--ink);flex:1}
-.kegiatan-meta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:10px;font-size:12px;color:var(--muted)}
-.kegiatan-meta span{display:flex;align-items:center;gap:4px}
-.kegiatan-desc{font-size:13px;color:var(--ink2);line-height:1.6;margin-bottom:12px}
-.dokumentasi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px;margin-top:10px}
-.dokumentasi-item{position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;border:2px solid var(--line);cursor:pointer}
-.dokumentasi-item img{width:100%;height:100%;object-fit:cover;transition:transform .2s}
-.dokumentasi-item:hover img{transform:scale(1.05)}
-
-.riwayat-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
-.riwayat-stat{padding:12px;border-radius:12px;text-align:center}
-.riwayat-stat .rv{font-size:18px;font-weight:800}
-.riwayat-stat .rl{font-size:10px;color:var(--muted);font-weight:700;text-transform:uppercase;margin-top:2px}
-.riwayat-stat.green{background:#F0FDF4;border:1px solid #BBF7D0}
-.riwayat-stat.yellow{background:#FFFBEB;border:1px solid #FDE68A}
-.riwayat-stat.red{background:#FEF2F2;border:1px solid #FECACA}
 
 .page{display:none}
 .page.active{display:block;animation:fadein .25s}
 @keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
-.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;z-index:6000;padding:20px}
-.lightbox.active{display:flex}
-.lightbox img{max-width:100%;max-height:88vh;border-radius:14px}
-.lightbox .lb-close{position:absolute;top:18px;right:18px;background:#fff;border:none;padding:10px 18px;border-radius:10px;font-weight:800}
-
 .loading{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:5000;flex-direction:column}
 .spinner{width:50px;height:50px;border:4px solid var(--pt);border-top-color:var(--p);border-radius:50%;animation:sp .9s linear infinite}
 @keyframes sp{to{transform:rotate(360deg)}}
 
-.sync-status{position:fixed;bottom:90px;right:20px;background:#fff;padding:8px 14px;border-radius:20px;font-size:12px;font-weight:600;box-shadow:0 4px 12px rgba(0,0,0,.1);display:flex;align-items:center;gap:6px;z-index:100}
-.sync-status .dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
-.sync-status.offline .dot{background:var(--red)}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
-
 .bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);z-index:100;box-shadow:0 -4px 16px rgba(0,0,0,.06);padding:6px 0 calc(6px + env(safe-area-inset-bottom))}
 .bottom-nav-inner{display:grid;grid-template-columns:repeat(6,1fr);gap:2px;max-width:600px;margin:0 auto}
-.bottom-nav button{background:none;border:none;padding:4px 2px;color:var(--muted);font-size:9px;font-weight:600;display:flex;flex-direction:column;align-items:center;gap:2px;transition:all .15s;cursor:pointer;min-height:50px;justify-content:center}
+.bottom-nav button{background:none;border:none;padding:4px 2px;color:var(--muted);font-size:9px;font-weight:600;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer}
 .bottom-nav button.active{color:var(--p)}
-.bottom-nav button .ni{width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.bottom-nav button .ni{width:28px;height:28px;display:flex;align-items:center;justify-content:center}
 .bottom-nav button .ni .svg-icon{width:22px;height:22px}
 .bottom-nav button.logout-btn{color:var(--red)}
-.bottom-nav button.logout-btn .ni{background:#FEE2E2;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center}
 
 @media(max-width:1023px){
   .app{grid-template-columns:1fr}
@@ -265,41 +170,21 @@ button{font-family:inherit;cursor:pointer}input,select,textarea{font-family:inhe
   .content{padding:16px 14px 100px}
   .finance-grid{grid-template-columns:1fr 1fr}
   .menu-grid{grid-template-columns:repeat(3,1fr)}
-  .header{padding:16px}
-  .header-left h1{font-size:18px}
-  .header-left p{font-size:12px}
-  .back-bar h2{font-size:18px}
-  .sync-status{bottom:80px;right:10px;font-size:10px;padding:6px 10px}
 }
 @media(max-width:500px){
   .finance-grid{grid-template-columns:1fr}
   .menu-grid{grid-template-columns:repeat(2,1fr)}
   .form-row{grid-template-columns:1fr}
-  .riwayat-stats{grid-template-columns:1fr}
-  .login-container{padding:28px 20px}
-  .bottom-nav-inner{grid-template-columns:repeat(6,1fr)}
-  .bottom-nav button{font-size:8px;padding:3px 1px;min-height:46px}
-  .bottom-nav button .ni{width:24px;height:24px}
-  .bottom-nav button .ni .svg-icon{width:18px;height:18px}
 }
 @media(min-width:1024px){
-  .bottom-nav{display:none!important}
-  .hamburger{display:none!important}
-  .sidebar-overlay{display:none!important}
-}
-@media print{
-  .sidebar,.bottom-nav,.notif-btn,.action-row,.filter-row,.search-box,.info-box,.data-actions,.toast,.modal,.form-box,.back-bar,.sync-status,.hamburger{display:none!important}
-  body,.app,.content{background:#fff!important}
-  .header{background:#fff!important;color:#000!important;border-bottom:2px solid #000;padding:0 0 12px!important}
-  .header::before{display:none}
-  .card,.kegiatan-card{box-shadow:none!important;border:1px solid #ddd!important;break-inside:avoid}
-  .content{padding:0!important;max-width:100%!important}
+  .bottom-nav,.hamburger,.sidebar-overlay{display:none!important}
 }
 </style>
 </head>
 <body>
 
 <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <!-- ICON DEFINITIONS SAMA SEPERTI SEBELUMNYA -->
   <defs>
     <symbol id="icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></symbol>
     <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
@@ -316,20 +201,19 @@ button{font-family:inherit;cursor:pointer}input,select,textarea{font-family:inhe
     <symbol id="icon-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></symbol>
     <symbol id="icon-logout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></symbol>
     <symbol id="icon-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></symbol>
-    <symbol id="icon-house" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></symbol>
     <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
   </defs>
 </svg>
 
+<!-- HALAMAN LOGIN -->
 <div class="login-page" id="loginPage">
   <div class="login-container">
     <div class="login-logo">
-      <!-- GANTI src DI BAWAH INI DENGAN URL GAMBAR LOGO ANDA -->
-      <img src="https://via.placeholder.com/84x84/7C3AED/FFFFFF?text=LOGO" alt="Logo Saung Kebun">
+      <img src="https://via.placeholder.com/84x84/7C3AED/FFFFFF?text=RT11" alt="Logo">
     </div>
     <div class="login-header">
       <h1>Portal Saung Kebun</h1>
-      <p>RT 11 / RW 44 — Sistem Rukun Tetangga Digital</p>
+      <p>RT 11 / RW 44 — Sistem Terpadu</p>
     </div>
     <div class="form-group">
       <label>Pilih Akun Warga</label>
@@ -338,22 +222,16 @@ button{font-family:inherit;cursor:pointer}input,select,textarea{font-family:inhe
       </select>
     </div>
     <div class="form-group">
-      <label>PIN (4 digit)</label>
-      <input type="password" id="loginPin" placeholder="Masukkan PIN" maxlength="4" inputmode="numeric" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
-    </div>
-    <div class="form-group">
-      <label class="check-label">
-        <input type="checkbox" id="rememberMe" checked> Ingat saya (auto-login 7 hari)
-      </label>
+      <label>PIN (Gunakan 1234)</label>
+      <input type="password" id="loginPin" placeholder="Masukkan PIN" maxlength="4">
     </div>
     <button class="btn btn-primary btn-block" onclick="doLogin()">Masuk ke Portal</button>
-    <button class="btn btn-danger btn-block" style="margin-top:10px" onclick="resetData()">Reset Data</button>
-    <button class="btn btn-secondary btn-block" style="margin-top:10px" onclick="showHelp()">Bantuan</button>
-    <div class="login-footer">PIN default: <b>1234</b> · Data tersimpan aman di Firebase Cloud</div>
   </div>
 </div>
 
+<!-- APLIKASI UTAMA -->
 <div class="app" id="app" style="display:none">
+  <!-- HEADER -->
   <div class="header">
     <div class="header-left">
       <button class="hamburger" onclick="toggleSidebar()">
@@ -362,137 +240,286 @@ button{font-family:inherit;cursor:pointer}input,select,textarea{font-family:inhe
       <div>
         <h1 id="hRole">—</h1>
         <p id="hName">—</p>
-        <div class="loc">Saung Kebun · RT 11 / RW 44</div>
       </div>
     </div>
-    <button class="notif-btn" onclick="showNotif()">
+    <button class="notif-btn" onclick="showToast('Tidak ada notifikasi baru')">
       <svg class="svg-icon" style="color:#fff"><use href="#icon-bell"/></svg>
-      <span class="badge" id="notifBadge">0</span>
     </button>
   </div>
 
   <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
 
+  <!-- SIDEBAR -->
   <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
-      <h2>
-        <img src="https://via.placeholder.com/28x28/7C3AED/FFFFFF?text=L" alt="Logo">
-        Saung Kebun
-      </h2>
+      <h2>Saung Kebun</h2>
       <p>RT 11 / RW 44</p>
     </div>
     <div class="sidebar-menu">
-      <div class="menu-item active" data-page="home" onclick="showPage('home',this)"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-home"/></svg></span><span>Beranda</span></div>
-      <div class="menu-item" data-page="warga" onclick="showPage('warga',this)"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-users"/></svg></span><span>Warga</span></div>
-      <div class="menu-item" data-page="iuran" onclick="showPage('iuran',this)"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-check"/></svg></span><span>Iuran</span></div>
-      <div class="menu-item" data-page="keuangan" onclick="showPage('keuangan',this)"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-money"/></svg></span><span>Keuangan</span></div>
-      <div class="menu-item" data-page="setoran" onclick="showPage('setoran',this)"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-upload"/></svg></span><span>Setoran</span></div>
-      <div class="menu-item" data-page="pengumuman" onclick="showPage('pengumuman',this)"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-megaphone"/></svg></span><span>Pengumuman</span></div>
-      <div class="menu-item" data-page="kegiatan" onclick="showPage('kegiatan',this)"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-calendar"/></svg></span><span>Kegiatan</span></div>
-      <div class="menu-item" data-page="pengaduan" onclick="showPage('pengaduan',this)"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-alert"/></svg></span><span>Pengaduan</span></div>
-      <div class="menu-item" data-page="ronda" onclick="showPage('ronda',this)"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-shield"/></svg></span><span>Ronda</span></div>
-      <div class="menu-item" data-page="surat" onclick="showPage('surat',this)"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-mail"/></svg></span><span>Surat</span></div>
-      <div class="menu-item" data-page="tamu" onclick="showPage('tamu',this)"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-person"/></svg></span><span>Tamu</span></div>
-      <div class="menu-item" data-page="voting" onclick="showPage('voting',this)"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-vote"/></svg></span><span>Voting</span></div>
-      <div class="menu-item" data-page="pengaturan" onclick="showPage('pengaturan',this)"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-settings"/></svg></span><span>Pengaturan</span></div>
-      
-      <div class="menu-item logout-item" onclick="logout()">
-        <span class="icon-wrap"><svg class="svg-icon"><use href="#icon-logout"/></svg></span>
-        <span>Keluar</span>
-      </div>
+      <div class="menu-item active" data-page="home" onclick="showPage('home')"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-home"/></svg></span><span>Beranda</span></div>
+      <div class="menu-item" data-page="warga" onclick="showPage('warga')"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-users"/></svg></span><span>Warga</span></div>
+      <div class="menu-item" data-page="iuran" onclick="showPage('iuran')"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-check"/></svg></span><span>Iuran</span></div>
+      <div class="menu-item" data-page="keuangan" onclick="showPage('keuangan')"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-money"/></svg></span><span>Keuangan</span></div>
+      <div class="menu-item" data-page="setoran" onclick="showPage('setoran')"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-upload"/></svg></span><span>Setoran</span></div>
+      <div class="menu-item" data-page="pengumuman" onclick="showPage('pengumuman')"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-megaphone"/></svg></span><span>Pengumuman</span></div>
+      <div class="menu-item" data-page="kegiatan" onclick="showPage('kegiatan')"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-calendar"/></svg></span><span>Kegiatan</span></div>
+      <div class="menu-item" data-page="pengaduan" onclick="showPage('pengaduan')"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-alert"/></svg></span><span>Pengaduan</span></div>
+      <div class="menu-item" data-page="ronda" onclick="showPage('ronda')"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-shield"/></svg></span><span>Ronda</span></div>
+      <div class="menu-item" data-page="surat" onclick="showPage('surat')"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-mail"/></svg></span><span>Surat</span></div>
+      <div class="menu-item" data-page="tamu" onclick="showPage('tamu')"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-person"/></svg></span><span>Tamu</span></div>
+      <div class="menu-item" data-page="voting" onclick="showPage('voting')"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-vote"/></svg></span><span>Voting</span></div>
+      <div class="menu-item" data-page="pengaturan" onclick="showPage('pengaturan')"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-settings"/></svg></span><span>Pengaturan</span></div>
+      <div class="menu-item logout-item" onclick="logout()"><span class="icon-wrap"><svg class="svg-icon"><use href="#icon-logout"/></svg></span><span>Keluar</span></div>
     </div>
   </div>
 
-  <!-- AREA KONTEN UTAMA -->
+  <!-- KONTEN UTAMA -->
   <div class="content" id="mainContent">
     
-    <!-- HALAMAN BERANDA -->
+    <!-- BERANDA -->
     <div class="page active" id="page-home">
-      <div class="back-bar">
-        <h2>Beranda</h2>
-      </div>
-      
+      <div class="back-bar"><h2>Beranda</h2></div>
       <div class="finance-grid">
         <div class="finance-item blue">
-          <div class="label">Total Kas RT</div>
-          <div class="value">Rp 12.500.000</div>
+          <div class="label">Kas RT Terkini</div>
+          <div class="value">Rp 4.500.000</div>
         </div>
         <div class="finance-item green">
-          <div class="label">Pemasukan Bulan Ini</div>
-          <div class="value">Rp 3.200.000</div>
-        </div>
-        <div class="finance-item red">
-          <div class="label">Pengeluaran Bulan Ini</div>
-          <div class="value">Rp 1.150.000</div>
+          <div class="label">Iuran Terkumpul</div>
+          <div class="value">18 / 40 KK</div>
         </div>
       </div>
-
-      <h3 class="section-title">Menu Akses Cepat</h3>
+      <h3 class="section-title">Akses Cepat</h3>
       <div class="menu-grid">
-        <div class="menu-box" onclick="showPage('warga')">
-          <div class="mi mi-1"><svg class="svg-icon" style="color:#1E40AF"><use href="#icon-users"/></svg></div>
-          <span>Warga</span>
-        </div>
-        <div class="menu-box" onclick="showPage('iuran')">
-          <div class="mi mi-2"><svg class="svg-icon" style="color:#065F46"><use href="#icon-check"/></svg></div>
-          <span>Iuran</span>
-        </div>
-        <div class="menu-box" onclick="showPage('pengumuman')">
-          <div class="mi mi-3"><svg class="svg-icon" style="color:#5B21B6"><use href="#icon-megaphone"/></svg></div>
-          <span>Info</span>
-        </div>
-        <div class="menu-box" onclick="showPage('ronda')">
-          <div class="mi mi-4"><svg class="svg-icon" style="color:#991B1B"><use href="#icon-shield"/></svg></div>
-          <span>Ronda</span>
-        </div>
-        <div class="menu-box" onclick="showPage('surat')">
-          <div class="mi mi-5"><svg class="svg-icon" style="color:#92400E"><use href="#icon-mail"/></svg></div>
-          <span>Surat</span>
-        </div>
-      </div>
-
-      <h3 class="section-title">Pengumuman Terbaru</h3>
-      <div class="card">
-        <div class="empty">
-          <div class="empty-icon">📢</div>
-          <p>Belum ada pengumuman terbaru minggu ini.</p>
-        </div>
+        <div class="menu-box" onclick="showPage('warga')"><div class="mi mi-1"><svg class="svg-icon" style="color:#1E40AF"><use href="#icon-users"/></svg></div><span>Warga</span></div>
+        <div class="menu-box" onclick="showPage('iuran')"><div class="mi mi-2"><svg class="svg-icon" style="color:#065F46"><use href="#icon-check"/></svg></div><span>Iuran</span></div>
+        <div class="menu-box" onclick="showPage('pengumuman')"><div class="mi mi-3"><svg class="svg-icon" style="color:#5B21B6"><use href="#icon-megaphone"/></svg></div><span>Info</span></div>
+        <div class="menu-box" onclick="showPage('ronda')"><div class="mi mi-4"><svg class="svg-icon" style="color:#991B1B"><use href="#icon-shield"/></svg></div><span>Ronda</span></div>
       </div>
     </div>
 
-    <!-- HALAMAN PLACEHOLDER -->
+    <!-- WARGA -->
     <div class="page" id="page-warga">
       <div class="back-bar"><h2>Data Warga</h2></div>
+      <div class="action-row">
+        <button class="action-btn" onclick="showToast('Tambah warga belum tersedia')">+ Tambah Warga</button>
+      </div>
       <div class="card">
-        <div class="empty"><div class="empty-icon">👥</div><p>Modul Data Warga sedang dikembangkan.</p></div>
+        <div class="data-item">
+          <div class="data-avatar">BS</div>
+          <div class="data-info">
+            <div class="name">Budi Santoso <span class="badge b-blue">Ketua RT</span></div>
+            <div class="detail">Blok A No. 1 • 08123456789</div>
+          </div>
+          <div class="data-actions"><button class="btn-edit" onclick="showToast('Edit data')">Edit</button></div>
+        </div>
+        <div class="data-item">
+          <div class="data-avatar">SA</div>
+          <div class="data-info">
+            <div class="name">Siti Aminah <span class="badge b-green">Bendahara</span></div>
+            <div class="detail">Blok A No. 2 • 08987654321</div>
+          </div>
+          <div class="data-actions"><button class="btn-edit" onclick="showToast('Edit data')">Edit</button></div>
+        </div>
       </div>
     </div>
 
+    <!-- IURAN -->
     <div class="page" id="page-iuran">
-      <div class="back-bar"><h2>Iuran Bulanan</h2></div>
+      <div class="back-bar"><h2>Iuran Warga (Bulan Ini)</h2></div>
       <div class="card">
-        <div class="empty"><div class="empty-icon">💰</div><p>Modul Iuran Warga sedang dikembangkan.</p></div>
+        <div class="row-item">
+          <div>
+            <div class="ri-title">Blok A No. 1 - Budi Santoso</div>
+            <div class="ri-meta">Dibayar: 2 Okt 2023</div>
+          </div>
+          <div class="ri-amt amt-in"><span class="badge b-green">Lunas</span></div>
+        </div>
+        <div class="row-item">
+          <div>
+            <div class="ri-title">Blok B No. 5 - Ahmad Dahlan</div>
+            <div class="ri-meta">Belum ada pembayaran</div>
+          </div>
+          <div class="ri-amt amt-out"><span class="badge b-red">Belum Lunas</span></div>
+        </div>
       </div>
     </div>
-    
+
+    <!-- KEUANGAN -->
+    <div class="page" id="page-keuangan">
+      <div class="back-bar"><h2>Laporan Keuangan</h2></div>
+      <div class="finance-grid" style="margin-bottom:16px;">
+        <div class="finance-item green"><div class="label">Pemasukan</div><div class="value">Rp 2.000.000</div></div>
+        <div class="finance-item red"><div class="label">Pengeluaran</div><div class="value">Rp 500.000</div></div>
+      </div>
+      <div class="card">
+        <h3 class="section-title">Riwayat Transaksi</h3>
+        <div class="row-item">
+          <div>
+            <div class="ri-title">Iuran Bulanan (Kolektif)</div>
+            <div class="ri-meta">5 Okt 2023</div>
+          </div>
+          <div class="ri-amt amt-in">+ Rp 1.500.000</div>
+        </div>
+        <div class="row-item">
+          <div>
+            <div class="ri-title">Perbaikan Lampu Jalan</div>
+            <div class="ri-meta">3 Okt 2023</div>
+          </div>
+          <div class="ri-amt amt-out">- Rp 250.000</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SETORAN -->
+    <div class="page" id="page-setoran">
+      <div class="back-bar"><h2>Setoran Iuran</h2></div>
+      <div class="card">
+        <div class="form-group">
+          <label>Jenis Setoran</label>
+          <select><option>Iuran Bulanan Wajib (Rp 50.000)</option><option>Iuran Sampah</option></select>
+        </div>
+        <div class="form-group">
+          <label>Unggah Bukti Transfer</label>
+          <div style="border:2px dashed var(--line); border-radius:10px; padding:20px; text-align:center; color:var(--muted)">
+            Klik untuk memilih foto (Fitur mock-up)
+          </div>
+        </div>
+        <button class="btn btn-primary btn-block" onclick="showToast('Setoran berhasil diajukan!')">Kirim Setoran</button>
+      </div>
+    </div>
+
+    <!-- PENGUMUMAN -->
+    <div class="page" id="page-pengumuman">
+      <div class="back-bar"><h2>Pengumuman RT</h2></div>
+      <div class="card">
+        <div class="section-title">Kerja Bakti Rutin</div>
+        <p style="font-size:14px; color:var(--ink2); line-height:1.5;">Diberitahukan kepada seluruh warga RT 11, akan diadakan kerja bakti membersihkan selokan pada hari Minggu, 15 Okt 2023. Mohon partisipasinya.</p>
+        <div style="margin-top:10px; font-size:12px; color:var(--muted)">Diposting oleh: Ketua RT • 2 hari yang lalu</div>
+      </div>
+    </div>
+
+    <!-- KEGIATAN -->
+    <div class="page" id="page-kegiatan">
+      <div class="back-bar"><h2>Agenda & Kegiatan</h2></div>
+      <div class="card">
+        <div class="row-item">
+          <div>
+            <div class="ri-title">Rapat Bulanan Warga</div>
+            <div class="ri-meta">Sabtu, 14 Okt 2023 - 19:30 WIB</div>
+          </div>
+          <div><span class="badge b-blue">Akan Datang</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PENGADUAN -->
+    <div class="page" id="page-pengaduan">
+      <div class="back-bar"><h2>Layanan Pengaduan</h2></div>
+      <div class="card">
+        <div class="form-group">
+          <label>Kategori Masalah</label>
+          <select><option>Fasilitas Umum</option><option>Keamanan</option><option>Lainnya</option></select>
+        </div>
+        <div class="form-group">
+          <label>Deskripsi</label>
+          <textarea placeholder="Ceritakan detail masalah..."></textarea>
+        </div>
+        <button class="btn btn-primary btn-block" onclick="showToast('Pengaduan telah dikirim ke pengurus')">Kirim Laporan</button>
+      </div>
+    </div>
+
+    <!-- RONDA -->
+    <div class="page" id="page-ronda">
+      <div class="back-bar"><h2>Jadwal Ronda Malam</h2></div>
+      <div class="card">
+        <h3 class="section-title">Malam Ini (Kamis)</h3>
+        <div class="data-item">
+          <div class="data-avatar">AD</div>
+          <div class="data-info"><div class="name">Ahmad Dahlan</div><div class="detail">Blok B No. 5</div></div>
+        </div>
+        <div class="data-item">
+          <div class="data-avatar">BS</div>
+          <div class="data-info"><div class="name">Budi Santoso</div><div class="detail">Blok A No. 1</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SURAT -->
+    <div class="page" id="page-surat">
+      <div class="back-bar"><h2>Pengajuan Surat Pengantar</h2></div>
+      <div class="card">
+        <div class="form-group">
+          <label>Keperluan Pembuatan Surat</label>
+          <select>
+            <option>Pengurusan KTP/KK Baru</option>
+            <option>Surat Keterangan Domisili</option>
+            <option>Surat Keterangan Tidak Mampu</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Catatan Tambahan</label>
+          <textarea placeholder="Tuliskan jika ada info tambahan..."></textarea>
+        </div>
+        <button class="btn btn-primary btn-block" onclick="showToast('Permintaan surat berhasil diajukan!')">Minta Surat Pengantar</button>
+      </div>
+    </div>
+
+    <!-- TAMU -->
+    <div class="page" id="page-tamu">
+      <div class="back-bar"><h2>Pelaporan Tamu (1x24 Jam)</h2></div>
+      <div class="card">
+        <div class="form-group"><label>Nama Tamu</label><input type="text" placeholder="Masukkan nama tamu"></div>
+        <div class="form-group"><label>Durasi Menginap (Hari)</label><input type="number" value="1"></div>
+        <button class="btn btn-primary btn-block" onclick="showToast('Tamu berhasil dilaporkan')">Lapor Tamu</button>
+      </div>
+    </div>
+
+    <!-- VOTING -->
+    <div class="page" id="page-voting">
+      <div class="back-bar"><h2>Voting & Jajak Pendapat</h2></div>
+      <div class="card">
+        <h3 style="font-size:16px; margin-bottom:10px;">Pemilihan Warna Cat Pos Kamling</h3>
+        <div class="voting-option" onclick="showToast('Anda memilih opsi ini')">
+          <span>Hijau Daun</span> <span style="font-weight:700">60%</span>
+        </div>
+        <div class="progress"><div style="width:60%"></div></div>
+        
+        <div class="voting-option" style="margin-top:15px" onclick="showToast('Anda memilih opsi ini')">
+          <span>Biru Laut</span> <span style="font-weight:700">40%</span>
+        </div>
+        <div class="progress"><div style="width:40%; background:var(--blue)"></div></div>
+      </div>
+    </div>
+
+    <!-- PENGATURAN -->
+    <div class="page" id="page-pengaturan">
+      <div class="back-bar"><h2>Pengaturan Akun</h2></div>
+      <div class="card">
+        <div class="form-group"><label>Ubah PIN Lama</label><input type="password" placeholder="****"></div>
+        <div class="form-group"><label>PIN Baru</label><input type="password" placeholder="****"></div>
+        <button class="btn btn-primary btn-block" onclick="showToast('Pengaturan disimpan')">Simpan Perubahan</button>
+      </div>
+    </div>
+
   </div>
 
   <!-- NAVIGASI BAWAH UNTUK MOBILE -->
   <div class="bottom-nav">
     <div class="bottom-nav-inner">
-      <button class="active" data-page="home" onclick="showPage('home', this)">
+      <button class="active" data-page="home" onclick="showPage('home')">
         <span class="ni"><svg class="svg-icon"><use href="#icon-home"/></svg></span>Beranda
       </button>
-      <button data-page="warga" onclick="showPage('warga', this)">
+      <button data-page="warga" onclick="showPage('warga')">
         <span class="ni"><svg class="svg-icon"><use href="#icon-users"/></svg></span>Warga
       </button>
-      <button data-page="iuran" onclick="showPage('iuran', this)">
+      <button data-page="iuran" onclick="showPage('iuran')">
         <span class="ni"><svg class="svg-icon"><use href="#icon-check"/></svg></span>Iuran
       </button>
-      <button data-page="pengumuman" onclick="showPage('pengumuman', this)">
+      <button data-page="pengumuman" onclick="showPage('pengumuman')">
         <span class="ni"><svg class="svg-icon"><use href="#icon-megaphone"/></svg></span>Info
       </button>
-      <button data-page="ronda" onclick="showPage('ronda', this)">
+      <button data-page="ronda" onclick="showPage('ronda')">
         <span class="ni"><svg class="svg-icon"><use href="#icon-shield"/></svg></span>Ronda
       </button>
       <button class="logout-btn" onclick="logout()">
@@ -502,27 +529,19 @@ button{font-family:inherit;cursor:pointer}input,select,textarea{font-family:inhe
   </div>
 </div>
 
-<!-- ELEMEN UI GLOBAL (TOAST, SPINNER, SYNC) -->
+<!-- TOAST NOTIFIKASI & LOADING -->
 <div class="toast" id="globalToast">Pesan Notifikasi</div>
-
 <div class="loading" id="loadingScreen" style="display:none;">
   <div class="spinner"></div>
-  <p style="margin-top: 16px; font-weight: 600; color: var(--p);">Memproses...</p>
-</div>
-
-<div class="sync-status" id="syncStatus">
-  <div class="dot"></div> Online
 </div>
 
 <script>
-  // MOCKUP DATA WARGA UNTUK LOGIN
   const mockWarga = [
     { id: "W001", nama: "Budi Santoso", role: "Ketua RT" },
     { id: "W002", nama: "Siti Aminah", role: "Bendahara" },
     { id: "W003", nama: "Ahmad Dahlan", role: "Warga" }
   ];
 
-  // INISIALISASI
   window.onload = () => {
     const loginSelect = document.getElementById('loginWarga');
     loginSelect.innerHTML = '<option value="">-- Pilih Akun Anda --</option>';
@@ -531,23 +550,15 @@ button{font-family:inherit;cursor:pointer}input,select,textarea{font-family:inhe
     });
   };
 
-  // FUNGSI LOGIN
   function doLogin() {
     const userSelect = document.getElementById('loginWarga');
     const pinInput = document.getElementById('loginPin');
     
-    if(!userSelect.value) {
-      showToast("Pilih akun warga terlebih dahulu!", "error");
-      return;
-    }
-    if(pinInput.value !== "1234") {
-      showToast("PIN salah! (Gunakan 1234)", "error");
-      return;
-    }
+    if(!userSelect.value) return showToast("Pilih akun terlebih dahulu!");
+    if(pinInput.value !== "1234") return showToast("PIN salah! (Gunakan 1234)");
 
     const selectedUser = mockWarga.find(w => w.id === userSelect.value);
     
-    // Tampilkan Loading
     document.getElementById('loadingScreen').style.display = 'flex';
     
     setTimeout(() => {
@@ -555,51 +566,37 @@ button{font-family:inherit;cursor:pointer}input,select,textarea{font-family:inhe
       document.getElementById('loginPage').style.display = 'none';
       document.getElementById('app').style.display = 'grid';
 
-      // Set Header Info
       document.getElementById('hRole').innerText = selectedUser.role;
       document.getElementById('hName').innerText = selectedUser.nama;
       
-      showToast("Selamat datang, " + selectedUser.nama, "info");
-    }, 800);
+      showToast("Selamat datang, " + selectedUser.nama);
+    }, 600);
   }
 
-  // FUNGSI LOGOUT
   function logout() {
     document.getElementById('app').style.display = 'none';
     document.getElementById('loginPage').style.display = 'flex';
     document.getElementById('loginPin').value = '';
-    showToast("Berhasil keluar dari portal", "info");
+    showPage('home'); // reset to home upon next login
+    showToast("Berhasil keluar dari portal");
   }
 
-  // FUNGSI NAVIGASI HALAMAN
-  function showPage(pageId, element = null) {
-    // Sembunyikan semua halaman
+  function showPage(pageId) {
+    // Sembunyikan semua page
     document.querySelectorAll('.page').forEach(el => el.classList.remove('active'));
     
-    // Hapus active state dari menu desktop & mobile
+    // Hapus active state dari menu bar
     document.querySelectorAll('.menu-item, .bottom-nav button').forEach(el => el.classList.remove('active'));
     
-    // Tampilkan halaman yang dituju
-    const targetPage = document.getElementById('page-' + pageId);
-    if(targetPage) {
-      targetPage.classList.add('active');
-    } else {
-      // Fallback jika halaman belum dibuat
-      showToast("Halaman sedang dalam pengembangan", "error");
-      document.getElementById('page-home').classList.add('active');
-      pageId = 'home';
-    }
+    // Tampilkan page target
+    const target = document.getElementById('page-' + pageId);
+    if(target) target.classList.add('active');
 
-    // Set active state ke elemen menu yang di-klik
-    if(element) {
-      element.classList.add('active');
-    } else {
-      // Jika dipanggil dari script/menu box, cari menu item yang sesuai
-      const sideMenu = document.querySelector(`.menu-item[data-page="${pageId}"]`);
-      const botMenu = document.querySelector(`.bottom-nav button[data-page="${pageId}"]`);
-      if(sideMenu) sideMenu.classList.add('active');
-      if(botMenu) botMenu.classList.add('active');
-    }
+    // Aktifkan styling di sidebar & bottom nav untuk menu bersangkutan
+    const sideMenu = document.querySelector(`.menu-item[data-page="${pageId}"]`);
+    const botMenu = document.querySelector(`.bottom-nav button[data-page="${pageId}"]`);
+    if(sideMenu) sideMenu.classList.add('active');
+    if(botMenu) botMenu.classList.add('active');
 
     // Tutup sidebar di mobile setelah klik
     if(window.innerWidth <= 1023) {
@@ -608,27 +605,17 @@ button{font-family:inherit;cursor:pointer}input,select,textarea{font-family:inhe
     }
   }
 
-  // FUNGSI SIDEBAR MOBILE
   function toggleSidebar() {
     document.getElementById('sidebar').classList.toggle('open');
     document.getElementById('sidebarOverlay').classList.toggle('active');
   }
 
-  // FUNGSI TOAST NOTIFIKASI
-  function showToast(message, type = "info") {
+  function showToast(message) {
     const toast = document.getElementById('globalToast');
     toast.innerText = message;
-    toast.className = 'toast show ' + type;
-    
-    setTimeout(() => {
-      toast.className = 'toast ' + type;
-    }, 3000);
+    toast.className = 'toast show';
+    setTimeout(() => toast.className = 'toast', 2500);
   }
-
-  // PLACEHOLDER FUNGSI LAINNYA
-  function resetData() { showToast("Data berhasil direset!", "info"); }
-  function showHelp() { showToast("Hubungi Pengurus RT untuk bantuan PIN.", "info"); }
-  function showNotif() { showToast("Tidak ada notifikasi baru", "info"); }
 </script>
 
 </body>
