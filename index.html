@@ -9,19 +9,33 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --primary:#7C3AED;--primary-dark:#6D28D9;--primary-light:#EDE9FE;
-  --secondary:#3B82F6;--success:#10B981;--warning:#F59E0B;
-  --danger:#EF4444;--info:#06B6D4;--dark:#1F2937;--gray:#6B7280;
-  --light-gray:#F3F4F6;--border:#E5E7EB;--bg:#F9FAFB;--card:#FFFFFF;
-  --shadow:0 4px 6px -1px rgba(0,0,0,.1);--shadow-lg:0 10px 15px -3px rgba(0,0,0,.1);
-  --radius:12px;--radius-lg:16px;--sbw:260px;
+  --primary:#7C3AED;
+  --primary-dark:#6D28D9;
+  --primary-light:#EDE9FE;
+  --secondary:#3B82F6;
+  --success:#10B981;
+  --warning:#F59E0B;
+  --danger:#EF4444;
+  --info:#06B6D4;
+  --dark:#1F2937;
+  --gray:#6B7280;
+  --light-gray:#F3F4F6;
+  --border:#E5E7EB;
+  --bg:#F9FAFB;
+  --card:#FFFFFF;
+  --shadow:0 4px 6px -1px rgba(0,0,0,.1);
+  --shadow-lg:0 10px 15px -3px rgba(0,0,0,.1);
+  --radius:12px;
+  --radius-lg:16px;
+  --sbw:260px;
 }
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);line-height:1.6}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);line-height:1.6;overflow-x:hidden}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
 input,select,textarea{font-family:inherit}
-::-webkit-scrollbar{width:6px}::-webkit-scrollbar-thumb{background:#C4B5FD;border-radius:8px}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-thumb{background:#C4B5FD;border-radius:8px}
 
-/* LOGIN PAGE */
+/* LOGIN */
 .login-container{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);padding:20px}
 .login-box{background:white;border-radius:20px;padding:40px;max-width:420px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.3)}
 .login-logo{text-align:center;margin-bottom:30px}
@@ -39,20 +53,16 @@ input,select,textarea{font-family:inherit}
 .btn-danger{background:var(--danger);color:white}
 .btn-success{background:var(--success);color:white}
 .btn-sm{padding:8px 14px;font-size:12px}
-.login-footer{text-align:center;margin-top:20px;padding-top:18px;border-top:1px solid var(--border);font-size:11px;color:var(--gray)}
-.login-footer b{color:var(--primary)}
 
-/* DESKTOP LAYOUT */
-.desktop-layout{display:grid;grid-template-columns:var(--sbw) 1fr;min-height:100vh}
+/* DESKTOP LAYOUT - FIXED */
+.desktop-layout{display:grid;grid-template-columns:var(--sbw) 1fr;min-height:100vh;width:100%}
+
+/* SIDEBAR */
 .sidebar{background:white;border-right:1px solid var(--border);padding:24px 0;position:fixed;left:0;top:0;bottom:0;width:var(--sbw);overflow-y:auto;z-index:100}
 .sidebar-header{padding:0 24px 24px;border-bottom:1px solid var(--border);margin-bottom:16px}
 .sidebar-header h2{font-size:18px;font-weight:800;color:var(--dark);display:flex;align-items:center;gap:12px}
 .sidebar-header h2 i{font-size:28px;color:var(--primary)}
 .sidebar-header p{font-size:12px;color:var(--gray);margin-top:4px;margin-left:40px}
-.user-card{padding:16px 24px;background:var(--primary-light);margin:0 12px 16px;border-radius:12px;display:flex;align-items:center;gap:12px}
-.user-card .avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:white;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px}
-.user-card .info h4{font-size:13px;font-weight:700;color:var(--dark)}
-.user-card .info p{font-size:11px;color:var(--gray)}
 .menu-section{padding:0 12px;margin-bottom:16px}
 .menu-section-title{font-size:11px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;padding:0 12px;margin-bottom:8px}
 .menu-item{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:10px;color:var(--gray);font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;margin-bottom:4px}
@@ -60,9 +70,11 @@ input,select,textarea{font-family:inherit}
 .menu-item.active{background:var(--primary-light);color:var(--primary)}
 .menu-item i{font-size:18px;width:24px;text-align:center}
 .menu-item .badge{margin-left:auto;background:var(--danger);color:white;font-size:11px;padding:2px 8px;border-radius:10px;font-weight:700}
-.menu-item.hidden{display:none}
 
+/* MAIN CONTENT - FIXED */
 .main-desktop{margin-left:var(--sbw);min-height:100vh;display:flex;flex-direction:column;width:calc(100% - var(--sbw))}
+
+/* HEADER */
 .top-header{background:white;padding:20px 28px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:40}
 .user-info{display:flex;align-items:center;gap:16px}
 .user-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-dark));display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:18px}
@@ -72,9 +84,11 @@ input,select,textarea{font-family:inherit}
 .icon-btn{width:42px;height:42px;border-radius:10px;background:var(--light-gray);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--gray);font-size:18px;position:relative;transition:all .2s}
 .icon-btn:hover{background:var(--primary-light);color:var(--primary)}
 .icon-btn .badge{position:absolute;top:-4px;right:-4px;background:var(--danger);color:white;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
+
+/* CONTENT AREA - FIXED */
 .content-area{padding:28px;flex:1;width:100%;overflow-y:auto}
 
-/* STATS & CARDS */
+/* STATS GRID */
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:24px}
 .stat-card{background:white;padding:24px;border-radius:var(--radius-lg);box-shadow:var(--shadow);transition:all .2s}
 .stat-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
@@ -87,8 +101,10 @@ input,select,textarea{font-family:inherit}
 .stat-icon.purple{background:var(--primary-light);color:var(--primary)}
 .stat-value{font-size:28px;font-weight:800;color:var(--dark);margin-bottom:4px}
 .stat-label{font-size:13px;color:var(--gray);font-weight:500}
+
+/* CONTENT CARDS - FIXED */
 .content-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:24px}
-.content-card{background:white;border-radius:var(--radius-lg);box-shadow:var(--shadow);overflow:hidden}
+.content-card{background:white;border-radius:var(--radius-lg);box-shadow:var(--shadow);overflow:hidden;width:100%}
 .card-header{padding:20px 24px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
 .card-header h3{font-size:16px;font-weight:700;color:var(--dark);display:flex;align-items:center;gap:8px}
 .card-header h3 i{color:var(--primary)}
@@ -143,7 +159,7 @@ input,select,textarea{font-family:inherit}
 .search-box input:focus{outline:none;border-color:var(--primary)}
 .filter-select{padding:12px 16px;border:2px solid var(--border);border-radius:10px;font-size:14px;background:white;cursor:pointer}
 
-/* MOBILE */
+/* MOBILE APP */
 .mobile-app{display:none;max-width:480px;margin:0 auto;min-height:100vh;background:#fff;position:relative;overflow:hidden}
 .app-header{position:relative;height:180px;background:linear-gradient(135deg,rgba(124,58,237,.9),rgba(109,40,217,.95));overflow:hidden}
 .app-header::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,.3))}
@@ -166,6 +182,8 @@ input,select,textarea{font-family:inherit}
 .stat-card-mobile .stat-icon-mobile.green{background:#D1FAE5;color:var(--success)}
 .stat-card-mobile .stat-label{font-size:11px;color:var(--gray);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
 .stat-card-mobile .stat-value{font-size:20px;font-weight:800;color:var(--dark);margin-top:4px}
+
+/* BOTTOM NAV */
 .bottom-nav-container{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;z-index:100}
 .bottom-nav{background:#fff;border-top:1px solid var(--border);padding:8px 0 calc(8px + env(safe-area-inset-bottom));box-shadow:0 -4px 20px rgba(0,0,0,.05)}
 .bottom-nav-inner{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;overflow-x:auto;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none}
@@ -175,55 +193,26 @@ input,select,textarea{font-family:inherit}
 .nav-item .nav-icon{width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:20px}
 .nav-item .nav-badge{position:absolute;top:2px;right:50%;transform:translateX(12px);background:var(--danger);color:#fff;width:16px;height:16px;border-radius:50%;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center}
 
-/* ANNOUNCEMENT CARD */
-.announcement-card{background:#fff;border-radius:14px;padding:14px;border:1px solid var(--border);margin-bottom:10px;display:flex;gap:12px;align-items:flex-start;cursor:pointer;transition:all .2s}
-.announcement-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.08);border-color:#C4B5FD;transform:translateY(-1px)}
-.announcement-card .ann-icon{width:40px;height:40px;border-radius:10px;background:var(--primary-light);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.announcement-card .ann-content{flex:1;min-width:0}
-.announcement-card .ann-title{font-size:13px;font-weight:700;color:var(--dark);margin-bottom:4px}
-.announcement-card .ann-meta{font-size:11px;color:var(--gray);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.announcement-card .ann-meta .dot{width:4px;height:4px;border-radius:50%;background:var(--gray)}
-
-/* SECTION */
-.section-header{display:flex;justify-content:space-between;align-items:center;margin:20px 0 12px}
-.section-header h3{font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px}
-.section-header .badge-count{background:var(--danger);color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:800;display:inline-flex;align-items:center;justify-content:center}
-.section-header .link{font-size:12px;color:var(--primary);font-weight:700;cursor:pointer}
-
-/* IURAN BANNER */
-.iuran-banner{background:linear-gradient(135deg,#F97316,#EA580C);border-radius:16px;padding:20px;margin-top:16px;display:flex;align-items:center;justify-content:space-between;color:#fff;position:relative;overflow:hidden;box-shadow:0 8px 20px rgba(249,115,22,.3);cursor:pointer}
-.iuran-banner:hover{transform:translateY(-2px)}
-.iuran-banner::before{content:"";position:absolute;right:-30px;top:-30px;width:150px;height:150px;background:rgba(255,255,255,.1);border-radius:50%}
-.iuran-info{position:relative;z-index:1}
-.iuran-info .label{font-size:11px;opacity:.9;font-weight:600}
-.iuran-info .amount{font-size:24px;font-weight:800;margin-top:6px}
-.iuran-icon{position:relative;z-index:1;font-size:48px;opacity:.9}
-
-/* CHART CARD */
-.chart-card{background:#fff;border-radius:16px;padding:20px;margin-top:16px;box-shadow:0 2px 12px rgba(0,0,0,.04);border:1px solid var(--border)}
-.chart-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-.chart-header h3{font-size:16px;font-weight:700}
-.chart-nav{display:flex;align-items:center;gap:12px}
-.chart-nav button{width:32px;height:32px;border-radius:10px;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;cursor:pointer}
-.chart-nav span{font-size:14px;font-weight:700;min-width:120px;text-align:center}
-.bar-chart{display:flex;align-items:flex-end;justify-content:space-around;height:160px;padding:10px 0;border-bottom:1px solid var(--border);margin-bottom:12px}
-.bar-group{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1}
-.bar-pair{display:flex;gap:4px;align-items:flex-end;height:130px}
-.bar{width:14px;border-radius:6px 6px 0 0;transition:all .3s}
-.bar.income{background:var(--secondary)}
-.bar.expense{background:var(--dark)}
-.bar-label{font-size:9px;color:var(--gray);font-weight:600}
-.chart-legend{display:flex;justify-content:center;gap:20px;margin-top:12px}
-.legend-item{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--gray);font-weight:600}
-.legend-dot{width:10px;height:10px;border-radius:50%}
-.legend-dot.income{background:var(--secondary)}
-.legend-dot.expense{background:var(--dark)}
-
 /* RESPONSIVE */
-@media(max-width:1024px){.desktop-layout{display:none}.mobile-app{display:block}.bottom-nav-container{display:block}}
-@media(min-width:1025px){.mobile-app{display:none}.bottom-nav-container{display:none}.desktop-layout{display:grid}}
-@media(max-width:768px){.stats-grid{grid-template-columns:repeat(2,1fr)}.content-grid{grid-template-columns:1fr}.content-area{padding:16px}}
-@media(max-width:480px){.stats-grid{grid-template-columns:1fr}.stat-card .stat-value{font-size:22px}}
+@media(max-width:1024px){
+  .desktop-layout{display:none}
+  .mobile-app{display:block}
+  .bottom-nav-container{display:block}
+}
+@media(min-width:1025px){
+  .mobile-app{display:none}
+  .bottom-nav-container{display:none}
+  .desktop-layout{display:grid}
+}
+@media(max-width:768px){
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .content-grid{grid-template-columns:1fr}
+  .content-area{padding:16px}
+}
+@media(max-width:480px){
+  .stats-grid{grid-template-columns:1fr}
+  .stat-card .stat-value{font-size:22px}
+}
 </style>
 </head>
 <body>
@@ -237,13 +226,13 @@ input,select,textarea{font-family:inherit}
       <p>Saung Kebun RT 11 RW 44</p>
     </div>
     <div class="form-group">
-      <label><i class="fas fa-user"></i> Pilih Akun Warga</label>
+      <label>Pilih Akun Warga</label>
       <select class="form-control" id="loginWarga">
         <option value="">— Memuat data —</option>
       </select>
     </div>
     <div class="form-group">
-      <label><i class="fas fa-lock"></i> PIN (4 digit)</label>
+      <label>PIN (4 digit)</label>
       <input type="password" class="form-control" id="loginPin" placeholder="Masukkan PIN" maxlength="4">
     </div>
     <button class="btn btn-primary" onclick="doLogin()">
@@ -254,110 +243,121 @@ input,select,textarea{font-family:inherit}
         <i class="fas fa-question-circle"></i> Bantuan
       </button>
     </div>
-    <div class="login-footer">
-      PIN default: <strong>1234</strong> · Setiap warga punya akun sendiri
+    <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--border);text-align:center;font-size:12px;color:var(--gray)">
+      PIN default: <strong style="color:var(--primary)">1234</strong>
     </div>
   </div>
 </div>
 
 <!-- DESKTOP LAYOUT -->
 <div class="desktop-layout" id="desktopLayout" style="display:none">
+  <!-- Sidebar -->
   <div class="sidebar">
     <div class="sidebar-header">
       <h2><i class="fas fa-home"></i> Saung Kebun</h2>
       <p>RT 11 / RW 44</p>
     </div>
     
-    <div class="user-card">
-      <div class="avatar" id="sidebarAvatar">DR</div>
-      <div class="info">
-        <h4 id="sidebarName">Dirham Rozi</h4>
-        <p id="sidebarRole">Ketua RT</p>
+    <div class="menu-section">
+      <div class="menu-section-title">Menu Utama</div>
+      <div class="menu-item active" onclick="showPage('dashboard')">
+        <i class="fas fa-tachometer-alt"></i>
+        <span>Dashboard</span>
+      </div>
+      <div class="menu-item" onclick="showPage('warga')">
+        <i class="fas fa-users"></i>
+        <span>Data Warga</span>
+      </div>
+      <div class="menu-item" onclick="showPage('iuran')">
+        <i class="fas fa-money-bill-wave"></i>
+        <span>Iuran Warga</span>
       </div>
     </div>
 
     <div class="menu-section">
-      <div class="menu-section-title">Menu Utama</div>
-      <div class="menu-item active" data-page="dashboard" onclick="showPage('dashboard')">
-        <i class="fas fa-tachometer-alt"></i><span>Dashboard</span>
+      <div class="menu-section-title">Keuangan</div>
+      <div class="menu-item" onclick="showPage('keuangan')">
+        <i class="fas fa-wallet"></i>
+        <span>Kas RT</span>
       </div>
-      <div class="menu-item" data-page="profil" onclick="showPage('profil')">
-        <i class="fas fa-user-circle"></i><span>Profil Saya</span>
+      <div class="menu-item" onclick="showPage('setoran')">
+        <i class="fas fa-upload"></i>
+        <span>Setoran Online</span>
       </div>
-      <div class="menu-item" data-page="iuran" onclick="showPage('iuran')">
-        <i class="fas fa-money-bill-wave"></i><span>Iuran Saya</span>
-      </div>
-    </div>
-
-    <div class="menu-section admin-only">
-      <div class="menu-section-title">Manajemen</div>
-      <div class="menu-item" data-page="warga" onclick="showPage('warga')">
-        <i class="fas fa-users"></i><span>Data Warga</span>
-      </div>
-      <div class="menu-item" data-page="keuangan" onclick="showPage('keuangan')">
-        <i class="fas fa-wallet"></i><span>Kas RT</span>
-      </div>
-      <div class="menu-item" data-page="setoran" onclick="showPage('setoran')">
-        <i class="fas fa-upload"></i><span>Konfirmasi Setoran</span>
-        <span class="badge" id="badgeSetoran">0</span>
-      </div>
-      <div class="menu-item" data-page="laporan" onclick="showPage('laporan')">
-        <i class="fas fa-chart-bar"></i><span>Laporan LPJ</span>
+      <div class="menu-item" onclick="showPage('laporan')">
+        <i class="fas fa-chart-bar"></i>
+        <span>Laporan</span>
       </div>
     </div>
 
     <div class="menu-section">
       <div class="menu-section-title">Informasi</div>
-      <div class="menu-item" data-page="pengumuman" onclick="showPage('pengumuman')">
-        <i class="fas fa-bullhorn"></i><span>Pengumuman</span>
+      <div class="menu-item" onclick="showPage('pengumuman')">
+        <i class="fas fa-bullhorn"></i>
+        <span>Pengumuman</span>
         <span class="badge" id="badgePengumuman">0</span>
       </div>
-      <div class="menu-item" data-page="kegiatan" onclick="showPage('kegiatan')">
-        <i class="fas fa-calendar-alt"></i><span>Kegiatan</span>
+      <div class="menu-item" onclick="showPage('kegiatan')">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Kegiatan</span>
       </div>
-      <div class="menu-item" data-page="pengaduan" onclick="showPage('pengaduan')">
-        <i class="fas fa-exclamation-triangle"></i><span>Pengaduan</span>
+      <div class="menu-item" onclick="showPage('pengaduan')">
+        <i class="fas fa-exclamation-triangle"></i>
+        <span>Pengaduan</span>
         <span class="badge" id="badgePengaduan">0</span>
       </div>
     </div>
 
     <div class="menu-section">
-      <div class="menu-section-title">Layanan</div>
-      <div class="menu-item" data-page="surat" onclick="showPage('surat')">
-        <i class="fas fa-envelope"></i><span>Surat Menyurat</span>
+      <div class="menu-section-title">Lainnya</div>
+      <div class="menu-item" onclick="showPage('ronda')">
+        <i class="fas fa-shield-alt"></i>
+        <span>Jadwal Ronda</span>
       </div>
-      <div class="menu-item" data-page="ronda" onclick="showPage('ronda')">
-        <i class="fas fa-shield-alt"></i><span>Jadwal Ronda</span>
+      <div class="menu-item" onclick="showPage('surat')">
+        <i class="fas fa-envelope"></i>
+        <span>Surat Menyurat</span>
       </div>
-      <div class="menu-item" data-page="tamu" onclick="showPage('tamu')">
-        <i class="fas fa-user-friends"></i><span>Buku Tamu</span>
+      <div class="menu-item" onclick="showPage('tamu')">
+        <i class="fas fa-user-friends"></i>
+        <span>Buku Tamu</span>
       </div>
-      <div class="menu-item" data-page="voting" onclick="showPage('voting')">
-        <i class="fas fa-poll"></i><span>Voting</span>
+      <div class="menu-item" onclick="showPage('voting')">
+        <i class="fas fa-poll"></i>
+        <span>Voting</span>
       </div>
-      <div class="menu-item admin-only" data-page="inventaris" onclick="showPage('inventaris')">
-        <i class="fas fa-boxes"></i><span>Inventaris</span>
+      <div class="menu-item" onclick="showPage('inventaris')">
+        <i class="fas fa-boxes"></i>
+        <span>Inventaris</span>
       </div>
     </div>
 
     <div class="menu-section">
       <div class="menu-section-title">Akun</div>
-      <div class="menu-item admin-only" data-page="pengaturan" onclick="showPage('pengaturan')">
-        <i class="fas fa-cog"></i><span>Pengaturan</span>
+      <div class="menu-item" onclick="showPage('profil')">
+        <i class="fas fa-user-circle"></i>
+        <span>Profil Saya</span>
+      </div>
+      <div class="menu-item" onclick="showPage('pengaturan')">
+        <i class="fas fa-cog"></i>
+        <span>Pengaturan</span>
       </div>
       <div class="menu-item" onclick="doLogout()" style="color:var(--danger)">
-        <i class="fas fa-sign-out-alt"></i><span>Keluar</span>
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Keluar</span>
       </div>
     </div>
   </div>
 
+  <!-- Main Content -->
   <div class="main-desktop">
+    <!-- Top Header -->
     <div class="top-header">
       <div class="user-info">
         <div class="user-avatar" id="userAvatar">DR</div>
         <div class="user-details">
           <h3 id="userName">Dirham Rozi</h3>
-          <p id="userRole">Ketua RT · Blok A01</p>
+          <p id="userRole">Ketua RT</p>
         </div>
       </div>
       <div class="header-actions">
@@ -365,12 +365,16 @@ input,select,textarea{font-family:inherit}
           <i class="fas fa-bell"></i>
           <span class="badge" id="notifBadge">0</span>
         </button>
-        <button class="icon-btn" onclick="showPage('profil')">
-          <i class="fas fa-user"></i>
+        <button class="icon-btn" onclick="toggleTheme()">
+          <i class="fas fa-moon"></i>
         </button>
       </div>
     </div>
-    <div class="content-area" id="desktopContent"></div>
+
+    <!-- Content Area -->
+    <div class="content-area" id="desktopContent">
+      <!-- Dynamic content -->
+    </div>
   </div>
 </div>
 
@@ -382,7 +386,7 @@ input,select,textarea{font-family:inherit}
         <div class="user-avatar-mobile" id="userAvatarMobile">DR</div>
         <div class="user-greeting">
           <h2 id="userGreeting">Hallo, Dirham</h2>
-          <p id="userRoleMobile">Ketua RT · Blok A01</p>
+          <p>Saung Kebun · RT 11 / RW 44</p>
         </div>
       </div>
       <div class="header-actions-mobile">
@@ -402,20 +406,25 @@ input,select,textarea{font-family:inherit}
     <nav class="bottom-nav">
       <div class="bottom-nav-inner" id="bottomNavInner">
         <button class="nav-item active" data-page="dashboard" onclick="showPage('dashboard')">
-          <span class="nav-icon"><i class="fas fa-home"></i></span><span>Beranda</span>
+          <span class="nav-icon"><i class="fas fa-home"></i></span>
+          <span>Beranda</span>
         </button>
         <button class="nav-item" data-page="iuran" onclick="showPage('iuran')">
-          <span class="nav-icon"><i class="fas fa-money-bill-wave"></i></span><span>Iuran</span>
+          <span class="nav-icon"><i class="fas fa-money-bill-wave"></i></span>
+          <span>Iuran</span>
         </button>
-        <button class="nav-item" data-page="pengumuman" onclick="showPage('pengumuman')">
-          <span class="nav-icon"><i class="fas fa-bullhorn"></i></span><span>Info</span>
+        <button class="nav-item" data-page="setoran" onclick="showPage('setoran')">
+          <span class="nav-icon"><i class="fas fa-upload"></i></span>
+          <span>Setoran</span>
         </button>
         <button class="nav-item" data-page="pengaduan" onclick="showPage('pengaduan')">
-          <span class="nav-icon"><i class="fas fa-exclamation-triangle"></i></span><span>Lapor</span>
+          <span class="nav-icon"><i class="fas fa-exclamation-triangle"></i></span>
+          <span>Pengaduan</span>
           <span class="nav-badge" id="pengaduanBadge" style="display:none">0</span>
         </button>
         <button class="nav-item" data-page="profil" onclick="showPage('profil')">
-          <span class="nav-icon"><i class="fas fa-user-circle"></i></span><span>Profil</span>
+          <span class="nav-icon"><i class="fas fa-user-circle"></i></span>
+          <span>Profil</span>
         </button>
       </div>
     </nav>
@@ -427,7 +436,9 @@ input,select,textarea{font-family:inherit}
   <div class="modal-content">
     <div class="modal-header">
       <h3 id="modalTitle">Title</h3>
-      <button class="icon-btn" onclick="closeModal()"><i class="fas fa-times"></i></button>
+      <button class="icon-btn" onclick="closeModal()">
+        <i class="fas fa-times"></i>
+      </button>
     </div>
     <div class="modal-body" id="modalBody"></div>
     <div class="modal-footer" id="modalFooter"></div>
@@ -435,10 +446,15 @@ input,select,textarea{font-family:inherit}
 </div>
 
 <!-- Toast -->
-<div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMessage">Message</span></div>
+<div class="toast" id="toast">
+  <i class="fas fa-check-circle"></i>
+  <span id="toastMessage">Message</span>
+</div>
 
 <!-- Loading -->
-<div class="loading-overlay" id="loading"><div class="spinner"></div></div>
+<div class="loading-overlay" id="loading">
+  <div class="spinner"></div>
+</div>
 
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
@@ -466,39 +482,37 @@ let currentPage = 'dashboard';
 let kasChart = null;
 let currentMonth = new Date();
 
-// Default Data dengan 5 warga berbeda
+// Default Data
 const defaultData = {
   rt: {
     nama: 'Portal Management RT Saung Kebun',
-    rt: '11', rw: '44',
+    rt: '11',
+    rw: '44',
     iuranNominal: 50000,
     bank: {nama: 'Bank Mandiri', rek: '123-00-456789-0', an: 'Kas RT 11 Saung Kebun'},
     lpjPublished: false
   },
   warga: [
-    {id:'W001', nama:'Dirham Rozi', blok:'A01', hp:'081234567890', gol:'Ketua RT', status:'Tetap', pekerjaan:'Wiraswasta', pin:'1234', joinDate:'2020-01-01'},
-    {id:'W002', nama:'Siti Rahayu', blok:'A02', hp:'081234567891', gol:'Sekretaris', status:'Tetap', pekerjaan:'Ibu Rumah Tangga', pin:'1234', joinDate:'2020-01-01'},
-    {id:'W003', nama:'Agus Prasetyo', blok:'A03', hp:'081234567892', gol:'Bendahara', status:'Tetap', pekerjaan:'Karyawan Swasta', pin:'1234', joinDate:'2020-01-01'},
-    {id:'W004', nama:'Dedi Mulyawan', blok:'A04', hp:'081234567893', gol:'Anggota Keamanan', status:'Tetap', pekerjaan:'PNS', pin:'1234', joinDate:'2020-01-01'},
-    {id:'W005', nama:'Rina Wulandari', blok:'A05', hp:'081234567894', gol:'Warga', status:'Tetap', pekerjaan:'Guru', pin:'1234', joinDate:'2021-03-15'}
+    {id:'W001', nama:'Dirham Rozi', blok:'A01', hp:'081234567890', gol:'Ketua RT', status:'Tetap', pekerjaan:'Wiraswasta', pin:'1234'},
+    {id:'W002', nama:'Siti Rahayu', blok:'A02', hp:'081234567891', gol:'Sekretaris', status:'Tetap', pekerjaan:'Ibu Rumah Tangga', pin:'1234'},
+    {id:'W003', nama:'Agus Prasetyo', blok:'A03', hp:'081234567892', gol:'Bendahara', status:'Tetap', pekerjaan:'Karyawan Swasta', pin:'1234'},
+    {id:'W004', nama:'Dedi Mulyawan', blok:'A04', hp:'081234567893', gol:'Anggota Keamanan', status:'Tetap', pekerjaan:'PNS', pin:'1234'},
+    {id:'W005', nama:'Rina Wulandari', blok:'A05', hp:'081234567894', gol:'Warga', status:'Tetap', pekerjaan:'Guru', pin:'1234'}
   ],
   iuran: [
     {id:'I001', wargaId:'W001', bulan:'2026-10', nominal:50000, status:'Lunas', tgl:'2026-10-01'},
-    {id:'I002', wargaId:'W002', bulan:'2026-10', nominal:50000, status:'Lunas', tgl:'2026-10-02'},
-    {id:'I003', wargaId:'W003', bulan:'2026-10', nominal:50000, status:'Belum', tgl:null},
-    {id:'I004', wargaId:'W004', bulan:'2026-10', nominal:50000, status:'Belum', tgl:null},
-    {id:'I005', wargaId:'W005', bulan:'2026-10', nominal:50000, status:'Belum', tgl:null}
+    {id:'I002', wargaId:'W002', bulan:'2026-10', nominal:50000, status:'Lunas', tgl:'2026-10-02'}
   ],
   kas: [
-    {id:'K001', tgl:'2026-10-01', tipe:'Masuk', kat:'Iuran Warga', urai:'Iuran Oktober - Dirham Rozi', nominal:50000},
-    {id:'K002', tgl:'2026-10-02', tipe:'Masuk', kat:'Iuran Warga', urai:'Iuran Oktober - Siti Rahayu', nominal:50000},
+    {id:'K001', tgl:'2026-10-01', tipe:'Masuk', kat:'Iuran Warga', urai:'Iuran Oktober - Ketua RT', nominal:50000},
+    {id:'K002', tgl:'2026-10-02', tipe:'Masuk', kat:'Iuran Warga', urai:'Iuran Oktober - Sekretaris', nominal:50000},
     {id:'K003', tgl:'2026-10-05', tipe:'Masuk', kat:'Donasi', urai:'Donasi warga', nominal:200000},
     {id:'K004', tgl:'2026-10-10', tipe:'Keluar', kat:'Kebersihan', urai:'Beli sapu', nominal:150000},
     {id:'K005', tgl:'2026-10-15', tipe:'Keluar', kat:'Keamanan', urai:'Lampu pos ronda', nominal:85000}
   ],
   pengumuman: [
-    {id:'P001', judul:'Selamat Datang', kat:'Pengumuman', isi:'Portal Management RT resmi diluncurkan. Setiap warga bisa login dengan akun masing-masing.', tgl:'2026-10-01', pin:true, oleh:'Ketua RT'},
-    {id:'P002', judul:'Kerja Bakti Bulanan', kat:'Kerja Bakti', isi:'Kerja bakti hari Sabtu pukul 07.00 WIB. Diharapkan seluruh warga berpartisipasi.', tgl:'2026-10-12', pin:false, oleh:'Ketua RT'}
+    {id:'P001', judul:'Selamat Datang', kat:'Pengumuman', isi:'Portal Management RT resmi diluncurkan.', tgl:'2026-10-01', pin:true, oleh:'Ketua RT'},
+    {id:'P002', judul:'Kerja Bakti Bulanan', kat:'Kerja Bakti', isi:'Kerja bakti hari Sabtu pukul 07.00 WIB.', tgl:'2026-10-12', pin:false, oleh:'Ketua RT'}
   ],
   kegiatan: [
     {id:'K001', judul:'Kerja Bakti Bulanan', kategori:'Kerja Bakti', tgl:'2026-10-12', waktuMulai:'07:00', waktuSelesai:'10:00', lokasi:'Seluruh RT 11', deskripsi:'Kerja bakti membersihkan lingkungan.', penanggungJawab:'Dirham Rozi', status:'Akan Datang', createdBy:'W001', createdAt:'2026-10-01'}
@@ -509,17 +523,10 @@ const defaultData = {
   ronda: [
     {id:'R001', tgl:'2026-10-06', shift:'Malam', waktu:'22.00-02.00', petugas:'Dedi Mulyawan', blok:'A04', catatan:'Patroli rutin'}
   ],
-  surat: [
-    {id:'S001', wargaId:'W005', jenis:'Surat Domisili', keperluan:'Sekolah anak', status:'Selesai', tgl:'2026-10-01', noSurat:'001/RT11/X/2026'}
-  ],
+  surat: [],
   tamu: [],
-  voting: [
-    {id:'V001', pertanyaan:'Kapan kerja bakti?', pilihan:[{text:'Sabtu pagi',votes:3},{text:'Minggu pagi',votes:5},{text:'Sabtu sore',votes:2}], status:'Aktif', tgl:'2026-10-01', createdBy:'W001'}
-  ],
-  inventaris: [
-    {id:'INV001', nama:'Sound System', kategori:'Elektronik', jumlah:1, kondisi:'Baik', lokasi:'Balai RT'},
-    {id:'INV002', nama:'Meja Rapat', kategori:'Furniture', jumlah:5, kondisi:'Baik', lokasi:'Balai RT'}
-  ],
+  voting: [],
+  inventaris: [],
   setoran: []
 };
 
@@ -534,23 +541,12 @@ const today = () => new Date().toISOString().split('T')[0];
 const bulanIni = () => { const d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0'); };
 const labelBulan = k => { if(!k) return '-'; const[y,m]=k.split('-'); return BULAN[+m-1]+' '+y; };
 const initials = n => String(n||'?').trim().split(/\s+/).map(x=>x[0]).join('').substr(0,2).toUpperCase();
-
-// Role-based Access Control
-const ROLE_LEVELS = {
-  'Ketua RT': 4,
-  'Bendahara': 3,
-  'Sekretaris': 3,
-  'Anggota Keamanan': 2,
-  'Warga': 1
-};
-
-const isStaff = () => currentUser && (ROLE_LEVELS[currentUser.gol] || 1) >= 3;
+const roleLevel = r => ({'Ketua RT':4,'Bendahara':3,'Sekretaris':3,'Anggota Keamanan':2,'Warga':1}[r]||1);
+const isStaff = () => currentUser && roleLevel(currentUser.gol) >= 3;
 const isBendahara = () => currentUser && currentUser.gol === 'Bendahara';
-const isKetua = () => currentUser && currentUser.gol === 'Ketua RT';
-const canEdit = () => currentUser && isStaff();
-const isAdmin = () => currentUser && (isKetua() || isBendahara());
+const canEdit = () => currentUser && (currentUser.gol === 'Ketua RT' || currentUser.gol === 'Bendahara');
 
-// Toast
+// Toast Notification
 function showToast(message, type='success') {
   const toast = $('toast');
   const icon = type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-times-circle' : 'fa-info-circle';
@@ -559,16 +555,19 @@ function showToast(message, type='success') {
   setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
-// Modal
+// Modal Functions
 function openModal(title, body, footer='') {
   $('modalTitle').textContent = title;
   $('modalBody').innerHTML = body;
   $('modalFooter').innerHTML = footer;
   $('modal').classList.add('active');
 }
-function closeModal() { $('modal').classList.remove('active'); }
 
-// Firebase
+function closeModal() {
+  $('modal').classList.remove('active');
+}
+
+// Firebase Functions
 async function loadDataFromFirebase() {
   try {
     const snapshot = await db.ref('/').once('value');
@@ -612,12 +611,12 @@ const normalize = () => {
   });
 };
 
-// Login System - MULTI USER
+// Login Functions
 function populateLoginWarga() {
   const select = $('loginWarga');
-  select.innerHTML = '<option value="">— Pilih Akun Anda —</option>';
+  select.innerHTML = '<option value="">— Pilih Warga —</option>';
   (appData.warga || []).forEach(w => {
-    select.innerHTML += `<option value="${w.id}">${esc(w.nama)} - Blok ${esc(w.blok)} (${esc(w.gol)})</option>`;
+    select.innerHTML += `<option value="${w.id}">${esc(w.nama)} (${esc(w.gol)})</option>`;
   });
 }
 
@@ -644,51 +643,31 @@ function doLogin() {
     $('mobileApp').style.display = 'none';
     $('userAvatar').textContent = initials(w.nama);
     $('userName').textContent = w.nama;
-    $('userRole').textContent = `${w.gol} · Blok ${w.blok}`;
-    $('sidebarAvatar').textContent = initials(w.nama);
-    $('sidebarName').textContent = w.nama;
-    $('sidebarRole').textContent = w.gol;
-    updateMenuVisibility();
+    $('userRole').textContent = w.gol;
     renderDesktopDashboard();
   } else {
     $('mobileApp').style.display = 'block';
     $('desktopLayout').style.display = 'none';
     $('userAvatarMobile').textContent = initials(w.nama);
-    $('userGreeting').textContent = `Hallo, ${w.nama.split(' ')[0]}`;
-    $('userRoleMobile').textContent = `${w.gol} · Blok ${w.blok}`;
+    $('userGreeting').textContent = 'Hallo, ' + w.nama.split(' ')[0];
     renderMobileDashboard();
   }
   
   showToast(`Selamat datang, ${w.nama.split(' ')[0]}!`, 'success');
 }
 
-function updateMenuVisibility() {
-  // Show/hide admin-only menus based on role
-  const adminMenus = document.querySelectorAll('.admin-only');
-  adminMenus.forEach(el => {
-    if (isAdmin()) {
-      el.classList.remove('hidden');
-      el.style.display = '';
-    } else {
-      el.classList.add('hidden');
-      el.style.display = 'none';
-    }
-  });
-}
-
 function doLogout() {
-  if (!confirm('Yakin ingin keluar dari akun ini?')) return;
+  if (!confirm('Yakin ingin keluar?')) return;
   currentUser = null;
   localStorage.removeItem('rt_session');
   $('desktopLayout').style.display = 'none';
   $('mobileApp').style.display = 'none';
   $('loginPage').style.display = 'flex';
   $('loginPin').value = '';
-  showToast('Anda telah keluar', 'info');
 }
 
 function showHelp() {
-  alert('SISTEM MULTI AKUN:\n\nSetiap warga terdaftar memiliki akun sendiri dengan PIN unik.\n\nCARA LOGIN:\n1. Pilih nama Anda dari daftar\n2. Masukkan PIN 4 digit (default: 1234)\n3. Klik Masuk\n\nHAK AKSES:\n• Ketua RT: Akses penuh + admin\n• Bendahara: Keuangan + admin\n• Sekretaris: Pengumuman + kegiatan\n• Anggota Keamanan: Ronda + pengaduan\n• Warga: Lihat info, setor iuran, lapor, voting\n\nGANTI PIN:\nMenu Profil → Edit Profil → Ganti PIN');
+  alert('CARA LOGIN:\n1. Pilih nama warga\n2. Masukkan PIN (default: 1234)\n3. Klik Masuk\n\nFITUR:\n• Dashboard: Statistik & informasi RT\n• Data Warga: Kelola data warga\n• Iuran: Kelola iuran bulanan\n• Keuangan: Kelola kas RT\n• Pengumuman: Informasi untuk warga\n• Kegiatan: Jadwal kegiatan RT\n• Pengaduan: Lapor masalah\n• Dan banyak lagi!');
 }
 
 // Page Navigation
@@ -699,14 +678,20 @@ function showPage(page) {
   document.querySelectorAll('.menu-item').forEach(m => m.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   
+  // Find and activate menu item
   const menuItems = document.querySelectorAll('.menu-item');
   menuItems.forEach(m => {
-    if (m.dataset.page === page) m.classList.add('active');
+    if (m.onclick && m.onclick.toString().includes(`'${page}'`)) {
+      m.classList.add('active');
+    }
   });
   
+  // Find and activate nav item
   const navItems = document.querySelectorAll('.nav-item');
   navItems.forEach(n => {
-    if (n.dataset.page === page) n.classList.add('active');
+    if (n.dataset.page === page) {
+      n.classList.add('active');
+    }
   });
   
   const isDesktop = window.innerWidth >= 1025;
@@ -729,19 +714,24 @@ function showPage(page) {
     else if (page === 'laporan') renderDesktopLaporan();
   } else {
     if (page === 'dashboard') renderMobileDashboard();
+    else if (page === 'warga') renderMobileWarga();
     else if (page === 'iuran') renderMobileIuran();
+    else if (page === 'keuangan') renderMobileKeuangan();
+    else if (page === 'setoran') renderMobileSetoran();
     else if (page === 'pengumuman') renderMobilePengumuman();
     else if (page === 'kegiatan') renderMobileKegiatan();
     else if (page === 'pengaduan') renderMobilePengaduan();
     else if (page === 'ronda') renderMobileRonda();
     else if (page === 'surat') renderMobileSurat();
+    else if (page === 'tamu') renderMobileTamu();
     else if (page === 'voting') renderMobileVoting();
+    else if (page === 'inventaris') renderMobileInventaris();
     else if (page === 'profil') renderMobileProfil();
-    else if (page === 'setoran') renderMobileSetoran();
+    else if (page === 'pengaturan') renderMobilePengaturan();
   }
 }
 
-// ============ DESKTOP DASHBOARD ============
+// ============ DESKTOP RENDERING ============
 function renderDesktopDashboard() {
   const kas = appData.kas || [];
   const sal = kas.reduce((s, k) => s + (k.tipe === 'Masuk' ? k.nominal : -k.nominal), 0);
@@ -749,78 +739,31 @@ function renderDesktopDashboard() {
   const kl = kas.filter(k => k.tipe === 'Keluar').reduce((s, k) => s + k.nominal, 0);
   const tt = (appData.warga || []).length;
   const b = bulanIni();
-  
-  // Iuran pribadi untuk user yang login
-  const iuranSaya = (appData.iuran || []).filter(i => i.wargaId === currentUser.id);
-  const iuranLunasSaya = iuranSaya.filter(i => i.status === 'Lunas').length;
-  const iuranBelumSaya = iuranSaya.filter(i => i.status !== 'Lunas').length;
-  
-  // Pengaduan saya
-  const pengaduanSaya = (appData.lapor || []).filter(l => l.wargaId === currentUser.id);
-  const pengaduanAktifSaya = pengaduanSaya.filter(l => l.status !== 'Selesai' && l.status !== 'Ditolak').length;
-  
-  // Surat saya
-  const suratSaya = (appData.surat || []).filter(s => s.wargaId === currentUser.id);
+  const ln = (appData.iuran || []).filter(i => i.bulan === b && i.status === 'Lunas').length;
+  const belumLunas = (tt - ln) * (appData.rt.iuranNominal || 50000);
   
   let html = `
-    <div style="background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:white;padding:24px;border-radius:16px;margin-bottom:24px">
-      <h2 style="font-size:24px;font-weight:800;margin-bottom:8px">Selamat Datang, ${esc(currentUser.nama)}! 👋</h2>
-      <p style="opacity:.9;font-size:14px">${esc(currentUser.gol)} · Blok ${esc(currentUser.blok)} · ${esc(currentUser.pekerjaan || '-')}</p>
-    </div>
-
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-header">
-          <div class="stat-icon blue"><i class="fas fa-money-bill-wave"></i></div>
-        </div>
-        <div class="stat-value">${iuranLunasSaya}/${iuranSaya.length}</div>
-        <div class="stat-label">Iuran Saya Lunas</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-header">
-          <div class="stat-icon ${iuranBelumSaya > 0 ? 'orange' : 'green'}"><i class="fas fa-${iuranBelumSaya > 0 ? 'exclamation-circle' : 'check-circle'}"></i></div>
-        </div>
-        <div class="stat-value">${iuranBelumSaya}</div>
-        <div class="stat-label">Iuran Belum Lunas</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-header">
-          <div class="stat-icon purple"><i class="fas fa-envelope"></i></div>
-        </div>
-        <div class="stat-value">${suratSaya.length}</div>
-        <div class="stat-label">Surat Saya</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-header">
-          <div class="stat-icon ${pengaduanAktifSaya > 0 ? 'red' : 'green'}"><i class="fas fa-exclamation-triangle"></i></div>
-        </div>
-        <div class="stat-value">${pengaduanAktifSaya}</div>
-        <div class="stat-label">Pengaduan Aktif</div>
-      </div>
-    </div>
-
-    ${isAdmin() ? `
-    <div class="stats-grid" style="margin-top:16px">
-      <div class="stat-card">
-        <div class="stat-header">
-          <div class="stat-icon green"><i class="fas fa-wallet"></i></div>
+          <div class="stat-icon blue"><i class="fas fa-wallet"></i></div>
         </div>
         <div class="stat-value">${rp(sal)}</div>
         <div class="stat-label">Saldo Kas RT</div>
       </div>
       <div class="stat-card">
         <div class="stat-header">
-          <div class="stat-icon blue"><i class="fas fa-arrow-up"></i></div>
+          <div class="stat-icon green"><i class="fas fa-arrow-up"></i></div>
         </div>
         <div class="stat-value">${rp(mk)}</div>
-        <div class="stat-label">Pemasukan</div>
+        <div class="stat-label">Pemasukan Bulan Ini</div>
       </div>
       <div class="stat-card">
         <div class="stat-header">
           <div class="stat-icon orange"><i class="fas fa-arrow-down"></i></div>
         </div>
         <div class="stat-value">${rp(kl)}</div>
-        <div class="stat-label">Pengeluaran</div>
+        <div class="stat-label">Pengeluaran Bulan Ini</div>
       </div>
       <div class="stat-card">
         <div class="stat-header">
@@ -830,9 +773,24 @@ function renderDesktopDashboard() {
         <div class="stat-label">Total Warga</div>
       </div>
     </div>
-    ` : ''}
 
     <div class="content-grid">
+      <div class="content-card">
+        <div class="card-header">
+          <h3><i class="fas fa-chart-line"></i> Arus Kas</h3>
+          <select class="filter-select" id="filterBulan" onchange="updateChart()">
+            <option value="bulan">Bulan Ini</option>
+            <option value="3bulan">3 Bulan Terakhir</option>
+            <option value="tahun">Tahun Ini</option>
+          </select>
+        </div>
+        <div class="card-body">
+          <div class="chart-container">
+            <canvas id="kasChart"></canvas>
+          </div>
+        </div>
+      </div>
+
       <div class="content-card">
         <div class="card-header">
           <h3><i class="fas fa-bullhorn"></i> Pengumuman Terbaru</h3>
@@ -851,7 +809,9 @@ function renderDesktopDashboard() {
           `).join('') || '<p style="text-align:center;color:var(--gray);padding:20px">Belum ada pengumuman</p>'}
         </div>
       </div>
+    </div>
 
+    <div class="content-grid">
       <div class="content-card">
         <div class="card-header">
           <h3><i class="fas fa-calendar-alt"></i> Kegiatan Mendatang</h3>
@@ -872,16 +832,15 @@ function renderDesktopDashboard() {
           `).join('') || '<p style="text-align:center;color:var(--gray);padding:20px">Tidak ada kegiatan mendatang</p>'}
         </div>
       </div>
-    </div>
 
-    <div class="content-grid">
       <div class="content-card">
         <div class="card-header">
-          <h3><i class="fas fa-exclamation-triangle"></i> Pengaduan Saya</h3>
-          <button class="btn btn-primary btn-sm" onclick="showLaporForm()"><i class="fas fa-plus"></i> Lapor</button>
+          <h3><i class="fas fa-exclamation-triangle"></i> Pengaduan Terbaru</h3>
+          <button class="btn btn-secondary btn-sm" onclick="showPage('pengaduan')">Lihat Semua</button>
         </div>
         <div class="card-body">
-          ${pengaduanSaya.length ? pengaduanSaya.map(l => {
+          ${(appData.lapor || []).slice(0, 3).map(l => {
+            const w = appData.warga.find(x => x.id === l.wargaId);
             const statusClass = l.status === 'Selesai' ? 'success' : l.status === 'Diproses' ? 'info' : 'warning';
             return `
               <div style="padding:16px;border:1px solid var(--border);border-radius:10px;margin-bottom:12px">
@@ -891,62 +850,76 @@ function renderDesktopDashboard() {
                 </div>
                 <p style="font-size:13px;color:var(--gray);margin-bottom:8px">${esc(l.isi)}</p>
                 <div style="font-size:11px;color:var(--gray)">
-                  <i class="fas fa-tag"></i> ${esc(l.kat)} · 
+                  <i class="fas fa-user"></i> ${esc(w ? w.nama : 'Warga')} · 
                   <i class="fas fa-calendar"></i> ${tglIndo(l.tgl)}
                 </div>
               </div>
             `;
-          }).join('') : '<p style="text-align:center;color:var(--gray);padding:20px">Belum ada pengaduan dari Anda</p>'}
-        </div>
-      </div>
-
-      <div class="content-card">
-        <div class="card-header">
-          <h3><i class="fas fa-envelope"></i> Surat Saya</h3>
-          <button class="btn btn-primary btn-sm" onclick="showSuratForm()"><i class="fas fa-plus"></i> Ajukan</button>
-        </div>
-        <div class="card-body">
-          ${suratSaya.length ? suratSaya.map(s => {
-            const bc = s.status === 'Selesai' ? 'success' : s.status === 'Diproses' ? 'info' : 'warning';
-            return `
-              <div style="padding:16px;border:1px solid var(--border);border-radius:10px;margin-bottom:12px">
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-                  <h4 style="font-size:14px;font-weight:700">${esc(s.jenis)}</h4>
-                  <span class="status-badge ${bc}">${esc(s.status)}</span>
-                </div>
-                <p style="font-size:13px;color:var(--gray);margin-bottom:8px">${esc(s.keperluan || '-')}</p>
-                <div style="font-size:11px;color:var(--gray)">
-                  <i class="fas fa-calendar"></i> ${tglIndo(s.tgl)}
-                  ${s.noSurat ? ` · <i class="fas fa-hashtag"></i> ${esc(s.noSurat)}` : ''}
-                </div>
-              </div>
-            `;
-          }).join('') : '<p style="text-align:center;color:var(--gray);padding:20px">Belum ada surat</p>'}
+          }).join('') || '<p style="text-align:center;color:var(--gray);padding:20px">Belum ada pengaduan</p>'}
         </div>
       </div>
     </div>
   `;
   
   $('desktopContent').innerHTML = html;
+  renderDesktopChart();
   
   // Update badges
   const pendingLapor = (appData.lapor || []).filter(l => l.status === 'Baru').length;
-  const pendingSetoran = (appData.setoran || []).filter(s => s.status === 'Pending').length;
   $('badgePengaduan').textContent = pendingLapor;
   $('badgePengaduan').style.display = pendingLapor > 0 ? 'inline' : 'none';
-  $('badgeSetoran').textContent = pendingSetoran;
-  $('badgeSetoran').style.display = pendingSetoran > 0 ? 'inline' : 'none';
-  $('notifBadge').textContent = pendingLapor + pendingSetoran;
-  $('notifBadge').style.display = (pendingLapor + pendingSetoran) > 0 ? 'flex' : 'none';
+  $('notifBadge').textContent = pendingLapor;
+  $('notifBadge').style.display = pendingLapor > 0 ? 'flex' : 'none';
 }
 
-// ============ WARGA (Admin Only) ============
-function renderDesktopWarga() {
-  if (!isAdmin()) {
-    $('desktopContent').innerHTML = '<div style="text-align:center;padding:60px;color:var(--gray)"><i class="fas fa-lock" style="font-size:48px;margin-bottom:16px"></i><p>Akses ditolak. Hanya admin.</p></div>';
-    return;
-  }
+function renderDesktopChart() {
+  const ctx = document.getElementById('kasChart');
+  if (!ctx) return;
   
+  const kas = appData.kas || [];
+  const b = bulanIni();
+  const monthlyData = kas.filter(k => k.tgl && k.tgl.startsWith(b));
+  
+  const income = monthlyData.filter(k => k.tipe === 'Masuk').reduce((s, k) => s + k.nominal, 0);
+  const expense = monthlyData.filter(k => k.tipe === 'Keluar').reduce((s, k) => s + k.nominal, 0);
+  
+  if (kasChart) kasChart.destroy();
+  
+  kasChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Pemasukan', 'Pengeluaran'],
+      datasets: [{
+        label: 'Arus Kas',
+        data: [income, expense],
+        backgroundColor: ['#10B981', '#EF4444'],
+        borderRadius: 8
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            callback: value => rp(value)
+          }
+        }
+      }
+    }
+  });
+}
+
+function updateChart() {
+  renderDesktopChart();
+}
+
+// Warga Functions
+function renderDesktopWarga() {
   const search = ($('searchWarga')?.value || '').toLowerCase();
   let warga = appData.warga || [];
   
@@ -961,14 +934,14 @@ function renderDesktopWarga() {
   let html = `
     <div class="page-header">
       <button onclick="showPage('dashboard')"><i class="fas fa-arrow-left"></i></button>
-      <h2>Data Warga (${warga.length})</h2>
+      <h2>Data Warga</h2>
     </div>
     <div class="toolbar">
       <div class="search-box">
         <i class="fas fa-search"></i>
         <input type="text" placeholder="Cari nama, blok, atau jabatan..." id="searchWarga" oninput="renderDesktopWarga()">
       </div>
-      <button class="btn btn-primary" onclick="showWargaForm()"><i class="fas fa-plus"></i> Tambah Warga</button>
+      ${canEdit() ? `<button class="btn btn-primary" onclick="showWargaForm()"><i class="fas fa-plus"></i> Tambah Warga</button>` : ''}
     </div>
     <div class="content-card">
       <div class="card-body">
@@ -980,12 +953,11 @@ function renderDesktopWarga() {
               <th>Jabatan</th>
               <th>Status</th>
               <th>HP</th>
-              <th>Pekerjaan</th>
-              <th>Aksi</th>
+              ${canEdit() ? '<th>Aksi</th>' : ''}
             </tr>
           </thead>
           <tbody>
-            ${warga.map(w => `
+            ${warga.length ? warga.map(w => `
               <tr>
                 <td>
                   <div style="display:flex;align-items:center;gap:12px">
@@ -994,7 +966,7 @@ function renderDesktopWarga() {
                     </div>
                     <div>
                       <div style="font-weight:600">${esc(w.nama)}</div>
-                      <div style="font-size:11px;color:var(--gray)">PIN: ${w.pin || '1234'}</div>
+                      <div style="font-size:12px;color:var(--gray)">${esc(w.pekerjaan || '-')}</div>
                     </div>
                   </div>
                 </td>
@@ -1002,13 +974,17 @@ function renderDesktopWarga() {
                 <td><span class="status-badge info">${esc(w.gol)}</span></td>
                 <td><span class="status-badge success">${esc(w.status)}</span></td>
                 <td>${esc(w.hp || '-')}</td>
-                <td>${esc(w.pekerjaan || '-')}</td>
+                ${canEdit() ? `
                 <td>
-                  <button class="btn btn-secondary btn-sm" onclick="editWarga('${w.id}')"><i class="fas fa-edit"></i></button>
-                  ${w.id !== currentUser.id ? `<button class="btn btn-danger btn-sm" onclick="deleteWarga('${w.id}')"><i class="fas fa-trash"></i></button>` : ''}
-                </td>
+                  <button class="btn btn-secondary btn-sm" onclick="editWarga('${w.id}')">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn btn-danger btn-sm" onclick="deleteWarga('${w.id}')">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>` : ''}
               </tr>
-            `).join('')}
+            `).join('') : '<tr><td colspan="' + (canEdit() ? 6 : 5) + '" style="text-align:center;padding:40px;color:var(--gray)">Tidak ada data warga</td></tr>'}
           </tbody>
         </table>
       </div>
@@ -1019,30 +995,61 @@ function renderDesktopWarga() {
 }
 
 function showWargaForm(warga = null) {
-  if (!isAdmin()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   const isEdit = !!warga;
   const body = `
-    <div class="form-group"><label>Nama Lengkap *</label><input type="text" class="form-control" id="wNama" value="${isEdit ? esc(warga.nama) : ''}"></div>
-    <div class="form-group"><label>Blok/Rumah *</label><input type="text" class="form-control" id="wBlok" value="${isEdit ? esc(warga.blok) : ''}"></div>
-    <div class="form-group"><label>No. HP</label><input type="text" class="form-control" id="wHp" value="${isEdit ? esc(warga.hp || '') : ''}"></div>
-    <div class="form-group"><label>Jabatan</label><select class="form-control" id="wGol">
-      ${['Warga','Ketua RT','Sekretaris','Bendahara','Anggota Keamanan'].map(g => `<option ${isEdit && warga.gol === g ? 'selected' : ''}>${g}</option>`).join('')}
-    </select></div>
-    <div class="form-group"><label>Status</label><select class="form-control" id="wStatus">
-      ${['Tetap','Kontrak','Kost'].map(s => `<option ${isEdit && warga.status === s ? 'selected' : ''}>${s}</option>`).join('')}
-    </select></div>
-    <div class="form-group"><label>Pekerjaan</label><input type="text" class="form-control" id="wPekerjaan" value="${isEdit ? esc(warga.pekerjaan || '') : ''}"></div>
-    <div class="form-group"><label>PIN (4 digit) *</label><input type="password" class="form-control" id="wPin" value="${isEdit ? warga.pin || '1234' : '1234'}" maxlength="4"></div>
+    <div class="form-group">
+      <label>Nama Lengkap *</label>
+      <input type="text" class="form-control" id="wNama" value="${isEdit ? esc(warga.nama) : ''}">
+    </div>
+    <div class="form-group">
+      <label>Blok/Rumah *</label>
+      <input type="text" class="form-control" id="wBlok" value="${isEdit ? esc(warga.blok) : ''}">
+    </div>
+    <div class="form-group">
+      <label>No. HP</label>
+      <input type="text" class="form-control" id="wHp" value="${isEdit ? esc(warga.hp || '') : ''}">
+    </div>
+    <div class="form-group">
+      <label>Jabatan</label>
+      <select class="form-control" id="wGol">
+        <option value="Warga" ${isEdit && warga.gol === 'Warga' ? 'selected' : ''}>Warga</option>
+        <option value="Ketua RT" ${isEdit && warga.gol === 'Ketua RT' ? 'selected' : ''}>Ketua RT</option>
+        <option value="Sekretaris" ${isEdit && warga.gol === 'Sekretaris' ? 'selected' : ''}>Sekretaris</option>
+        <option value="Bendahara" ${isEdit && warga.gol === 'Bendahara' ? 'selected' : ''}>Bendahara</option>
+        <option value="Anggota Keamanan" ${isEdit && warga.gol === 'Anggota Keamanan' ? 'selected' : ''}>Anggota Keamanan</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Status</label>
+      <select class="form-control" id="wStatus">
+        <option value="Tetap" ${isEdit && warga.status === 'Tetap' ? 'selected' : ''}>Tetap</option>
+        <option value="Kontrak" ${isEdit && warga.status === 'Kontrak' ? 'selected' : ''}>Kontrak</option>
+        <option value="Kost" ${isEdit && warga.status === 'Kost' ? 'selected' : ''}>Kost</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Pekerjaan</label>
+      <input type="text" class="form-control" id="wPekerjaan" value="${isEdit ? esc(warga.pekerjaan || '') : ''}">
+    </div>
+    <div class="form-group">
+      <label>PIN (4 digit) *</label>
+      <input type="password" class="form-control" id="wPin" value="${isEdit ? warga.pin || '1234' : '1234'}" maxlength="4">
+    </div>
   `;
+  
   const footer = `
     <button class="btn btn-secondary" onclick="closeModal()">Batal</button>
-    <button class="btn btn-primary" onclick="saveWarga('${isEdit ? warga.id : ''}')"><i class="fas fa-save"></i> Simpan</button>
+    <button class="btn btn-primary" onclick="saveWarga('${isEdit ? warga.id : ''}')">
+      <i class="fas fa-save"></i> Simpan
+    </button>
   `;
-  openModal(isEdit ? 'Edit Warga' : 'Tambah Warga Baru', body, footer);
+  
+  openModal(isEdit ? 'Edit Warga' : 'Tambah Warga', body, footer);
 }
 
 async function saveWarga(id) {
-  if (!isAdmin()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   const nama = $('wNama').value.trim();
   const blok = $('wBlok').value.trim();
   const hp = $('wHp').value.trim();
@@ -1054,7 +1061,7 @@ async function saveWarga(id) {
   if (!nama || !blok) return showToast('Nama dan Blok wajib diisi', 'error');
   if (!/^\d{4}$/.test(pin)) return showToast('PIN harus 4 digit', 'error');
   
-  const warga = { id: id || uid('W'), nama, blok, hp, gol, status, pekerjaan, pin, joinDate: today() };
+  const warga = { id: id || uid('W'), nama, blok, hp, gol, status, pekerjaan, pin };
   
   if (id) {
     const idx = appData.warga.findIndex(w => w.id === id);
@@ -1071,13 +1078,13 @@ async function saveWarga(id) {
 }
 
 function editWarga(id) {
-  if (!isAdmin()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   const w = appData.warga.find(x => x.id === id);
   if (w) showWargaForm(w);
 }
 
 async function deleteWarga(id) {
-  if (!isAdmin()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   if (!confirm('Yakin ingin menghapus warga ini?')) return;
   appData.warga = appData.warga.filter(w => w.id !== id);
   await saveDataToFirebase();
@@ -1086,95 +1093,69 @@ async function deleteWarga(id) {
   showToast('Data warga dihapus', 'success');
 }
 
-// ============ IURAN (Personal) ============
+// Iuran Functions
 function renderDesktopIuran() {
   const b = bulanIni();
   const nom = appData.rt.iuranNominal || 50000;
-  
-  // Iuran saya
-  const iuranSaya = (appData.iuran || []).filter(i => i.wargaId === currentUser.id);
-  const iuranBulanIni = iuranSaya.filter(i => i.bulan === b);
-  const statusBulanIni = iuranBulanIni[0];
-  const isLunas = statusBulanIni && statusBulanIni.status === 'Lunas';
-  
-  // Total iuran
-  const totalLunas = iuranSaya.filter(i => i.status === 'Lunas').length;
-  const totalBelum = iuranSaya.filter(i => i.status !== 'Lunas').length;
+  const m = {};
+  (appData.iuran || []).filter(i => i.bulan === b).forEach(i => m[i.wargaId] = i);
+  const l = appData.warga || [];
+  const ln = l.filter(w => m[w.id] && m[w.id].status === 'Lunas').length;
+  const pct = l.length ? Math.round(ln / l.length * 100) : 0;
   
   let html = `
     <div class="page-header">
       <button onclick="showPage('dashboard')"><i class="fas fa-arrow-left"></i></button>
-      <h2>Iuran Saya</h2>
+      <h2>Status Iuran</h2>
     </div>
-    
-    <div style="background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:white;padding:24px;border-radius:16px;margin-bottom:24px">
-      <div style="display:flex;justify-content:space-between;align-items:center">
-        <div>
-          <div style="font-size:12px;opacity:.8;margin-bottom:8px">STATUS IURAN BULAN INI</div>
-          <div style="font-size:28px;font-weight:800">${labelBulan(b)}</div>
-          <div style="font-size:14px;margin-top:8px">${isLunas ? '✅ Lunas' : '⏳ Belum Dibayar'}</div>
-        </div>
-        <div style="text-align:right">
-          <div style="font-size:12px;opacity:.8;margin-bottom:8px">NOMINAL</div>
-          <div style="font-size:28px;font-weight:800">${rp(nom)}</div>
-          ${isLunas ? `<div style="font-size:12px;margin-top:8px">📅 ${tglIndo(statusBulanIni.tgl)}</div>` : ''}
-        </div>
-      </div>
-      ${!isLunas ? `
-      <button class="btn btn-success" style="margin-top:16px;width:100%;background:white;color:var(--primary)" onclick="showPage('setoran')">
-        <i class="fas fa-upload"></i> Bayar Sekarang
-      </button>` : ''}
-    </div>
-
-    <div class="stats-grid">
-      <div class="stat-card">
-        <div class="stat-icon green"><i class="fas fa-check-circle"></i></div>
-        <div class="stat-value">${totalLunas}</div>
-        <div class="stat-label">Bulan Lunas</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon orange"><i class="fas fa-clock"></i></div>
-        <div class="stat-value">${totalBelum}</div>
-        <div class="stat-label">Belum Lunas</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon blue"><i class="fas fa-money-bill-wave"></i></div>
-        <div class="stat-value">${rp(nom)}</div>
-        <div class="stat-label">Nominal/Bulan</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon purple"><i class="fas fa-percentage"></i></div>
-        <div class="stat-value">${iuranSaya.length ? Math.round(totalLunas/iuranSaya.length*100) : 0}%</div>
-        <div class="stat-label">Tingkat Kepatuhan</div>
-      </div>
-    </div>
-
     <div class="content-card">
-      <div class="card-header">
-        <h3><i class="fas fa-history"></i> Riwayat Iuran Saya</h3>
-      </div>
       <div class="card-body">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+          <div>
+            <div style="font-size:11px;color:var(--gray);font-weight:700;text-transform:uppercase">Progress Bulan Ini</div>
+            <div style="font-size:36px;font-weight:800;margin-top:4px">${ln}/${l.length}</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-size:13px;color:var(--gray)">${rp(nom)}/warga</div>
+            <div style="font-size:24px;font-weight:700;color:var(--primary);margin-top:4px">${pct}%</div>
+          </div>
+        </div>
+        <div style="height:10px;background:var(--light-gray);border-radius:5px;overflow:hidden;margin-bottom:24px">
+          <div style="height:100%;background:linear-gradient(90deg,var(--success),#059669);width:${pct}%"></div>
+        </div>
         <table class="data-table">
           <thead>
             <tr>
-              <th>Bulan</th>
-              <th>Nominal</th>
+              <th>Nama</th>
+              <th>Blok</th>
               <th>Status</th>
-              <th>Tanggal Bayar</th>
+              <th>Tanggal</th>
+              ${canEdit() ? '<th>Aksi</th>' : ''}
             </tr>
           </thead>
           <tbody>
-            ${iuranSaya.length ? iuranSaya.sort((a,b) => b.bulan.localeCompare(a.bulan)).map(i => {
-              const bc = i.status === 'Lunas' ? 'success' : 'warning';
+            ${l.map(w => {
+              const r = m[w.id], ok = r && r.status === 'Lunas';
               return `
-                <tr>
-                  <td><strong>${labelBulan(i.bulan)}</strong></td>
-                  <td>${rp(i.nominal)}</td>
-                  <td><span class="status-badge ${bc}">${i.status}</span></td>
-                  <td>${i.tgl ? tglIndo(i.tgl) : '-'}</td>
+                <tr style="${ok ? 'background:#F0FDF4' : ''}">
+                  <td>
+                    <div style="display:flex;align-items:center;gap:12px">
+                      <div style="width:40px;height:40px;border-radius:50%;background:${ok ? '#D1FAE5' : 'var(--primary-light)'};color:${ok ? 'var(--success)' : 'var(--primary)'};display:flex;align-items:center;justify-content:center;font-weight:700">
+                        ${ok ? '✓' : initials(w.nama)}
+                      </div>
+                      <div style="font-weight:600">${esc(w.nama)}</div>
+                    </div>
+                  </td>
+                  <td>${esc(w.blok)}</td>
+                  <td><span class="status-badge ${ok ? 'success' : 'warning'}">${ok ? 'Lunas' : 'Belum Bayar'}</span></td>
+                  <td>${ok ? tglIndo(r.tgl) : '-'}</td>
+                  ${canEdit() ? `
+                  <td>
+                    ${!ok ? `<button class="btn btn-success btn-sm" onclick="toggleIuran('${w.id}','${b}',${nom})"><i class="fas fa-check"></i> Tandai Lunas</button>` : ''}
+                  </td>` : ''}
                 </tr>
               `;
-            }).join('') : '<tr><td colspan="4" style="text-align:center;padding:40px;color:var(--gray)">Belum ada riwayat iuran</td></tr>'}
+            }).join('')}
           </tbody>
         </table>
       </div>
@@ -1184,13 +1165,23 @@ function renderDesktopIuran() {
   $('desktopContent').innerHTML = html;
 }
 
-// ============ KEUANGAN (Admin Only) ============
-function renderDesktopKeuangan() {
-  if (!isAdmin()) {
-    $('desktopContent').innerHTML = '<div style="text-align:center;padding:60px;color:var(--gray)"><i class="fas fa-lock" style="font-size:48px;margin-bottom:16px"></i><p>Akses ditolak. Hanya Ketua RT & Bendahara.</p></div>';
-    return;
+async function toggleIuran(wid, b, nom) {
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
+  const l = appData.iuran || [];
+  const i = l.findIndex(x => x.wargaId === wid && x.bulan === b);
+  if (i > -1) {
+    l[i] = {...l[i], status: 'Lunas', tgl: today()};
+  } else {
+    l.push({id: uid('I'), wargaId: wid, bulan: b, nominal: nom, status: 'Lunas', tgl: today()});
   }
-  
+  appData.iuran = l;
+  await saveDataToFirebase();
+  showToast('Iuran dilunasi', 'success');
+  renderDesktopIuran();
+}
+
+// Keuangan Functions
+function renderDesktopKeuangan() {
   const kas = appData.kas || [];
   const sal = kas.reduce((s, k) => s + (k.tipe === 'Masuk' ? k.nominal : -k.nominal), 0);
   const mk = kas.filter(k => k.tipe === 'Masuk').reduce((s, k) => s + k.nominal, 0);
@@ -1201,7 +1192,7 @@ function renderDesktopKeuangan() {
       <button onclick="showPage('dashboard')"><i class="fas fa-arrow-left"></i></button>
       <h2>Keuangan RT</h2>
     </div>
-    <div class="stats-grid">
+    <div class="stats-grid" style="margin-bottom:24px">
       <div class="stat-card">
         <div class="stat-icon green"><i class="fas fa-wallet"></i></div>
         <div class="stat-value">${rp(sal)}</div>
@@ -1217,21 +1208,22 @@ function renderDesktopKeuangan() {
         <div class="stat-value">${rp(kl)}</div>
         <div class="stat-label">Pengeluaran</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-icon purple"><i class="fas fa-exchange-alt"></i></div>
-        <div class="stat-value">${kas.length}</div>
-        <div class="stat-label">Total Transaksi</div>
-      </div>
     </div>
     <div class="content-card">
       <div class="card-header">
         <h3><i class="fas fa-list"></i> Mutasi Kas</h3>
-        <button class="btn btn-primary btn-sm" onclick="showTransaksiForm()"><i class="fas fa-plus"></i> Tambah Transaksi</button>
+        ${canEdit() ? `<button class="btn btn-primary btn-sm" onclick="showTransaksiForm()"><i class="fas fa-plus"></i> Tambah Transaksi</button>` : ''}
       </div>
       <div class="card-body">
         <table class="data-table">
           <thead>
-            <tr><th>Tanggal</th><th>Uraian</th><th>Kategori</th><th style="text-align:right">Jumlah</th><th>Aksi</th></tr>
+            <tr>
+              <th>Tanggal</th>
+              <th>Uraian</th>
+              <th>Kategori</th>
+              <th style="text-align:right">Jumlah</th>
+              ${canEdit() ? '<th>Aksi</th>' : ''}
+            </tr>
           </thead>
           <tbody>
             ${kas.length ? kas.map(k => `
@@ -1242,12 +1234,13 @@ function renderDesktopKeuangan() {
                 <td style="text-align:right;font-weight:700;color:${k.tipe === 'Masuk' ? 'var(--success)' : 'var(--danger)'}">
                   ${k.tipe === 'Masuk' ? '+' : '-'}${rp(k.nominal)}
                 </td>
+                ${canEdit() ? `
                 <td>
                   <button class="btn btn-secondary btn-sm" onclick="editTransaksi('${k.id}')"><i class="fas fa-edit"></i></button>
                   <button class="btn btn-danger btn-sm" onclick="deleteTransaksi('${k.id}')"><i class="fas fa-trash"></i></button>
-                </td>
+                </td>` : ''}
               </tr>
-            `).join('') : '<tr><td colspan="5" style="text-align:center;padding:40px;color:var(--gray)">Tidak ada transaksi</td></tr>'}
+            `).join('') : '<tr><td colspan="' + (canEdit() ? 5 : 4) + '" style="text-align:center;padding:40px;color:var(--gray)">Tidak ada transaksi</td></tr>'}
           </tbody>
         </table>
       </div>
@@ -1258,20 +1251,49 @@ function renderDesktopKeuangan() {
 }
 
 function showTransaksiForm() {
-  if (!isAdmin()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   const body = `
-    <div class="form-group"><label>Tipe *</label><select class="form-control" id="tTipe"><option value="Masuk">Pemasukan</option><option value="Keluar">Pengeluaran</option></select></div>
-    <div class="form-group"><label>Kategori *</label><select class="form-control" id="tKat"><option>Iuran Warga</option><option>Donasi</option><option>Kebersihan</option><option>Keamanan</option><option>Kegiatan</option><option>Administrasi</option><option>Lainnya</option></select></div>
-    <div class="form-group"><label>Uraian *</label><input type="text" class="form-control" id="tUrai"></div>
-    <div class="form-group"><label>Nominal *</label><input type="number" class="form-control" id="tNominal"></div>
-    <div class="form-group"><label>Tanggal *</label><input type="date" class="form-control" id="tTgl" value="${today()}"></div>
+    <div class="form-group">
+      <label>Tipe *</label>
+      <select class="form-control" id="tTipe">
+        <option value="Masuk">Pemasukan</option>
+        <option value="Keluar">Pengeluaran</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Kategori *</label>
+      <select class="form-control" id="tKat">
+        <option>Iuran Warga</option>
+        <option>Donasi</option>
+        <option>Kebersihan</option>
+        <option>Keamanan</option>
+        <option>Kegiatan</option>
+        <option>Administrasi</option>
+        <option>Lainnya</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Uraian *</label>
+      <input type="text" class="form-control" id="tUrai">
+    </div>
+    <div class="form-group">
+      <label>Nominal *</label>
+      <input type="number" class="form-control" id="tNominal">
+    </div>
+    <div class="form-group">
+      <label>Tanggal *</label>
+      <input type="date" class="form-control" id="tTgl" value="${today()}">
+    </div>
   `;
-  const footer = `<button class="btn btn-secondary" onclick="closeModal()">Batal</button><button class="btn btn-primary" onclick="saveTransaksi()"><i class="fas fa-save"></i> Simpan</button>`;
+  const footer = `
+    <button class="btn btn-secondary" onclick="closeModal()">Batal</button>
+    <button class="btn btn-primary" onclick="saveTransaksi()"><i class="fas fa-save"></i> Simpan</button>
+  `;
   openModal('Tambah Transaksi', body, footer);
 }
 
 async function saveTransaksi() {
-  if (!isAdmin()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   const tipe = $('tTipe').value;
   const kat = $('tKat').value;
   const urai = $('tUrai').value.trim();
@@ -1288,22 +1310,45 @@ async function saveTransaksi() {
 }
 
 function editTransaksi(id) {
-  if (!isAdmin()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   const k = appData.kas.find(x => x.id === id);
   if (!k) return;
   const body = `
-    <div class="form-group"><label>Tipe *</label><select class="form-control" id="tTipe"><option value="Masuk" ${k.tipe === 'Masuk' ? 'selected' : ''}>Pemasukan</option><option value="Keluar" ${k.tipe === 'Keluar' ? 'selected' : ''}>Pengeluaran</option></select></div>
-    <div class="form-group"><label>Kategori *</label><select class="form-control" id="tKat">${['Iuran Warga','Donasi','Kebersihan','Keamanan','Kegiatan','Administrasi','Lainnya'].map(c => `<option ${k.kat === c ? 'selected' : ''}>${c}</option>`).join('')}</select></div>
-    <div class="form-group"><label>Uraian *</label><input type="text" class="form-control" id="tUrai" value="${esc(k.urai)}"></div>
-    <div class="form-group"><label>Nominal *</label><input type="number" class="form-control" id="tNominal" value="${k.nominal}"></div>
-    <div class="form-group"><label>Tanggal *</label><input type="date" class="form-control" id="tTgl" value="${k.tgl}"></div>
+    <div class="form-group">
+      <label>Tipe *</label>
+      <select class="form-control" id="tTipe">
+        <option value="Masuk" ${k.tipe === 'Masuk' ? 'selected' : ''}>Pemasukan</option>
+        <option value="Keluar" ${k.tipe === 'Keluar' ? 'selected' : ''}>Pengeluaran</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Kategori *</label>
+      <select class="form-control" id="tKat">
+        ${['Iuran Warga','Donasi','Kebersihan','Keamanan','Kegiatan','Administrasi','Lainnya'].map(c => `<option ${k.kat === c ? 'selected' : ''}>${c}</option>`).join('')}
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Uraian *</label>
+      <input type="text" class="form-control" id="tUrai" value="${esc(k.urai)}">
+    </div>
+    <div class="form-group">
+      <label>Nominal *</label>
+      <input type="number" class="form-control" id="tNominal" value="${k.nominal}">
+    </div>
+    <div class="form-group">
+      <label>Tanggal *</label>
+      <input type="date" class="form-control" id="tTgl" value="${k.tgl}">
+    </div>
   `;
-  const footer = `<button class="btn btn-secondary" onclick="closeModal()">Batal</button><button class="btn btn-primary" onclick="updateTransaksi('${k.id}')"><i class="fas fa-save"></i> Update</button>`;
+  const footer = `
+    <button class="btn btn-secondary" onclick="closeModal()">Batal</button>
+    <button class="btn btn-primary" onclick="updateTransaksi('${k.id}')"><i class="fas fa-save"></i> Update</button>
+  `;
   openModal('Edit Transaksi', body, footer);
 }
 
 async function updateTransaksi(id) {
-  if (!isAdmin()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   const tipe = $('tTipe').value;
   const kat = $('tKat').value;
   const urai = $('tUrai').value.trim();
@@ -1323,7 +1368,7 @@ async function updateTransaksi(id) {
 }
 
 async function deleteTransaksi(id) {
-  if (!isAdmin()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   if (!confirm('Yakin ingin menghapus transaksi ini?')) return;
   appData.kas = appData.kas.filter(x => x.id !== id);
   await saveDataToFirebase();
@@ -1331,89 +1376,73 @@ async function deleteTransaksi(id) {
   renderDesktopKeuangan();
 }
 
-// ============ SETORAN (Personal + Admin Konfirmasi) ============
+// Setoran Functions
 function renderDesktopSetoran() {
   const mine = (appData.setoran || []).filter(s => s.wargaId === currentUser.id);
-  const pending = (appData.setoran || []).filter(s => s.status === 'Pending');
   
   let html = `
     <div class="page-header">
       <button onclick="showPage('dashboard')"><i class="fas fa-arrow-left"></i></button>
-      <h2>${isAdmin() ? 'Konfirmasi Setoran' : 'Setoran Iuran Saya'}</h2>
+      <h2>Setoran Online</h2>
     </div>
-  `;
-  
-  if (isAdmin() && pending.length > 0) {
-    html += `
-      <div class="content-card" style="margin-bottom:24px">
+    <div class="content-grid">
+      <div class="content-card">
         <div class="card-header">
-          <h3><i class="fas fa-clock"></i> Menunggu Konfirmasi (${pending.length})</h3>
+          <h3><i class="fas fa-upload"></i> Form Setoran</h3>
         </div>
         <div class="card-body">
-          <table class="data-table">
-            <thead><tr><th>Warga</th><th>Bulan</th><th>Nominal</th><th>Metode</th><th>Tanggal</th><th>Aksi</th></tr></thead>
-            <tbody>
-              ${pending.map(s => {
-                const w = appData.warga.find(x => x.id === s.wargaId);
-                return `
-                  <tr>
-                    <td><strong>${esc(s.namaWarga)}</strong><br><span style="font-size:11px;color:var(--gray)">Blok ${esc(s.blok)}</span></td>
-                    <td>${labelBulan(s.bulan)}</td>
-                    <td>${rp(s.nominal)}</td>
-                    <td>${esc(s.metode)}</td>
-                    <td>${tglIndo(s.tglSetor)}</td>
-                    <td>
-                      <button class="btn btn-success btn-sm" onclick="konfirmasiSetoran('${s.id}',true)"><i class="fas fa-check"></i> Terima</button>
-                      <button class="btn btn-danger btn-sm" onclick="konfirmasiSetoran('${s.id}',false)"><i class="fas fa-times"></i> Tolak</button>
-                    </td>
-                  </tr>
-                `;
-              }).join('')}
-            </tbody>
-          </table>
+          <div class="form-group">
+            <label>Bulan *</label>
+            <select class="form-control" id="setorBulan">
+              ${[bulanIni()].map(b => `<option value="${b}">${labelBulan(b)}</option>`).join('')}
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Nominal *</label>
+            <input type="number" class="form-control" id="setorNominal" value="${appData.rt.iuranNominal || 50000}">
+          </div>
+          <div class="form-group">
+            <label>Metode *</label>
+            <select class="form-control" id="setorMetode">
+              <option>Transfer Bank</option>
+              <option>E-Wallet</option>
+              <option>QRIS</option>
+              <option>Tunai</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>No. Referensi</label>
+            <input type="text" class="form-control" id="setorRef" placeholder="TRX...">
+          </div>
+          <div class="form-group">
+            <label>Catatan</label>
+            <textarea class="form-control" id="setorCatatan" rows="3"></textarea>
+          </div>
+          <button class="btn btn-primary" onclick="submitSetoranDesktop()"><i class="fas fa-paper-plane"></i> Kirim Setoran</button>
         </div>
       </div>
-    `;
-  }
-  
-  html += `
-    <div class="content-card">
-      <div class="card-header">
-        <h3><i class="fas fa-upload"></i> Form Setoran</h3>
-      </div>
-      <div class="card-body">
-        <div class="form-group"><label>Bulan *</label><select class="form-control" id="setorBulan">${[bulanIni()].map(b => `<option value="${b}">${labelBulan(b)}</option>`).join('')}</select></div>
-        <div class="form-group"><label>Nominal *</label><input type="number" class="form-control" id="setorNominal" value="${appData.rt.iuranNominal || 50000}"></div>
-        <div class="form-group"><label>Metode *</label><select class="form-control" id="setorMetode"><option>Transfer Bank</option><option>E-Wallet</option><option>QRIS</option><option>Tunai</option></select></div>
-        <div class="form-group"><label>No. Referensi</label><input type="text" class="form-control" id="setorRef" placeholder="TRX..."></div>
-        <div class="form-group"><label>Catatan</label><textarea class="form-control" id="setorCatatan" rows="3"></textarea></div>
-        <button class="btn btn-primary" onclick="submitSetoranDesktop()"><i class="fas fa-paper-plane"></i> Kirim Setoran</button>
-      </div>
-    </div>
-
-    <div class="content-card" style="margin-top:24px">
-      <div class="card-header">
-        <h3><i class="fas fa-history"></i> Riwayat Setoran Saya</h3>
-      </div>
-      <div class="card-body">
-        ${mine.length ? mine.map(s => {
-          const bc = s.status === 'Pending' ? 'warning' : s.status === 'Dikonfirmasi' ? 'success' : 'danger';
-          return `
-            <div style="padding:16px;border:1px solid var(--border);border-radius:10px;margin-bottom:12px">
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-                <h4 style="font-size:14px;font-weight:700">${labelBulan(s.bulan)}</h4>
-                <span class="status-badge ${bc}">${s.status}</span>
+      <div class="content-card">
+        <div class="card-header">
+          <h3><i class="fas fa-history"></i> Riwayat Setoran Saya</h3>
+        </div>
+        <div class="card-body">
+          ${mine.length ? mine.map(s => {
+            const bc = s.status === 'Pending' ? 'warning' : s.status === 'Dikonfirmasi' ? 'success' : 'danger';
+            return `
+              <div style="padding:16px;border:1px solid var(--border);border-radius:10px;margin-bottom:12px">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+                  <h4 style="font-size:14px;font-weight:700">${labelBulan(s.bulan)}</h4>
+                  <span class="status-badge ${bc}">${s.status}</span>
+                </div>
+                <div style="font-size:18px;font-weight:800;color:var(--primary);margin-bottom:8px">${rp(s.nominal)}</div>
+                <div style="font-size:12px;color:var(--gray)">
+                  <i class="fas fa-calendar"></i> ${tglIndo(s.tglSetor)} · 
+                  <i class="fas fa-credit-card"></i> ${esc(s.metode)}
+                </div>
               </div>
-              <div style="font-size:18px;font-weight:800;color:var(--primary);margin-bottom:8px">${rp(s.nominal)}</div>
-              <div style="font-size:12px;color:var(--gray)">
-                <i class="fas fa-calendar"></i> ${tglIndo(s.tglSetor)} · 
-                <i class="fas fa-credit-card"></i> ${esc(s.metode)}
-                ${s.dikonfirmasiOleh ? ` · <i class="fas fa-user-check"></i> ${esc(s.dikonfirmasiOleh)}` : ''}
-              </div>
-              ${s.alasan ? `<div style="font-size:12px;color:var(--danger);margin-top:8px"><i class="fas fa-exclamation-circle"></i> ${esc(s.alasan)}</div>` : ''}
-            </div>
-          `;
-        }).join('') : '<p style="text-align:center;color:var(--gray);padding:40px">Belum pernah setor</p>'}
+            `;
+          }).join('') : '<p style="text-align:center;color:var(--gray);padding:40px">Belum pernah setor</p>'}
+        </div>
       </div>
     </div>
   `;
@@ -1431,57 +1460,31 @@ async function submitSetoranDesktop() {
   if (!nominal || nominal < 1000) return showToast('Nominal minimal 1000', 'error');
   
   appData.setoran.unshift({
-    id: uid('S'), wargaId: currentUser.id, namaWarga: currentUser.nama,
-    blok: currentUser.blok, bulan, nominal, metode, ref, catatan,
-    bukti: [], status: 'Pending', tglSetor: today(),
-    tglKonfirmasi: null, dikonfirmasiOleh: null, alasan: ''
+    id: uid('S'),
+    wargaId: currentUser.id,
+    namaWarga: currentUser.nama,
+    blok: currentUser.blok,
+    bulan,
+    nominal,
+    metode,
+    ref,
+    catatan,
+    bukti: [],
+    status: 'Pending',
+    tglSetor: today(),
+    tglKonfirmasi: null,
+    dikonfirmasiOleh: null,
+    alasan: ''
   });
   
   await saveDataToFirebase();
-  showToast('Setoran terkirim, menunggu konfirmasi admin', 'success');
+  showToast('Setoran terkirim', 'success');
   $('setorRef').value = '';
   $('setorCatatan').value = '';
   renderDesktopSetoran();
 }
 
-async function konfirmasiSetoran(id, ok) {
-  if (!isAdmin()) return showToast('Hanya admin', 'error');
-  const s = (appData.setoran || []).find(x => x.id === id);
-  if (!s) return;
-  
-  if (ok) {
-    if (!confirm(`Terima setoran ${rp(s.nominal)} dari ${s.namaWarga}?`)) return;
-    s.status = 'Dikonfirmasi';
-    s.tglKonfirmasi = today();
-    s.dikonfirmasiOleh = currentUser.nama;
-    
-    // Tambah ke kas
-    appData.kas.unshift({
-      id: uid('K'), tgl: today(), tipe: 'Masuk', kat: 'Iuran Warga',
-      urai: `Setoran ${labelBulan(s.bulan)} - ${s.namaWarga}`, nominal: s.nominal
-    });
-    
-    // Update iuran
-    const ii = appData.iuran.findIndex(x => x.wargaId === s.wargaId && x.bulan === s.bulan);
-    if (ii > -1) appData.iuran[ii] = {...appData.iuran[ii], status: 'Lunas', tgl: today()};
-    else appData.iuran.push({id: uid('I'), wargaId: s.wargaId, bulan: s.bulan, nominal: s.nominal, status: 'Lunas', tgl: today()});
-    
-    await saveDataToFirebase();
-    showToast('Setoran diterima & iuran dilunasi', 'success');
-  } else {
-    const al = prompt('Alasan penolakan:');
-    if (!al) return showToast('Alasan wajib', 'error');
-    s.status = 'Ditolak';
-    s.tglKonfirmasi = today();
-    s.dikonfirmasiOleh = currentUser.nama;
-    s.alasan = al;
-    await saveDataToFirebase();
-    showToast('Setoran ditolak', 'info');
-  }
-  renderDesktopSetoran();
-}
-
-// ============ PENGUMUMAN ============
+// Pengumuman Functions
 function renderDesktopPengumuman() {
   const l = (appData.pengumuman || []).slice().sort((a, b) => (b.pin ? 1 : 0) - (a.pin ? 1 : 0));
   
@@ -1519,20 +1522,39 @@ function renderDesktopPengumuman() {
 }
 
 function showPengumumanForm(p = null) {
-  if (!canEdit()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   const isEdit = !!p;
   const body = `
-    <div class="form-group"><label>Judul *</label><input type="text" class="form-control" id="pJudul" value="${isEdit ? esc(p.judul) : ''}"></div>
-    <div class="form-group"><label>Kategori</label><select class="form-control" id="pKat">${['Pengumuman','Keuangan','Kerja Bakti','Keamanan','Kegiatan','Kesehatan'].map(k => `<option ${isEdit && p.kat === k ? 'selected' : ''}>${k}</option>`).join('')}</select></div>
-    <div class="form-group"><label>Isi *</label><textarea class="form-control" id="pIsi" rows="4">${isEdit ? esc(p.isi) : ''}</textarea></div>
-    <div class="form-group"><label style="display:flex;align-items:center;gap:8px"><input type="checkbox" id="pPin" ${isEdit && p.pin ? 'checked' : ''}> Pin di beranda</label></div>
+    <div class="form-group">
+      <label>Judul *</label>
+      <input type="text" class="form-control" id="pJudul" value="${isEdit ? esc(p.judul) : ''}">
+    </div>
+    <div class="form-group">
+      <label>Kategori</label>
+      <select class="form-control" id="pKat">
+        ${['Pengumuman','Keuangan','Kerja Bakti','Keamanan','Kegiatan','Kesehatan'].map(k => `<option ${isEdit && p.kat === k ? 'selected' : ''}>${k}</option>`).join('')}
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Isi *</label>
+      <textarea class="form-control" id="pIsi" rows="4">${isEdit ? esc(p.isi) : ''}</textarea>
+    </div>
+    <div class="form-group">
+      <label style="display:flex;align-items:center;gap:8px">
+        <input type="checkbox" id="pPin" ${isEdit && p.pin ? 'checked' : ''}>
+        Pin di beranda
+      </label>
+    </div>
   `;
-  const footer = `<button class="btn btn-secondary" onclick="closeModal()">Batal</button><button class="btn btn-primary" onclick="savePengumuman('${isEdit ? p.id : ''}')"><i class="fas fa-save"></i> Simpan</button>`;
+  const footer = `
+    <button class="btn btn-secondary" onclick="closeModal()">Batal</button>
+    <button class="btn btn-primary" onclick="savePengumuman('${isEdit ? p.id : ''}')"><i class="fas fa-save"></i> Simpan</button>
+  `;
   openModal(isEdit ? 'Edit Pengumuman' : 'Tambah Pengumuman', body, footer);
 }
 
 async function savePengumuman(id) {
-  if (!canEdit()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   const judul = $('pJudul').value.trim();
   const kat = $('pKat').value;
   const isi = $('pIsi').value.trim();
@@ -1554,13 +1576,13 @@ async function savePengumuman(id) {
 }
 
 function editPengumuman(id) {
-  if (!canEdit()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   const p = appData.pengumuman.find(x => x.id === id);
   if (p) showPengumumanForm(p);
 }
 
 async function deletePengumuman(id) {
-  if (!canEdit()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   if (!confirm('Yakin ingin menghapus pengumuman ini?')) return;
   appData.pengumuman = appData.pengumuman.filter(x => x.id !== id);
   await saveDataToFirebase();
@@ -1568,7 +1590,7 @@ async function deletePengumuman(id) {
   renderDesktopPengumuman();
 }
 
-// ============ KEGIATAN ============
+// Kegiatan Functions
 function renderDesktopKegiatan() {
   const l = (appData.kegiatan || []).slice().sort((a, b) => (b.tgl || '').localeCompare(a.tgl || ''));
   
@@ -1614,25 +1636,61 @@ function renderDesktopKegiatan() {
 }
 
 function showKegiatanForm(k = null) {
-  if (!canEdit()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   const isEdit = !!k;
   const body = `
-    <div class="form-group"><label>Judul Kegiatan *</label><input type="text" class="form-control" id="kJudul" value="${isEdit ? esc(k.judul) : ''}"></div>
-    <div class="form-group"><label>Kategori</label><select class="form-control" id="kKategori">${['Kerja Bakti','Rapat RT','Posyandu','HUT RT','Pengajian','Sosial','Olahraga','Lainnya'].map(x => `<option ${isEdit && k.kategori === x ? 'selected' : ''}>${x}</option>`).join('')}</select></div>
-    <div class="form-group"><label>Status</label><select class="form-control" id="kStatus">${['Akan Datang','Sedang Berlangsung','Selesai','Dibatalkan'].map(x => `<option ${isEdit && k.status === x ? 'selected' : ''}>${x}</option>`).join('')}</select></div>
-    <div class="form-group"><label>Tanggal *</label><input type="date" class="form-control" id="kTgl" value="${isEdit ? k.tgl : today()}"></div>
-    <div class="form-group"><label>Waktu Mulai</label><input type="time" class="form-control" id="kMulai" value="${isEdit ? esc(k.waktuMulai || '') : ''}"></div>
-    <div class="form-group"><label>Waktu Selesai</label><input type="time" class="form-control" id="kSelesai" value="${isEdit ? esc(k.waktuSelesai || '') : ''}"></div>
-    <div class="form-group"><label>Lokasi</label><input type="text" class="form-control" id="kLokasi" value="${isEdit ? esc(k.lokasi || '') : ''}" placeholder="Contoh: Balai RT"></div>
-    <div class="form-group"><label>Penanggung Jawab</label><select class="form-control" id="kPJ">${(appData.warga || []).map(w => `<option value="${esc(w.nama)}" ${isEdit && k.penanggungJawab === w.nama ? 'selected' : ''}>${esc(w.nama)} (${esc(w.gol)})</option>`).join('')}</select></div>
-    <div class="form-group"><label>Deskripsi</label><textarea class="form-control" id="kDesk" rows="3">${isEdit ? esc(k.deskripsi || '') : ''}</textarea></div>
+    <div class="form-group">
+      <label>Judul Kegiatan *</label>
+      <input type="text" class="form-control" id="kJudul" value="${isEdit ? esc(k.judul) : ''}">
+    </div>
+    <div class="form-group">
+      <label>Kategori</label>
+      <select class="form-control" id="kKategori">
+        ${['Kerja Bakti','Rapat RT','Posyandu','HUT RT','Pengajian','Sosial','Olahraga','Lainnya'].map(x => `<option ${isEdit && k.kategori === x ? 'selected' : ''}>${x}</option>`).join('')}
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Status</label>
+      <select class="form-control" id="kStatus">
+        ${['Akan Datang','Sedang Berlangsung','Selesai','Dibatalkan'].map(x => `<option ${isEdit && k.status === x ? 'selected' : ''}>${x}</option>`).join('')}
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Tanggal *</label>
+      <input type="date" class="form-control" id="kTgl" value="${isEdit ? k.tgl : today()}">
+    </div>
+    <div class="form-group">
+      <label>Waktu Mulai</label>
+      <input type="time" class="form-control" id="kMulai" value="${isEdit ? esc(k.waktuMulai || '') : ''}">
+    </div>
+    <div class="form-group">
+      <label>Waktu Selesai</label>
+      <input type="time" class="form-control" id="kSelesai" value="${isEdit ? esc(k.waktuSelesai || '') : ''}">
+    </div>
+    <div class="form-group">
+      <label>Lokasi</label>
+      <input type="text" class="form-control" id="kLokasi" value="${isEdit ? esc(k.lokasi || '') : ''}" placeholder="Contoh: Balai RT">
+    </div>
+    <div class="form-group">
+      <label>Penanggung Jawab</label>
+      <select class="form-control" id="kPJ">
+        ${(appData.warga || []).map(w => `<option value="${esc(w.nama)}" ${isEdit && k.penanggungJawab === w.nama ? 'selected' : ''}>${esc(w.nama)} (${esc(w.gol)})</option>`).join('')}
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Deskripsi</label>
+      <textarea class="form-control" id="kDesk" rows="3">${isEdit ? esc(k.deskripsi || '') : ''}</textarea>
+    </div>
   `;
-  const footer = `<button class="btn btn-secondary" onclick="closeModal()">Batal</button><button class="btn btn-primary" onclick="saveKegiatan('${isEdit ? k.id : ''}')"><i class="fas fa-save"></i> Simpan</button>`;
+  const footer = `
+    <button class="btn btn-secondary" onclick="closeModal()">Batal</button>
+    <button class="btn btn-primary" onclick="saveKegiatan('${isEdit ? k.id : ''}')"><i class="fas fa-save"></i> Simpan</button>
+  `;
   openModal(isEdit ? 'Edit Kegiatan' : 'Tambah Kegiatan', body, footer);
 }
 
 async function saveKegiatan(id) {
-  if (!canEdit()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   const judul = $('kJudul').value.trim();
   const kategori = $('kKategori').value;
   const status = $('kStatus').value;
@@ -1659,13 +1717,13 @@ async function saveKegiatan(id) {
 }
 
 function editKegiatan(id) {
-  if (!canEdit()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   const k = appData.kegiatan.find(x => x.id === id);
   if (k) showKegiatanForm(k);
 }
 
 async function deleteKegiatan(id) {
-  if (!canEdit()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   if (!confirm('Yakin ingin menghapus kegiatan ini?')) return;
   appData.kegiatan = appData.kegiatan.filter(x => x.id !== id);
   await saveDataToFirebase();
@@ -1673,21 +1731,18 @@ async function deleteKegiatan(id) {
   renderDesktopKegiatan();
 }
 
-// ============ PENGADUAN (Personal + Admin) ============
+// Pengaduan Functions
 function renderDesktopPengaduan() {
-  // Warga biasa: hanya lihat pengaduan sendiri
-  // Admin: lihat semua pengaduan
-  const l = isAdmin() ? (appData.lapor || []).slice().sort((a, b) => (b.tgl || '').localeCompare(a.tgl || ''))
-    : (appData.lapor || []).filter(x => x.wargaId === currentUser.id).sort((a, b) => (b.tgl || '').localeCompare(a.tgl || ''));
+  const l = (appData.lapor || []).slice().sort((a, b) => (b.tgl || '').localeCompare(a.tgl || ''));
   
   let html = `
     <div class="page-header">
       <button onclick="showPage('dashboard')"><i class="fas fa-arrow-left"></i></button>
-      <h2>${isAdmin() ? 'Semua Pengaduan' : 'Pengaduan Saya'}</h2>
+      <h2>Pengaduan</h2>
     </div>
     <button class="btn btn-primary" style="margin-bottom:20px" onclick="showLaporForm()"><i class="fas fa-plus"></i> Lapor Masalah</button>
     <div class="content-grid">
-      ${l.length ? l.map(x => {
+      ${l.map(x => {
         const w = appData.warga.find(v => v.id === x.wargaId);
         const bc = x.status === 'Selesai' ? 'success' : x.status === 'Diproses' ? 'info' : x.status === 'Ditolak' ? 'danger' : 'warning';
         return `
@@ -1706,15 +1761,15 @@ function renderDesktopPengaduan() {
                 <span><i class="fas fa-user"></i> ${esc(w ? w.nama : 'Warga')}</span>
                 <span><i class="fas fa-calendar"></i> ${tglIndo(x.tgl)}</span>
               </div>
-              ${(canEdit() || x.wargaId === currentUser.id) ? `
+              ${canEdit() ? `
               <div style="margin-top:16px;display:flex;gap:8px">
                 <button class="btn btn-secondary btn-sm" onclick="editLapor('${x.id}')"><i class="fas fa-edit"></i> Edit</button>
-                ${canEdit() ? `<button class="btn btn-danger btn-sm" onclick="deleteLapor('${x.id}')"><i class="fas fa-trash"></i> Hapus</button>` : ''}
+                <button class="btn btn-danger btn-sm" onclick="deleteLapor('${x.id}')"><i class="fas fa-trash"></i> Hapus</button>
               </div>` : ''}
             </div>
           </div>
         `;
-      }).join('') : '<div class="content-card"><div class="card-body" style="text-align:center;padding:60px;color:var(--gray)"><i class="fas fa-exclamation-triangle" style="font-size:48px;margin-bottom:16px"></i><p>Belum ada pengaduan</p></div></div>'}
+      }).join('') || '<div class="content-card"><div class="card-body" style="text-align:center;padding:60px;color:var(--gray)"><i class="fas fa-exclamation-triangle" style="font-size:48px;margin-bottom:16px"></i><p>Belum ada pengaduan</p></div></div>'}
     </div>
   `;
   
@@ -1724,13 +1779,38 @@ function renderDesktopPengaduan() {
 function showLaporForm(l = null) {
   const isEdit = !!l;
   const body = `
-    <div class="form-group"><label>Kategori</label><select class="form-control" id="lKat">${['Infrastruktur','Keamanan','Kebersihan','Sosial','Penerangan','Lainnya'].map(k => `<option ${isEdit && l.kat === k ? 'selected' : ''}>${k}</option>`).join('')}</select></div>
-    <div class="form-group"><label>Prioritas</label><select class="form-control" id="lPrio">${['Rendah','Sedang','Tinggi','Darurat'].map(p => `<option ${isEdit && l.prio === p ? 'selected' : ''} ${!isEdit && p === 'Sedang' ? 'selected' : ''}>${p}</option>`).join('')}</select></div>
-    <div class="form-group"><label>Judul *</label><input type="text" class="form-control" id="lJudul" value="${isEdit ? esc(l.judul) : ''}"></div>
-    <div class="form-group"><label>Deskripsi *</label><textarea class="form-control" id="lIsi" rows="4">${isEdit ? esc(l.isi) : ''}</textarea></div>
-    ${isStaff() ? `<div class="form-group"><label>Status</label><select class="form-control" id="lStatus">${['Baru','Diproses','Selesai','Ditolak'].map(s => `<option ${isEdit && l.status === s ? 'selected' : ''}>${s}</option>`).join('')}</select></div>` : ''}
+    <div class="form-group">
+      <label>Kategori</label>
+      <select class="form-control" id="lKat">
+        ${['Infrastruktur','Keamanan','Kebersihan','Sosial','Penerangan','Lainnya'].map(k => `<option ${isEdit && l.kat === k ? 'selected' : ''}>${k}</option>`).join('')}
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Prioritas</label>
+      <select class="form-control" id="lPrio">
+        ${['Rendah','Sedang','Tinggi','Darurat'].map(p => `<option ${isEdit && l.prio === p ? 'selected' : ''} ${!isEdit && p === 'Sedang' ? 'selected' : ''}>${p}</option>`).join('')}
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Judul *</label>
+      <input type="text" class="form-control" id="lJudul" value="${isEdit ? esc(l.judul) : ''}">
+    </div>
+    <div class="form-group">
+      <label>Deskripsi *</label>
+      <textarea class="form-control" id="lIsi" rows="4">${isEdit ? esc(l.isi) : ''}</textarea>
+    </div>
+    ${isStaff() ? `
+    <div class="form-group">
+      <label>Status</label>
+      <select class="form-control" id="lStatus">
+        ${['Baru','Diproses','Selesai','Ditolak'].map(s => `<option ${isEdit && l.status === s ? 'selected' : ''}>${s}</option>`).join('')}
+      </select>
+    </div>` : ''}
   `;
-  const footer = `<button class="btn btn-secondary" onclick="closeModal()">Batal</button><button class="btn btn-primary" onclick="saveLapor('${isEdit ? l.id : ''}')"><i class="fas fa-paper-plane"></i> Kirim</button>`;
+  const footer = `
+    <button class="btn btn-secondary" onclick="closeModal()">Batal</button>
+    <button class="btn btn-primary" onclick="saveLapor('${isEdit ? l.id : ''}')"><i class="fas fa-paper-plane"></i> Kirim</button>
+  `;
   openModal(isEdit ? 'Edit Pengaduan' : 'Lapor Masalah', body, footer);
 }
 
@@ -1761,13 +1841,11 @@ async function saveLapor(id) {
 
 function editLapor(id) {
   const l = appData.lapor.find(x => x.id === id);
-  if (!l) return;
-  if (!canEdit() && l.wargaId !== currentUser.id) return showToast('Tidak bisa edit laporan orang lain', 'error');
-  showLaporForm(l);
+  if (l) showLaporForm(l);
 }
 
 async function deleteLapor(id) {
-  if (!canEdit()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   if (!confirm('Yakin ingin menghapus laporan ini?')) return;
   appData.lapor = appData.lapor.filter(x => x.id !== id);
   await saveDataToFirebase();
@@ -1775,7 +1853,7 @@ async function deleteLapor(id) {
   renderDesktopPengaduan();
 }
 
-// ============ RONDA ============
+// Ronda Functions
 function renderDesktopRonda() {
   const l = (appData.ronda || []).slice().sort((a, b) => (a.tgl || '').localeCompare(b.tgl || ''));
   
@@ -1814,21 +1892,43 @@ function renderDesktopRonda() {
 }
 
 function showRondaForm(r = null) {
-  if (!canEdit()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   const isEdit = !!r;
   const body = `
-    <div class="form-group"><label>Tanggal *</label><input type="date" class="form-control" id="rTgl" value="${isEdit ? r.tgl : today()}"></div>
-    <div class="form-group"><label>Shift</label><select class="form-control" id="rShift">${['Malam','Dini Hari','Pagi','Sore'].map(s => `<option ${isEdit && r.shift === s ? 'selected' : ''}>${s}</option>`).join('')}</select></div>
-    <div class="form-group"><label>Waktu</label><input type="text" class="form-control" id="rWaktu" value="${isEdit ? esc(r.waktu || '') : ''}" placeholder="22.00-02.00"></div>
-    <div class="form-group"><label>Petugas</label><select class="form-control" id="rPetugas">${(appData.warga || []).map(w => `<option value="${esc(w.nama)}" data-blok="${esc(w.blok)}" ${isEdit && r.petugas === w.nama ? 'selected' : ''}>${esc(w.nama)} (Blok ${esc(w.blok)})</option>`).join('')}</select></div>
-    <div class="form-group"><label>Catatan</label><textarea class="form-control" id="rCatatan" rows="2">${isEdit ? esc(r.catatan || '') : ''}</textarea></div>
+    <div class="form-group">
+      <label>Tanggal *</label>
+      <input type="date" class="form-control" id="rTgl" value="${isEdit ? r.tgl : today()}">
+    </div>
+    <div class="form-group">
+      <label>Shift</label>
+      <select class="form-control" id="rShift">
+        ${['Malam','Dini Hari','Pagi','Sore'].map(s => `<option ${isEdit && r.shift === s ? 'selected' : ''}>${s}</option>`).join('')}
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Waktu</label>
+      <input type="text" class="form-control" id="rWaktu" value="${isEdit ? esc(r.waktu || '') : ''}" placeholder="22.00-02.00">
+    </div>
+    <div class="form-group">
+      <label>Petugas</label>
+      <select class="form-control" id="rPetugas">
+        ${(appData.warga || []).map(w => `<option value="${esc(w.nama)}" data-blok="${esc(w.blok)}" ${isEdit && r.petugas === w.nama ? 'selected' : ''}>${esc(w.nama)} (Blok ${esc(w.blok)})</option>`).join('')}
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Catatan</label>
+      <textarea class="form-control" id="rCatatan" rows="2">${isEdit ? esc(r.catatan || '') : ''}</textarea>
+    </div>
   `;
-  const footer = `<button class="btn btn-secondary" onclick="closeModal()">Batal</button><button class="btn btn-primary" onclick="saveRonda('${isEdit ? r.id : ''}')"><i class="fas fa-save"></i> Simpan</button>`;
+  const footer = `
+    <button class="btn btn-secondary" onclick="closeModal()">Batal</button>
+    <button class="btn btn-primary" onclick="saveRonda('${isEdit ? r.id : ''}')"><i class="fas fa-save"></i> Simpan</button>
+  `;
   openModal(isEdit ? 'Edit Jadwal Ronda' : 'Tambah Jadwal Ronda', body, footer);
 }
 
 async function saveRonda(id) {
-  if (!canEdit()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   const tgl = $('rTgl').value;
   const shift = $('rShift').value;
   const waktu = $('rWaktu').value.trim();
@@ -1853,13 +1953,13 @@ async function saveRonda(id) {
 }
 
 function editRonda(id) {
-  if (!canEdit()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   const r = appData.ronda.find(x => x.id === id);
   if (r) showRondaForm(r);
 }
 
 async function deleteRonda(id) {
-  if (!canEdit()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   if (!confirm('Yakin ingin menghapus jadwal ini?')) return;
   appData.ronda = appData.ronda.filter(x => x.id !== id);
   await saveDataToFirebase();
@@ -1867,23 +1967,29 @@ async function deleteRonda(id) {
   renderDesktopRonda();
 }
 
-// ============ SURAT (Personal) ============
+// Surat Functions
 function renderDesktopSurat() {
-  // Warga: hanya lihat surat sendiri
-  // Admin: lihat semua
-  const l = isAdmin() ? (appData.surat || []).slice().sort((a, b) => (b.tgl || '').localeCompare(a.tgl || ''))
-    : (appData.surat || []).filter(s => s.wargaId === currentUser.id).sort((a, b) => (b.tgl || '').localeCompare(a.tgl || ''));
+  const l = (appData.surat || []).slice().sort((a, b) => (b.tgl || '').localeCompare(a.tgl || ''));
   
   let html = `
     <div class="page-header">
       <button onclick="showPage('dashboard')"><i class="fas fa-arrow-left"></i></button>
-      <h2>${isAdmin() ? 'Semua Surat' : 'Surat Saya'}</h2>
+      <h2>Surat Menyurat</h2>
     </div>
     <button class="btn btn-primary" style="margin-bottom:20px" onclick="showSuratForm()"><i class="fas fa-plus"></i> Ajukan Surat</button>
     <div class="content-card">
       <div class="card-body">
         <table class="data-table">
-          <thead><tr><th>Jenis Surat</th><th>Pemohon</th><th>Keperluan</th><th>Status</th><th>Tanggal</th><th>Aksi</th></tr></thead>
+          <thead>
+            <tr>
+              <th>Jenis Surat</th>
+              <th>Pemohon</th>
+              <th>Keperluan</th>
+              <th>Status</th>
+              <th>Tanggal</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
           <tbody>
             ${l.length ? l.map(s => {
               const w = appData.warga.find(x => x.id === s.wargaId);
@@ -1896,7 +2002,7 @@ function renderDesktopSurat() {
                   <td><span class="status-badge ${bc}">${esc(s.status)}</span></td>
                   <td>${tglIndo(s.tgl)}</td>
                   <td>
-                    ${(canEdit() || s.wargaId === currentUser.id) ? `
+                    ${canEdit() || s.wargaId === currentUser.id ? `
                       <button class="btn btn-secondary btn-sm" onclick="editSurat('${s.id}')"><i class="fas fa-edit"></i></button>
                       ${canEdit() ? `<button class="btn btn-danger btn-sm" onclick="deleteSurat('${s.id}')"><i class="fas fa-trash"></i></button>` : ''}
                     ` : '-'}
@@ -1916,13 +2022,37 @@ function renderDesktopSurat() {
 function showSuratForm(s = null) {
   const isEdit = !!s;
   const body = `
-    <div class="form-group"><label>Pemohon</label><select class="form-control" id="sWarga">${(appData.warga || []).map(w => `<option value="${w.id}" ${isEdit && s.wargaId === w.id ? 'selected' : ''} ${!isEdit && currentUser && w.id === currentUser.id ? 'selected' : ''}>${esc(w.nama)} (Blok ${esc(w.blok)})</option>`).join('')}</select></div>
-    <div class="form-group"><label>Jenis Surat</label><select class="form-control" id="sJenis">${['Surat Keterangan Domisili','Surat Tidak Mampu (SKTM)','Pengantar KTP','Pengantar KK','Pengantar SKCK','Pengantar Usaha','Izin Keramaian','Lainnya'].map(j => `<option ${isEdit && s.jenis === j ? 'selected' : ''}>${j}</option>`).join('')}</select></div>
-    <div class="form-group"><label>Keperluan *</label><textarea class="form-control" id="sKeperluan" rows="3">${isEdit ? esc(s.keperluan || '') : ''}</textarea></div>
-    <div class="form-group"><label>Status</label><select class="form-control" id="sStatus">${['Diajukan','Diproses','Selesai','Ditolak'].map(x => `<option ${isEdit && s.status === x ? 'selected' : ''}>${x}</option>`).join('')}</select></div>
-    <div class="form-group"><label>No. Surat</label><input type="text" class="form-control" id="sNo" value="${isEdit ? esc(s.noSurat || '') : ''}"></div>
+    <div class="form-group">
+      <label>Pemohon</label>
+      <select class="form-control" id="sWarga">
+        ${(appData.warga || []).map(w => `<option value="${w.id}" ${isEdit && s.wargaId === w.id ? 'selected' : ''} ${!isEdit && currentUser && w.id === currentUser.id ? 'selected' : ''}>${esc(w.nama)} (Blok ${esc(w.blok)})</option>`).join('')}
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Jenis Surat</label>
+      <select class="form-control" id="sJenis">
+        ${['Surat Keterangan Domisili','Surat Tidak Mampu (SKTM)','Pengantar KTP','Pengantar KK','Pengantar SKCK','Pengantar Usaha','Izin Keramaian','Lainnya'].map(j => `<option ${isEdit && s.jenis === j ? 'selected' : ''}>${j}</option>`).join('')}
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Keperluan *</label>
+      <textarea class="form-control" id="sKeperluan" rows="3">${isEdit ? esc(s.keperluan || '') : ''}</textarea>
+    </div>
+    <div class="form-group">
+      <label>Status</label>
+      <select class="form-control" id="sStatus">
+        ${['Diajukan','Diproses','Selesai','Ditolak'].map(x => `<option ${isEdit && s.status === x ? 'selected' : ''}>${x}</option>`).join('')}
+      </select>
+    </div>
+    <div class="form-group">
+      <label>No. Surat</label>
+      <input type="text" class="form-control" id="sNo" value="${isEdit ? esc(s.noSurat || '') : ''}">
+    </div>
   `;
-  const footer = `<button class="btn btn-secondary" onclick="closeModal()">Batal</button><button class="btn btn-primary" onclick="saveSurat('${isEdit ? s.id : ''}')"><i class="fas fa-save"></i> Simpan</button>`;
+  const footer = `
+    <button class="btn btn-secondary" onclick="closeModal()">Batal</button>
+    <button class="btn btn-primary" onclick="saveSurat('${isEdit ? s.id : ''}')"><i class="fas fa-save"></i> Simpan</button>
+  `;
   openModal(isEdit ? 'Edit Surat' : 'Ajukan Surat', body, footer);
 }
 
@@ -1953,13 +2083,11 @@ async function saveSurat(id) {
 
 function editSurat(id) {
   const s = appData.surat.find(x => x.id === id);
-  if (!s) return;
-  if (!canEdit() && s.wargaId !== currentUser.id) return showToast('Tidak bisa edit surat orang lain', 'error');
-  showSuratForm(s);
+  if (s) showSuratForm(s);
 }
 
 async function deleteSurat(id) {
-  if (!canEdit()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   if (!confirm('Yakin ingin menghapus surat ini?')) return;
   appData.surat = appData.surat.filter(x => x.id !== id);
   await saveDataToFirebase();
@@ -1967,13 +2095,8 @@ async function deleteSurat(id) {
   renderDesktopSurat();
 }
 
-// ============ TAMU (Admin Only) ============
+// Tamu Functions
 function renderDesktopTamu() {
-  if (!isAdmin()) {
-    $('desktopContent').innerHTML = '<div style="text-align:center;padding:60px;color:var(--gray)"><i class="fas fa-lock" style="font-size:48px;margin-bottom:16px"></i><p>Akses ditolak. Hanya admin.</p></div>';
-    return;
-  }
-  
   const l = (appData.tamu || []).slice().sort((a, b) => (b.tglMasuk || '').localeCompare(a.tglMasuk || ''));
   
   let html = `
@@ -1981,11 +2104,21 @@ function renderDesktopTamu() {
       <button onclick="showPage('dashboard')"><i class="fas fa-arrow-left"></i></button>
       <h2>Buku Tamu</h2>
     </div>
-    <button class="btn btn-primary" style="margin-bottom:20px" onclick="showTamuForm()"><i class="fas fa-plus"></i> Tambah Tamu</button>
+    ${canEdit() ? `<button class="btn btn-primary" style="margin-bottom:20px" onclick="showTamuForm()"><i class="fas fa-plus"></i> Tambah Tamu</button>` : ''}
     <div class="content-card">
       <div class="card-body">
         <table class="data-table">
-          <thead><tr><th>Nama</th><th>Asal</th><th>Keperluan</th><th>Penjamin</th><th>Tgl Masuk</th><th>Status</th><th>Aksi</th></tr></thead>
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Asal</th>
+              <th>Keperluan</th>
+              <th>Penjamin</th>
+              <th>Tgl Masuk</th>
+              <th>Status</th>
+              ${canEdit() ? '<th>Aksi</th>' : ''}
+            </tr>
+          </thead>
           <tbody>
             ${l.length ? l.map(t => {
               const bc = t.status === 'Menginap' ? 'warning' : 'success';
@@ -1997,13 +2130,14 @@ function renderDesktopTamu() {
                   <td>${esc(t.penjamin || '-')}</td>
                   <td>${tglIndo(t.tglMasuk)}</td>
                   <td><span class="status-badge ${bc}">${esc(t.status)}</span></td>
+                  ${canEdit() ? `
                   <td>
                     <button class="btn btn-secondary btn-sm" onclick="editTamu('${t.id}')"><i class="fas fa-edit"></i></button>
                     <button class="btn btn-danger btn-sm" onclick="deleteTamu('${t.id}')"><i class="fas fa-trash"></i></button>
-                  </td>
+                  </td>` : ''}
                 </tr>
               `;
-            }).join('') : '<tr><td colspan="7" style="text-align:center;padding:40px;color:var(--gray)">Belum ada tamu</td></tr>'}
+            }).join('') : '<tr><td colspan="' + (canEdit() ? 7 : 6) + '" style="text-align:center;padding:40px;color:var(--gray)">Belum ada tamu</td></tr>'}
           </tbody>
         </table>
       </div>
@@ -2014,24 +2148,58 @@ function renderDesktopTamu() {
 }
 
 function showTamuForm(t = null) {
-  if (!isAdmin()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   const isEdit = !!t;
   const body = `
-    <div class="form-group"><label>Nama *</label><input type="text" class="form-control" id="tNama" value="${isEdit ? esc(t.nama) : ''}"></div>
-    <div class="form-group"><label>Asal *</label><input type="text" class="form-control" id="tAsal" value="${isEdit ? esc(t.asal) : ''}"></div>
-    <div class="form-group"><label>Alamat</label><input type="text" class="form-control" id="tAlamat" value="${isEdit ? esc(t.alamat || '') : ''}"></div>
-    <div class="form-group"><label>Keperluan</label><select class="form-control" id="tKeperluan">${['Menginap','Kunjungan','Kost','Bekerja','Lainnya'].map(k => `<option ${isEdit && t.keperluan === k ? 'selected' : ''}>${k}</option>`).join('')}</select></div>
-    <div class="form-group"><label>Penjamin</label><select class="form-control" id="tPenjamin">${(appData.warga || []).map(w => `<option ${isEdit && t.penjamin === w.nama ? 'selected' : ''}>${esc(w.nama)}</option>`).join('')}</select></div>
-    <div class="form-group"><label>Tgl Masuk *</label><input type="date" class="form-control" id="tMasuk" value="${isEdit ? t.tglMasuk : today()}"></div>
-    <div class="form-group"><label>Tgl Keluar</label><input type="date" class="form-control" id="tKeluar" value="${isEdit ? (t.tglKeluar || '') : ''}"></div>
-    <div class="form-group"><label>Status</label><select class="form-control" id="tStatus"><option value="Menginap" ${isEdit && t.status === 'Menginap' ? 'selected' : ''}>Menginap</option><option value="Selesai" ${isEdit && t.status === 'Selesai' ? 'selected' : ''}>Selesai</option></select></div>
+    <div class="form-group">
+      <label>Nama *</label>
+      <input type="text" class="form-control" id="tNama" value="${isEdit ? esc(t.nama) : ''}">
+    </div>
+    <div class="form-group">
+      <label>Asal *</label>
+      <input type="text" class="form-control" id="tAsal" value="${isEdit ? esc(t.asal) : ''}">
+    </div>
+    <div class="form-group">
+      <label>Alamat</label>
+      <input type="text" class="form-control" id="tAlamat" value="${isEdit ? esc(t.alamat || '') : ''}">
+    </div>
+    <div class="form-group">
+      <label>Keperluan</label>
+      <select class="form-control" id="tKeperluan">
+        ${['Menginap','Kunjungan','Kost','Bekerja','Lainnya'].map(k => `<option ${isEdit && t.keperluan === k ? 'selected' : ''}>${k}</option>`).join('')}
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Penjamin</label>
+      <select class="form-control" id="tPenjamin">
+        ${(appData.warga || []).map(w => `<option ${isEdit && t.penjamin === w.nama ? 'selected' : ''}>${esc(w.nama)}</option>`).join('')}
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Tgl Masuk *</label>
+      <input type="date" class="form-control" id="tMasuk" value="${isEdit ? t.tglMasuk : today()}">
+    </div>
+    <div class="form-group">
+      <label>Tgl Keluar</label>
+      <input type="date" class="form-control" id="tKeluar" value="${isEdit ? (t.tglKeluar || '') : ''}">
+    </div>
+    <div class="form-group">
+      <label>Status</label>
+      <select class="form-control" id="tStatus">
+        <option value="Menginap" ${isEdit && t.status === 'Menginap' ? 'selected' : ''}>Menginap</option>
+        <option value="Selesai" ${isEdit && t.status === 'Selesai' ? 'selected' : ''}>Selesai</option>
+      </select>
+    </div>
   `;
-  const footer = `<button class="btn btn-secondary" onclick="closeModal()">Batal</button><button class="btn btn-primary" onclick="saveTamu('${isEdit ? t.id : ''}')"><i class="fas fa-save"></i> Simpan</button>`;
+  const footer = `
+    <button class="btn btn-secondary" onclick="closeModal()">Batal</button>
+    <button class="btn btn-primary" onclick="saveTamu('${isEdit ? t.id : ''}')"><i class="fas fa-save"></i> Simpan</button>
+  `;
   openModal(isEdit ? 'Edit Tamu' : 'Tambah Tamu', body, footer);
 }
 
 async function saveTamu(id) {
-  if (!isAdmin()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   const nama = $('tNama').value.trim();
   const asal = $('tAsal').value.trim();
   const alamat = $('tAlamat').value.trim();
@@ -2057,13 +2225,13 @@ async function saveTamu(id) {
 }
 
 function editTamu(id) {
-  if (!isAdmin()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   const t = appData.tamu.find(x => x.id === id);
   if (t) showTamuForm(t);
 }
 
 async function deleteTamu(id) {
-  if (!isAdmin()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   if (!confirm('Yakin ingin menghapus data tamu ini?')) return;
   appData.tamu = appData.tamu.filter(x => x.id !== id);
   await saveDataToFirebase();
@@ -2071,7 +2239,7 @@ async function deleteTamu(id) {
   renderDesktopTamu();
 }
 
-// ============ VOTING ============
+// Voting Functions
 function renderDesktopVoting() {
   const l = (appData.voting || []).slice().sort((a, b) => (b.tgl || '').localeCompare(a.tgl || ''));
   
@@ -2126,22 +2294,46 @@ function renderDesktopVoting() {
 }
 
 function showVotingForm(v = null) {
-  if (!canEdit()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   const isEdit = !!v;
   const body = `
-    <div class="form-group"><label>Pertanyaan *</label><input type="text" class="form-control" id="vQ" value="${isEdit ? esc(v.pertanyaan) : ''}"></div>
-    <div class="form-group"><label>Pilihan 1 *</label><input type="text" class="form-control" id="vP1" value="${isEdit ? esc((v.pilihan[0] || {}).text || '') : ''}"></div>
-    <div class="form-group"><label>Pilihan 2 *</label><input type="text" class="form-control" id="vP2" value="${isEdit ? esc((v.pilihan[1] || {}).text || '') : ''}"></div>
-    <div class="form-group"><label>Pilihan 3</label><input type="text" class="form-control" id="vP3" value="${isEdit ? esc((v.pilihan[2] || {}).text || '') : ''}"></div>
-    <div class="form-group"><label>Pilihan 4</label><input type="text" class="form-control" id="vP4" value="${isEdit ? esc((v.pilihan[3] || {}).text || '') : ''}"></div>
-    <div class="form-group"><label>Status</label><select class="form-control" id="vStatus"><option value="Aktif" ${isEdit && v.status === 'Aktif' ? 'selected' : ''}>Aktif</option><option value="Selesai" ${isEdit && v.status === 'Selesai' ? 'selected' : ''}>Selesai</option></select></div>
+    <div class="form-group">
+      <label>Pertanyaan *</label>
+      <input type="text" class="form-control" id="vQ" value="${isEdit ? esc(v.pertanyaan) : ''}">
+    </div>
+    <div class="form-group">
+      <label>Pilihan 1 *</label>
+      <input type="text" class="form-control" id="vP1" value="${isEdit ? esc((v.pilihan[0] || {}).text || '') : ''}">
+    </div>
+    <div class="form-group">
+      <label>Pilihan 2 *</label>
+      <input type="text" class="form-control" id="vP2" value="${isEdit ? esc((v.pilihan[1] || {}).text || '') : ''}">
+    </div>
+    <div class="form-group">
+      <label>Pilihan 3</label>
+      <input type="text" class="form-control" id="vP3" value="${isEdit ? esc((v.pilihan[2] || {}).text || '') : ''}">
+    </div>
+    <div class="form-group">
+      <label>Pilihan 4</label>
+      <input type="text" class="form-control" id="vP4" value="${isEdit ? esc((v.pilihan[3] || {}).text || '') : ''}">
+    </div>
+    <div class="form-group">
+      <label>Status</label>
+      <select class="form-control" id="vStatus">
+        <option value="Aktif" ${isEdit && v.status === 'Aktif' ? 'selected' : ''}>Aktif</option>
+        <option value="Selesai" ${isEdit && v.status === 'Selesai' ? 'selected' : ''}>Selesai</option>
+      </select>
+    </div>
   `;
-  const footer = `<button class="btn btn-secondary" onclick="closeModal()">Batal</button><button class="btn btn-primary" onclick="saveVoting('${isEdit ? v.id : ''}')"><i class="fas fa-save"></i> Simpan</button>`;
+  const footer = `
+    <button class="btn btn-secondary" onclick="closeModal()">Batal</button>
+    <button class="btn btn-primary" onclick="saveVoting('${isEdit ? v.id : ''}')"><i class="fas fa-save"></i> Simpan</button>
+  `;
   openModal(isEdit ? 'Edit Voting' : 'Buat Voting', body, footer);
 }
 
 async function saveVoting(id) {
-  if (!canEdit()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   const q = $('vQ').value.trim();
   const p1 = $('vP1').value.trim();
   const p2 = $('vP2').value.trim();
@@ -2172,13 +2364,13 @@ async function saveVoting(id) {
 }
 
 function editVoting(id) {
-  if (!canEdit()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   const v = appData.voting.find(x => x.id === id);
   if (v) showVotingForm(v);
 }
 
 async function deleteVoting(id) {
-  if (!canEdit()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   if (!confirm('Yakin ingin menghapus voting ini?')) return;
   appData.voting = appData.voting.filter(x => x.id !== id);
   await saveDataToFirebase();
@@ -2212,13 +2404,8 @@ async function selectVote(vid, idx) {
   renderDesktopVoting();
 }
 
-// ============ INVENTARIS (Admin Only) ============
+// Inventaris Functions
 function renderDesktopInventaris() {
-  if (!isAdmin()) {
-    $('desktopContent').innerHTML = '<div style="text-align:center;padding:60px;color:var(--gray)"><i class="fas fa-lock" style="font-size:48px;margin-bottom:16px"></i><p>Akses ditolak. Hanya admin.</p></div>';
-    return;
-  }
-  
   const l = appData.inventaris || [];
   
   let html = `
@@ -2226,11 +2413,20 @@ function renderDesktopInventaris() {
       <button onclick="showPage('dashboard')"><i class="fas fa-arrow-left"></i></button>
       <h2>Inventaris RT</h2>
     </div>
-    <button class="btn btn-primary" style="margin-bottom:20px" onclick="showInventarisForm()"><i class="fas fa-plus"></i> Tambah Barang</button>
+    ${canEdit() ? `<button class="btn btn-primary" style="margin-bottom:20px" onclick="showInventarisForm()"><i class="fas fa-plus"></i> Tambah Barang</button>` : ''}
     <div class="content-card">
       <div class="card-body">
         <table class="data-table">
-          <thead><tr><th>Nama Barang</th><th>Kategori</th><th>Jumlah</th><th>Kondisi</th><th>Lokasi</th><th>Aksi</th></tr></thead>
+          <thead>
+            <tr>
+              <th>Nama Barang</th>
+              <th>Kategori</th>
+              <th>Jumlah</th>
+              <th>Kondisi</th>
+              <th>Lokasi</th>
+              ${canEdit() ? '<th>Aksi</th>' : ''}
+            </tr>
+          </thead>
           <tbody>
             ${l.length ? l.map(inv => {
               const bc = inv.kondisi === 'Baik' ? 'success' : inv.kondisi === 'Rusak Ringan' ? 'warning' : 'danger';
@@ -2241,13 +2437,14 @@ function renderDesktopInventaris() {
                   <td>${inv.jumlah || 0}</td>
                   <td><span class="status-badge ${bc}">${esc(inv.kondisi || 'Baik')}</span></td>
                   <td>${esc(inv.lokasi || '-')}</td>
+                  ${canEdit() ? `
                   <td>
                     <button class="btn btn-secondary btn-sm" onclick="editInventaris('${inv.id}')"><i class="fas fa-edit"></i></button>
                     <button class="btn btn-danger btn-sm" onclick="deleteInventaris('${inv.id}')"><i class="fas fa-trash"></i></button>
-                  </td>
+                  </td>` : ''}
                 </tr>
               `;
-            }).join('') : '<tr><td colspan="6" style="text-align:center;padding:40px;color:var(--gray)">Belum ada inventaris</td></tr>'}
+            }).join('') : '<tr><td colspan="' + (canEdit() ? 6 : 5) + '" style="text-align:center;padding:40px;color:var(--gray)">Belum ada inventaris</td></tr>'}
           </tbody>
         </table>
       </div>
@@ -2258,21 +2455,43 @@ function renderDesktopInventaris() {
 }
 
 function showInventarisForm(inv = null) {
-  if (!isAdmin()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   const isEdit = !!inv;
   const body = `
-    <div class="form-group"><label>Nama Barang *</label><input type="text" class="form-control" id="invNama" value="${isEdit ? esc(inv.nama) : ''}"></div>
-    <div class="form-group"><label>Kategori</label><select class="form-control" id="invKategori">${['Elektronik','Furniture','Kebersihan','Keamanan','Dokumentasi','Lainnya'].map(k => `<option ${isEdit && inv.kategori === k ? 'selected' : ''}>${k}</option>`).join('')}</select></div>
-    <div class="form-group"><label>Jumlah</label><input type="number" class="form-control" id="invJumlah" value="${isEdit ? inv.jumlah || 0 : 1}"></div>
-    <div class="form-group"><label>Kondisi</label><select class="form-control" id="invKondisi">${['Baik','Rusak Ringan','Rusak Berat'].map(k => `<option ${isEdit && inv.kondisi === k ? 'selected' : ''}>${k}</option>`).join('')}</select></div>
-    <div class="form-group"><label>Lokasi</label><input type="text" class="form-control" id="invLokasi" value="${isEdit ? esc(inv.lokasi || '') : ''}" placeholder="Contoh: Balai RT"></div>
+    <div class="form-group">
+      <label>Nama Barang *</label>
+      <input type="text" class="form-control" id="invNama" value="${isEdit ? esc(inv.nama) : ''}">
+    </div>
+    <div class="form-group">
+      <label>Kategori</label>
+      <select class="form-control" id="invKategori">
+        ${['Elektronik','Furniture','Kebersihan','Keamanan','Dokumentasi','Lainnya'].map(k => `<option ${isEdit && inv.kategori === k ? 'selected' : ''}>${k}</option>`).join('')}
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Jumlah</label>
+      <input type="number" class="form-control" id="invJumlah" value="${isEdit ? inv.jumlah || 0 : 1}">
+    </div>
+    <div class="form-group">
+      <label>Kondisi</label>
+      <select class="form-control" id="invKondisi">
+        ${['Baik','Rusak Ringan','Rusak Berat'].map(k => `<option ${isEdit && inv.kondisi === k ? 'selected' : ''}>${k}</option>`).join('')}
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Lokasi</label>
+      <input type="text" class="form-control" id="invLokasi" value="${isEdit ? esc(inv.lokasi || '') : ''}" placeholder="Contoh: Balai RT">
+    </div>
   `;
-  const footer = `<button class="btn btn-secondary" onclick="closeModal()">Batal</button><button class="btn btn-primary" onclick="saveInventaris('${isEdit ? inv.id : ''}')"><i class="fas fa-save"></i> Simpan</button>`;
+  const footer = `
+    <button class="btn btn-secondary" onclick="closeModal()">Batal</button>
+    <button class="btn btn-primary" onclick="saveInventaris('${isEdit ? inv.id : ''}')"><i class="fas fa-save"></i> Simpan</button>
+  `;
   openModal(isEdit ? 'Edit Inventaris' : 'Tambah Inventaris', body, footer);
 }
 
 async function saveInventaris(id) {
-  if (!isAdmin()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   const nama = $('invNama').value.trim();
   const kategori = $('invKategori').value;
   const jumlah = parseInt($('invJumlah').value);
@@ -2295,13 +2514,13 @@ async function saveInventaris(id) {
 }
 
 function editInventaris(id) {
-  if (!isAdmin()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   const inv = appData.inventaris.find(x => x.id === id);
   if (inv) showInventarisForm(inv);
 }
 
 async function deleteInventaris(id) {
-  if (!isAdmin()) return showToast('Hanya admin', 'error');
+  if (!canEdit()) return showToast('Hanya Ketua RT & Bendahara', 'error');
   if (!confirm('Yakin ingin menghapus barang ini?')) return;
   appData.inventaris = appData.inventaris.filter(x => x.id !== id);
   await saveDataToFirebase();
@@ -2309,7 +2528,7 @@ async function deleteInventaris(id) {
   renderDesktopInventaris();
 }
 
-// ============ PROFIL (Personal) ============
+// Profil Functions
 function renderDesktopProfil() {
   if (!currentUser) return;
   const w = currentUser;
@@ -2327,11 +2546,22 @@ function renderDesktopProfil() {
           <p style="color:var(--gray);margin-top:4px"><span class="status-badge info">${esc(w.gol)}</span></p>
         </div>
         <div style="border-top:1px solid var(--border);padding-top:16px">
-          <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)"><span style="color:var(--gray);font-size:13px">Blok</span><span style="font-weight:600">${esc(w.blok)}</span></div>
-          <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)"><span style="color:var(--gray);font-size:13px">HP</span><span style="font-weight:600">${esc(w.hp || '-')}</span></div>
-          <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)"><span style="color:var(--gray);font-size:13px">Pekerjaan</span><span style="font-weight:600">${esc(w.pekerjaan || '-')}</span></div>
-          <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)"><span style="color:var(--gray);font-size:13px">Status</span><span style="font-weight:600">${esc(w.status || '-')}</span></div>
-          <div style="display:flex;justify-content:space-between;padding:12px 0"><span style="color:var(--gray);font-size:13px">PIN</span><span style="font-weight:600">•••• <span class="status-badge info">tersembunyi</span></span></div>
+          <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)">
+            <span style="color:var(--gray);font-size:13px">Blok</span>
+            <span style="font-weight:600">${esc(w.blok)}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)">
+            <span style="color:var(--gray);font-size:13px">HP</span>
+            <span style="font-weight:600">${esc(w.hp || '-')}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)">
+            <span style="color:var(--gray);font-size:13px">Pekerjaan</span>
+            <span style="font-weight:600">${esc(w.pekerjaan || '-')}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:12px 0">
+            <span style="color:var(--gray);font-size:13px">PIN</span>
+            <span style="font-weight:600">•••• <span class="status-badge info">tersembunyi</span></span>
+          </div>
         </div>
         <button class="btn btn-primary" style="margin-top:20px" onclick="editProfil()"><i class="fas fa-edit"></i> Edit Profil</button>
         <button class="btn btn-danger" style="margin-top:12px" onclick="doLogout()"><i class="fas fa-sign-out-alt"></i> Keluar</button>
@@ -2345,13 +2575,31 @@ function renderDesktopProfil() {
 function editProfil() {
   const w = currentUser;
   const body = `
-    <div class="form-group"><label>Nama</label><input type="text" class="form-control" id="pfNama" value="${esc(w.nama)}"></div>
-    <div class="form-group"><label>Blok</label><input type="text" class="form-control" id="pfBlok" value="${esc(w.blok)}"></div>
-    <div class="form-group"><label>HP</label><input type="text" class="form-control" id="pfHp" value="${esc(w.hp || '')}"></div>
-    <div class="form-group"><label>Pekerjaan</label><input type="text" class="form-control" id="pfPekerjaan" value="${esc(w.pekerjaan || '')}"></div>
-    <div class="form-group"><label>Ganti PIN (kosongkan jika tidak)</label><input type="password" class="form-control" id="pfPin" maxlength="4" placeholder="4 digit baru"></div>
+    <div class="form-group">
+      <label>Nama</label>
+      <input type="text" class="form-control" id="pfNama" value="${esc(w.nama)}">
+    </div>
+    <div class="form-group">
+      <label>Blok</label>
+      <input type="text" class="form-control" id="pfBlok" value="${esc(w.blok)}">
+    </div>
+    <div class="form-group">
+      <label>HP</label>
+      <input type="text" class="form-control" id="pfHp" value="${esc(w.hp || '')}">
+    </div>
+    <div class="form-group">
+      <label>Pekerjaan</label>
+      <input type="text" class="form-control" id="pfPekerjaan" value="${esc(w.pekerjaan || '')}">
+    </div>
+    <div class="form-group">
+      <label>Ganti PIN (kosongkan jika tidak)</label>
+      <input type="password" class="form-control" id="pfPin" maxlength="4">
+    </div>
   `;
-  const footer = `<button class="btn btn-secondary" onclick="closeModal()">Batal</button><button class="btn btn-primary" onclick="saveProfil()"><i class="fas fa-save"></i> Simpan</button>`;
+  const footer = `
+    <button class="btn btn-secondary" onclick="closeModal()">Batal</button>
+    <button class="btn btn-primary" onclick="saveProfil()"><i class="fas fa-save"></i> Simpan</button>
+  `;
   openModal('Edit Profil', body, footer);
 }
 
@@ -2373,20 +2621,16 @@ async function saveProfil() {
   
   await saveDataToFirebase();
   $('userName').textContent = currentUser.nama;
-  $('userRole').textContent = `${currentUser.gol} · Blok ${currentUser.blok}`;
   $('userAvatar').textContent = initials(currentUser.nama);
-  $('sidebarName').textContent = currentUser.nama;
-  $('sidebarRole').textContent = currentUser.gol;
-  $('sidebarAvatar').textContent = initials(currentUser.nama);
   closeModal();
   showToast('Profil tersimpan', 'success');
   renderDesktopProfil();
 }
 
-// ============ PENGATURAN (Bendahara Only) ============
+// Pengaturan Functions
 function renderDesktopPengaturan() {
   if (!isBendahara()) {
-    $('desktopContent').innerHTML = '<div style="text-align:center;padding:60px;color:var(--gray)"><i class="fas fa-lock" style="font-size:48px;margin-bottom:16px"></i><p>Akses ditolak. Hanya Bendahara.</p></div>';
+    $('desktopContent').innerHTML = '<div style="text-align:center;padding:60px;color:var(--gray)"><i class="fas fa-lock" style="font-size:48px;margin-bottom:16px"></i><p>Akses ditolak. Hanya Bendahara yang dapat mengakses pengaturan.</p></div>';
     return;
   }
   
@@ -2399,18 +2643,31 @@ function renderDesktopPengaturan() {
     </div>
     <div class="content-grid">
       <div class="content-card">
-        <div class="card-header"><h3><i class="fas fa-cog"></i> Pengaturan Rekening</h3></div>
+        <div class="card-header">
+          <h3><i class="fas fa-cog"></i> Pengaturan Rekening</h3>
+        </div>
         <div class="card-body">
-          <div class="form-group"><label>Nama Bank</label><input type="text" class="form-control" id="rBank" value="${esc(b.nama || '')}"></div>
-          <div class="form-group"><label>Nomor Rekening</label><input type="text" class="form-control" id="rRek" value="${esc(b.rek || '')}"></div>
-          <div class="form-group"><label>Atas Nama</label><input type="text" class="form-control" id="rAn" value="${esc(b.an || '')}"></div>
+          <div class="form-group">
+            <label>Nama Bank</label>
+            <input type="text" class="form-control" id="rBank" value="${esc(b.nama || '')}">
+          </div>
+          <div class="form-group">
+            <label>Nomor Rekening</label>
+            <input type="text" class="form-control" id="rRek" value="${esc(b.rek || '')}">
+          </div>
+          <div class="form-group">
+            <label>Atas Nama</label>
+            <input type="text" class="form-control" id="rAn" value="${esc(b.an || '')}">
+          </div>
           <button class="btn btn-primary" onclick="saveRekening()"><i class="fas fa-save"></i> Simpan</button>
         </div>
       </div>
       <div class="content-card">
-        <div class="card-header"><h3><i class="fas fa-database"></i> Backup & Restore</h3></div>
+        <div class="card-header">
+          <h3><i class="fas fa-database"></i> Backup & Restore</h3>
+        </div>
         <div class="card-body">
-          <p style="font-size:13px;color:var(--gray);margin-bottom:16px">Data otomatis tersimpan di Firebase Cloud.</p>
+          <p style="font-size:13px;color:var(--gray);margin-bottom:16px">Data otomatis tersimpan di Firebase Cloud. Download backup JSON untuk cadangan lokal.</p>
           <div style="display:flex;gap:12px;flex-wrap:wrap">
             <button class="btn btn-primary" onclick="downloadBackup()"><i class="fas fa-download"></i> Download Backup</button>
             <button class="btn btn-secondary" onclick="document.getElementById('restoreFile').click()"><i class="fas fa-upload"></i> Restore Backup</button>
@@ -2473,10 +2730,10 @@ function restoreBackup(e) {
   e.target.value = '';
 }
 
-// ============ LAPORAN LPJ (Admin Only) ============
+// Laporan Functions
 function renderDesktopLaporan() {
   if (!isStaff()) {
-    $('desktopContent').innerHTML = '<div style="text-align:center;padding:60px;color:var(--gray)"><i class="fas fa-lock" style="font-size:48px;margin-bottom:16px"></i><p>Akses ditolak. Hanya Pengurus.</p></div>';
+    $('desktopContent').innerHTML = '<div style="text-align:center;padding:60px;color:var(--gray)"><i class="fas fa-lock" style="font-size:48px;margin-bottom:16px"></i><p>Akses ditolak. Hanya Pengurus yang dapat mengakses laporan.</p></div>';
     return;
   }
   
@@ -2503,20 +2760,40 @@ function renderDesktopLaporan() {
         </div>
       </div>
       <div class="card-body">
-        <div style="background:${appData.rt.lpjPublished ? '#F0FDF4' : 'var(--primary-light)'};border:1px solid ${appData.rt.lpjPublished ? '#BBF7D0' : '#DDD6FE'};border-radius:10px;padding:16px;margin-bottom:20px">
+        <div class="info-box" style="background:${appData.rt.lpjPublished ? '#F0FDF4' : 'var(--primary-light)'};border:1px solid ${appData.rt.lpjPublished ? '#BBF7D0' : '#DDD6FE'};border-radius:10px;padding:16px;margin-bottom:20px">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
             <h4 style="font-size:14px;font-weight:700">Status: <span class="status-badge ${appData.rt.lpjPublished ? 'success' : 'warning'}">${appData.rt.lpjPublished ? 'Dipublish' : 'Belum Dipublish'}</span></h4>
           </div>
-          <p style="font-size:12px;color:var(--gray)">${appData.rt.lpjPublished ? '✅ Warga dapat melihat laporan ini.' : '️ Laporan belum terlihat oleh warga.'}</p>
+          <p style="font-size:12px;color:var(--gray)">${appData.rt.lpjPublished ? '✅ Warga dapat melihat laporan ini.' : '⚠️ Laporan belum terlihat oleh warga.'}</p>
         </div>
         <div class="stats-grid" style="margin-bottom:20px">
-          <div class="stat-card"><div class="stat-icon green"><i class="fas fa-wallet"></i></div><div class="stat-value">${rp(sal)}</div><div class="stat-label">Saldo Akhir</div></div>
-          <div class="stat-card"><div class="stat-icon blue"><i class="fas fa-arrow-up"></i></div><div class="stat-value">${rp(mk)}</div><div class="stat-label">Total Pemasukan</div></div>
-          <div class="stat-card"><div class="stat-icon orange"><i class="fas fa-arrow-down"></i></div><div class="stat-value">${rp(kl)}</div><div class="stat-label">Total Pengeluaran</div></div>
+          <div class="stat-card">
+            <div class="stat-icon green"><i class="fas fa-wallet"></i></div>
+            <div class="stat-value">${rp(sal)}</div>
+            <div class="stat-label">Saldo Akhir</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon blue"><i class="fas fa-arrow-up"></i></div>
+            <div class="stat-value">${rp(mk)}</div>
+            <div class="stat-label">Total Pemasukan</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon orange"><i class="fas fa-arrow-down"></i></div>
+            <div class="stat-value">${rp(kl)}</div>
+            <div class="stat-label">Total Pengeluaran</div>
+          </div>
         </div>
         <h4 style="font-size:14px;font-weight:700;margin-bottom:12px"><i class="fas fa-list"></i> Detail Transaksi</h4>
         <table class="data-table">
-          <thead><tr><th>No</th><th>Tanggal</th><th>Uraian</th><th>Kategori</th><th style="text-align:right">Jumlah</th></tr></thead>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Tanggal</th>
+              <th>Uraian</th>
+              <th>Kategori</th>
+              <th style="text-align:right">Jumlah</th>
+            </tr>
+          </thead>
           <tbody>
             ${f.map((k, i) => `
               <tr>
@@ -2550,177 +2827,275 @@ async function togglePublishLPJ() {
   renderDesktopLaporan();
 }
 
+// Notification
+function showNotif() {
+  const pd = (appData.setoran || []).filter(s => s.status === 'Pending').length;
+  const br = (appData.lapor || []).filter(s => s.status === 'Baru').length;
+  const kg = (appData.kegiatan || []).filter(k => k.status === 'Akan Datang').length;
+  alert(`🔔 Notifikasi:\n\n📤 ${pd} setoran menunggu\n⚠️ ${br} pengaduan baru\n📅 ${kg} kegiatan akan datang`);
+}
+
+// Theme Toggle
+function toggleTheme() {
+  showToast('Fitur dark mode coming soon', 'info');
+}
+
 // ============ MOBILE RENDERING ============
 function renderMobileDashboard() {
   const kas = appData.kas || [];
   const sal = kas.reduce((s, k) => s + (k.tipe === 'Masuk' ? k.nominal : -k.nominal), 0);
   const tt = (appData.warga || []).length;
   const b = bulanIni();
-  
-  // Data pribadi
-  const iuranSaya = (appData.iuran || []).filter(i => i.wargaId === currentUser.id);
-  const iuranLunasSaya = iuranSaya.filter(i => i.status === 'Lunas').length;
-  const pengaduanSaya = (appData.lapor || []).filter(l => l.wargaId === currentUser.id);
-  const suratSaya = (appData.surat || []).filter(s => s.wargaId === currentUser.id);
+  const ln = (appData.iuran || []).filter(i => i.bulan === b && i.status === 'Lunas').length;
+  const belumLunas = (tt - ln) * (appData.rt.iuranNominal || 50000);
   
   let html = `
     <div class="stats-row">
       <div class="stat-card-mobile">
-        <div class="stat-icon-mobile blue"><i class="fas fa-money-bill-wave"></i></div>
-        <div class="stat-label">Iuran Lunas</div>
-        <div class="stat-value">${iuranLunasSaya}/${iuranSaya.length}</div>
+        <div class="stat-icon-mobile blue"><i class="fas fa-wallet"></i></div>
+        <div class="stat-label">Saldo Kas RT</div>
+        <div class="stat-value">${rp(sal)}</div>
       </div>
       <div class="stat-card-mobile">
         <div class="stat-icon-mobile green"><i class="fas fa-users"></i></div>
-        <div class="stat-label">Total Warga</div>
+        <div class="stat-label">Hunian</div>
         <div class="stat-value">${tt}</div>
       </div>
     </div>
 
+    <div class="chart-card" style="background:#fff;border-radius:16px;padding:20px;margin-top:16px;box-shadow:0 2px 12px rgba(0,0,0,.04);border:1px solid var(--border)">
+      <div class="chart-header">
+        <h3 style="font-size:16px;font-weight:700">📊 Arus Kas</h3>
+        <div class="chart-nav">
+          <button onclick="changeMonth(-1)" style="width:32px;height:32px;border-radius:10px;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700">‹</button>
+          <span id="chartMonth" style="font-size:14px;font-weight:700;min-width:120px;text-align:center">${BULAN[currentMonth.getMonth()]} ${currentMonth.getFullYear()}</span>
+          <button onclick="changeMonth(1)" style="width:32px;height:32px;border-radius:10px;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700">›</button>
+        </div>
+      </div>
+      <div style="position:relative">
+        <div class="bar-chart" id="barChart" style="display:flex;align-items:flex-end;justify-content:space-around;height:160px;padding:10px 0;border-bottom:1px solid var(--border);margin-bottom:12px"></div>
+      </div>
+      <div class="chart-legend" style="display:flex;justify-content:center;gap:20px;margin-top:12px">
+        <div class="legend-item" style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--gray);font-weight:600"><div class="legend-dot" style="width:10px;height:10px;border-radius:50%;background:var(--blue)"></div>Pemasukan</div>
+        <div class="legend-item" style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--gray);font-weight:600"><div class="legend-dot" style="width:10px;height:10px;border-radius:50%;background:var(--dark)"></div>Pengeluaran</div>
+      </div>
+    </div>
+
+    <div class="iuran-banner" style="background:linear-gradient(135deg,#F97316,#EA580C);border-radius:16px;padding:20px;margin-top:16px;display:flex;align-items:center;justify-content:space-between;color:#fff;position:relative;overflow:hidden;box-shadow:0 8px 20px rgba(249,115,22,.3);cursor:pointer" onclick="showPage('iuran')">
+      <div class="iuran-info" style="position:relative;z-index:1">
+        <div class="label" style="font-size:11px;opacity:.9;font-weight:600">Iuran Belum Lunas</div>
+        <div class="amount" style="font-size:24px;font-weight:800;margin-top:6px">${rp(belumLunas)}</div>
+      </div>
+      <div class="iuran-icon" style="position:relative;z-index:1;font-size:48px;opacity:.9">💵</div>
+    </div>
+
     <div class="section-header" style="display:flex;justify-content:space-between;align-items:center;margin:20px 0 12px">
-      <h3 style="font-size:16px;font-weight:700"> Pengumuman</h3>
+      <h3 style="font-size:16px;font-weight:700">📢 Pengumuman <span class="badge-count" style="background:var(--danger);color:#fff;width:20px;height:20px;border-radius:50%;font-size:11px;font-weight:800;display:inline-flex;align-items:center;justify-content:center">${(appData.pengumuman||[]).length}</span></h3>
       <a class="link" style="font-size:12px;color:var(--primary);font-weight:700;cursor:pointer" onclick="showPage('pengumuman')">Lihat semua</a>
     </div>
     ${(appData.pengumuman || []).slice(0, 3).map(p => `
-      <div class="announcement-card">
-        <div class="ann-icon">📢</div>
-        <div class="ann-content">
-          <div class="ann-title">${esc(p.judul)} ${p.pin ? '📌' : ''}</div>
-          <div class="ann-meta"><span>${tglIndo(p.tgl)}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>${esc(p.oleh || '')}</span></div>
+      <div class="announcement-card" style="background:#fff;border-radius:14px;padding:14px;border:1px solid var(--border);margin-bottom:10px;display:flex;gap:12px;align-items:flex-start;cursor:pointer">
+        <div class="ann-icon" style="width:40px;height:40px;border-radius:10px;background:var(--primary-light);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0"></div>
+        <div class="ann-content" style="flex:1;min-width:0">
+          <div class="ann-title" style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:4px">${esc(p.judul)} ${p.pin ? '📌' : ''}</div>
+          <div class="ann-meta" style="font-size:11px;color:var(--gray);display:flex;align-items:center;gap:6px"><span>${tglIndo(p.tgl)}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>${esc(p.oleh || '')}</span></div>
         </div>
       </div>
     `).join('')}
 
     <div class="section-header" style="display:flex;justify-content:space-between;align-items:center;margin:20px 0 12px">
-      <h3 style="font-size:16px;font-weight:700"> Kegiatan</h3>
+      <h3 style="font-size:16px;font-weight:700">📅 Kegiatan Mendatang</h3>
       <a class="link" style="font-size:12px;color:var(--primary);font-weight:700;cursor:pointer" onclick="showPage('kegiatan')">Lihat semua</a>
     </div>
     ${(appData.kegiatan || []).filter(k => k.status === 'Akan Datang').slice(0, 2).map(k => `
-      <div class="announcement-card">
-        <div class="ann-icon" style="background:#D1FAE5">📅</div>
-        <div class="ann-content">
-          <div class="ann-title">${esc(k.judul)}</div>
-          <div class="ann-meta"><span>📅 ${tglIndo(k.tgl)}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>🕐 ${esc(k.waktuMulai || '-')}</span></div>
+      <div class="announcement-card" style="background:#fff;border-radius:14px;padding:14px;border:1px solid var(--border);margin-bottom:10px;display:flex;gap:12px;align-items:flex-start;cursor:pointer">
+        <div class="ann-icon" style="width:40px;height:40px;border-radius:10px;background:#D1FAE5;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">📅</div>
+        <div class="ann-content" style="flex:1;min-width:0">
+          <div class="ann-title" style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:4px">${esc(k.judul)}</div>
+          <div class="ann-meta" style="font-size:11px;color:var(--gray);display:flex;align-items:center;gap:6px"><span> ${tglIndo(k.tgl)}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>🕐 ${esc(k.waktuMulai || '-')}</span></div>
         </div>
       </div>
     `).join('')}
   `;
   
   $('mobileContent').innerHTML = html;
+  renderMobileChart();
   
   const c = (appData.lapor || []).filter(l => l.status === 'Baru').length;
   $('notifBadgeMobile').textContent = c;
   $('notifBadgeMobile').style.display = c > 0 ? 'flex' : 'none';
+  const pb = $('pengaduanBadge');
+  if (pb) { pb.textContent = c; pb.style.display = c > 0 ? 'flex' : 'none'; }
+}
+
+function renderMobileChart() {
+  const kas = appData.kas || [];
+  const year = currentMonth.getFullYear();
+  const month = currentMonth.getMonth();
+  $('chartMonth').textContent = BULAN[month] + ' ' + year;
+  
+  const monthKey = year + '-' + String(month + 1).padStart(2, '0');
+  const transactions = kas.filter(k => k.tgl && k.tgl.startsWith(monthKey));
+  
+  const weeks = [{label:'1-7',income:0,expense:0},{label:'8-14',income:0,expense:0},{label:'15-21',income:0,expense:0},{label:'22-28',income:0,expense:0},{label:'29-31',income:0,expense:0}];
+  
+  transactions.forEach(k => {
+    const day = parseInt(k.tgl.split('-')[2]);
+    let weekIdx = 0;
+    if (day >= 8 && day <= 14) weekIdx = 1;
+    else if (day >= 15 && day <= 21) weekIdx = 2;
+    else if (day >= 22 && day <= 28) weekIdx = 3;
+    else if (day >= 29) weekIdx = 4;
+    if (k.tipe === 'Masuk') weeks[weekIdx].income += k.nominal;
+    else weeks[weekIdx].expense += k.nominal;
+  });
+  
+  const maxVal = Math.max(...weeks.map(w => Math.max(w.income, w.expense)), 100000);
+  
+  $('barChart').innerHTML = weeks.map(w => {
+    const incomeH = Math.max((w.income / maxVal) * 130, 4);
+    const expenseH = Math.max((w.expense / maxVal) * 130, 4);
+    return `<div class="bar-group" style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1"><div class="bar-pair" style="display:flex;gap:4px;align-items:flex-end;height:130px"><div class="bar income" style="width:14px;border-radius:6px 6px 0 0;background:var(--blue);height:${incomeH}px"></div><div class="bar expense" style="width:14px;border-radius:6px 6px 0 0;background:var(--dark);height:${expenseH}px"></div></div><div class="bar-label" style="font-size:9px;color:var(--gray);font-weight:600">${w.label}</div></div>`;
+  }).join('');
+}
+
+function changeMonth(delta) {
+  currentMonth.setMonth(currentMonth.getMonth() + delta);
+  const isDesktop = window.innerWidth >= 1025;
+  if (isDesktop) renderDesktopChart();
+  else renderMobileChart();
 }
 
 function renderMobileIuran() {
   const b = bulanIni();
   const nom = appData.rt.iuranNominal || 50000;
-  const iuranSaya = (appData.iuran || []).filter(i => i.wargaId === currentUser.id);
-  const statusBulanIni = iuranSaya.find(i => i.bulan === b);
-  const isLunas = statusBulanIni && statusBulanIni.status === 'Lunas';
-  const totalLunas = iuranSaya.filter(i => i.status === 'Lunas').length;
-  const pct = iuranSaya.length ? Math.round(totalLunas / iuranSaya.length * 100) : 0;
+  const m = {};
+  (appData.iuran || []).filter(i => i.bulan === b).forEach(i => m[i.wargaId] = i);
+  const l = appData.warga || [];
+  const ln = l.filter(w => m[w.id] && m[w.id].status === 'Lunas').length;
+  const pct = l.length ? Math.round(ln / l.length * 100) : 0;
   
   $('mobileContent').innerHTML = `
     <div class="page-section">
       <div class="page-header" style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
         <button onclick="showPage('dashboard')" style="width:40px;height:40px;border-radius:12px;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
-        <h2 style="font-size:20px;font-weight:800">Iuran Saya</h2>
-      </div>
-      <div style="background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:white;padding:20px;border-radius:16px;margin-bottom:16px">
-        <div style="font-size:12px;opacity:.8;margin-bottom:8px">STATUS BULAN INI</div>
-        <div style="font-size:24px;font-weight:800">${labelBulan(b)}</div>
-        <div style="font-size:14px;margin-top:8px">${isLunas ? '✅ Lunas' : '⏳ Belum Dibayar'}</div>
-        <div style="font-size:20px;font-weight:800;margin-top:12px">${rp(nom)}</div>
-        ${!isLunas ? `<button class="btn btn-success" style="margin-top:12px;width:100%;background:white;color:var(--primary)" onclick="showPage('setoran')"><i class="fas fa-upload"></i> Bayar Sekarang</button>` : ''}
+        <h2 style="font-size:20px;font-weight:800">Status Iuran</h2>
       </div>
       <div class="chart-card" style="background:#fff;border-radius:16px;padding:20px;margin-bottom:16px;box-shadow:0 2px 12px rgba(0,0,0,.04);border:1px solid var(--border)">
-        <div style="font-size:11px;color:var(--gray);font-weight:700;text-transform:uppercase;margin-bottom:8px">Progress Kepatuhan</div>
+        <div style="font-size:11px;color:var(--gray);font-weight:700;text-transform:uppercase;margin-bottom:8px">Progress Bulan Ini</div>
         <div style="display:flex;justify-content:space-between;align-items:center">
-          <div style="font-size:28px;font-weight:800">${totalLunas}/${iuranSaya.length}</div>
-          <div style="font-size:20px;font-weight:700;color:var(--primary)">${pct}%</div>
+          <div style="font-size:28px;font-weight:800">${ln}/${l.length}</div>
+          <div style="font-size:13px;color:var(--gray)">${rp(nom)}/warga</div>
         </div>
         <div style="height:8px;background:var(--light-gray);border-radius:4px;margin-top:12px;overflow:hidden">
           <div style="height:100%;background:linear-gradient(90deg,var(--success),#059669);width:${pct}%"></div>
         </div>
       </div>
-      <div class="section-header" style="display:flex;justify-content:space-between;align-items:center;margin:20px 0 12px"><h3 style="font-size:16px;font-weight:700">📋 Riwayat Iuran</h3></div>
-      ${iuranSaya.length ? iuranSaya.sort((a,b) => b.bulan.localeCompare(a.bulan)).map(i => {
-        const ok = i.status === 'Lunas';
+      ${l.map(w => {
+        const r = m[w.id], ok = r && r.status === 'Lunas';
         return `<div class="announcement-card" style="background:#fff;border-radius:14px;padding:14px;border:1px solid ${ok ? '#BBF7D0' : 'var(--border)'};margin-bottom:10px;display:flex;gap:12px;align-items:center">
           <div class="ann-icon" style="width:40px;height:40px;border-radius:10px;background:${ok ? '#D1FAE5' : 'var(--primary-light)'};display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">${ok ? '✅' : '⏳'}</div>
           <div class="ann-content" style="flex:1;min-width:0">
-            <div class="ann-title" style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:4px">${labelBulan(i.bulan)}</div>
-            <div class="ann-meta" style="font-size:11px;color:var(--gray)">${ok ? 'Lunas ' + tglIndo(i.tgl) : 'Belum membayar'} · ${rp(i.nominal)}</div>
+            <div class="ann-title" style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:4px">${esc(w.nama)} <span style="font-size:11px;color:var(--gray)">(${esc(w.blok)})</span></div>
+            <div class="ann-meta" style="font-size:11px;color:var(--gray)">${ok ? 'Lunas ' + tglIndo(r.tgl) : 'Belum membayar'}</div>
           </div>
+          ${!ok && isStaff() ? `<button class="btn btn-success btn-sm" style="padding:8px 12px;font-size:11px" onclick="toggleIuran('${w.id}','${b}',${nom})">Lunas</button>` : ''}
         </div>`;
-      }).join('') : '<div style="text-align:center;padding:40px 20px;color:var(--gray)">Belum ada riwayat</div>'}
+      }).join('')}
     </div>
   `;
 }
 
-function renderMobilePengumuman() {
-  const l = (appData.pengumuman || []).slice().sort((a, b) => (b.pin ? 1 : 0) - (a.pin ? 1 : 0));
+function renderMobileSetoran() {
   $('mobileContent').innerHTML = `
     <div class="page-section">
       <div class="page-header" style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
         <button onclick="showPage('dashboard')" style="width:40px;height:40px;border-radius:12px;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
-        <h2 style="font-size:20px;font-weight:800">Pengumuman</h2>
+        <h2 style="font-size:20px;font-weight:800">Setoran Iuran</h2>
       </div>
-      ${l.length ? l.map(p => `
-        <div class="announcement-card">
-          <div class="ann-icon" style="background:#EDE9FE">📢</div>
-          <div class="ann-content">
-            <div class="ann-title">${esc(p.judul)} ${p.pin ? '📌' : ''}</div>
-            <div style="font-size:12px;color:var(--gray);margin:6px 0">${esc(p.isi)}</div>
-            <div class="ann-meta"><span>📅 ${tglIndo(p.tgl)}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>👤 ${esc(p.oleh || '')}</span></div>
-          </div>
-        </div>
-      `).join('') : '<div style="text-align:center;padding:40px 20px;color:var(--gray)"><div style="font-size:48px;margin-bottom:12px">📢</div><p>Belum ada pengumuman</p></div>'}
+      <div class="chart-card" style="background:#fff;border-radius:16px;padding:20px;margin-bottom:16px;box-shadow:0 2px 12px rgba(0,0,0,.04);border:1px solid var(--border)">
+        <div class="form-group"><label>Bulan</label><select class="form-control" id="setorBulan"></select></div>
+        <div class="form-group"><label>Nominal</label><input type="number" class="form-control" id="setorNominal" value="${appData.rt.iuranNominal || 50000}"></div>
+        <div class="form-group"><label>Metode</label><select class="form-control" id="setorMetode"><option>Transfer Bank</option><option>E-Wallet</option><option>QRIS</option><option>Tunai</option></select></div>
+        <div class="form-group"><label>No. Referensi</label><input type="text" class="form-control" id="setorRef" placeholder="TRX..."></div>
+        <div class="form-group"><label>Catatan</label><textarea class="form-control" id="setorCatatan" rows="2"></textarea></div>
+        <button class="btn btn-primary" onclick="submitSetoranMobile()"><i class="fas fa-paper-plane"></i> Kirim Setoran</button>
+      </div>
+      <div class="section-header" style="display:flex;justify-content:space-between;align-items:center;margin:20px 0 12px"><h3 style="font-size:16px;font-weight:700">📋 Riwayat Saya</h3></div>
+      <div id="riwayatList"></div>
     </div>
   `;
+  
+  const s = new Set([bulanIni()]);
+  const d = new Date();
+  for (let i = -2; i < 6; i++) { const x = new Date(d.getFullYear(), d.getMonth() + i, 1); s.add(x.getFullYear() + '-' + String(x.getMonth() + 1).padStart(2, '0')); }
+  $('setorBulan').innerHTML = [...s].sort().reverse().map(b => `<option value="${b}" ${b === bulanIni() ? 'selected' : ''}>${labelBulan(b)}</option>`).join('');
+  
+  const mine = (appData.setoran || []).filter(s => s.wargaId === currentUser.id);
+  $('riwayatList').innerHTML = mine.length ? mine.map(s => {
+    const bc = s.status === 'Pending' ? 'warning' : s.status === 'Dikonfirmasi' ? 'success' : 'danger';
+    return `<div class="announcement-card" style="background:#fff;border-radius:14px;padding:14px;border:1px solid var(--border);margin-bottom:10px;display:flex;gap:12px;align-items:center">
+      <div class="ann-icon" style="width:40px;height:40px;border-radius:10px;background:${s.status === 'Dikonfirmasi' ? '#D1FAE5' : s.status === 'Pending' ? '#FEF3C7' : '#FEE2E2'};display:flex;align-items:center;justify-content:center;font-size:20px">${s.status === 'Dikonfirmasi' ? '✅' : s.status === 'Pending' ? '⏳' : '❌'}</div>
+      <div class="ann-content" style="flex:1;min-width:0">
+        <div class="ann-title" style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:4px">${labelBulan(s.bulan)} · ${rp(s.nominal)}</div>
+        <div class="ann-meta" style="font-size:11px;color:var(--gray);display:flex;align-items:center;gap:6px"><span class="status-badge ${bc}">${s.status}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>${tglIndo(s.tglSetor)}</span></div>
+      </div>
+    </div>`;
+  }).join('') : '<div style="text-align:center;padding:40px 20px;color:var(--gray);font-size:13px">Belum pernah setor</div>';
 }
 
-function renderMobileKegiatan() {
-  const l = (appData.kegiatan || []).slice().sort((a, b) => (b.tgl || '').localeCompare(a.tgl || ''));
-  $('mobileContent').innerHTML = `
-    <div class="page-section">
-      <div class="page-header" style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-        <button onclick="showPage('dashboard')" style="width:40px;height:40px;border-radius:12px;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
-        <h2 style="font-size:20px;font-weight:800">Kegiatan</h2>
-      </div>
-      ${l.length ? l.map(k => `
-        <div class="announcement-card">
-          <div class="ann-icon" style="background:#D1FAE5">📅</div>
-          <div class="ann-content">
-            <div class="ann-title">${esc(k.judul)}</div>
-            <div class="ann-meta"><span>📅 ${tglIndo(k.tgl)}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>🕐 ${esc(k.waktuMulai || '-')}</span></div>
-            <div style="font-size:12px;color:var(--gray);margin-top:6px">📍 ${esc(k.lokasi || '-')} · 👤 ${esc(k.penanggungJawab || '-')}</div>
-          </div>
-        </div>
-      `).join('') : '<div style="text-align:center;padding:40px 20px;color:var(--gray)"><div style="font-size:48px;margin-bottom:12px">📅</div><p>Tidak ada kegiatan</p></div>'}
-    </div>
-  `;
+async function submitSetoranMobile() {
+  const bulan = $('setorBulan').value;
+  const nominal = parseInt($('setorNominal').value);
+  const metode = $('setorMetode').value;
+  const ref = $('setorRef').value.trim();
+  const catatan = $('setorCatatan').value.trim();
+  
+  if (!nominal || nominal < 1000) return showToast('Nominal minimal 1000', 'error');
+  
+  appData.setoran.unshift({
+    id: uid('S'),
+    wargaId: currentUser.id,
+    namaWarga: currentUser.nama,
+    blok: currentUser.blok,
+    bulan,
+    nominal,
+    metode,
+    ref,
+    catatan,
+    bukti: [],
+    status: 'Pending',
+    tglSetor: today(),
+    tglKonfirmasi: null,
+    dikonfirmasiOleh: null,
+    alasan: ''
+  });
+  
+  await saveDataToFirebase();
+  showToast('Setoran terkirim', 'success');
+  $('setorRef').value = '';
+  $('setorCatatan').value = '';
+  renderMobileSetoran();
 }
 
 function renderMobilePengaduan() {
-  const l = (appData.lapor || []).filter(x => x.wargaId === currentUser.id).sort((a, b) => (b.tgl || '').localeCompare(a.tgl || ''));
+  const l = (appData.lapor || []).slice().sort((a, b) => (b.tgl || '').localeCompare(a.tgl || ''));
   $('mobileContent').innerHTML = `
     <div class="page-section">
       <div class="page-header" style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
         <button onclick="showPage('dashboard')" style="width:40px;height:40px;border-radius:12px;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
-        <h2 style="font-size:20px;font-weight:800">Pengaduan Saya</h2>
+        <h2 style="font-size:20px;font-weight:800">Pengaduan</h2>
       </div>
       <button class="btn btn-primary" style="margin-bottom:16px" onclick="showLaporForm()"><i class="fas fa-plus"></i> Lapor Masalah</button>
       ${l.length ? l.map(x => {
+        const w = appData.warga.find(v => v.id === x.wargaId);
         const bc = x.status === 'Selesai' ? 'success' : x.status === 'Diproses' ? 'info' : x.status === 'Ditolak' ? 'danger' : 'warning';
-        return `<div class="announcement-card">
-          <div class="ann-icon" style="background:#FEE2E2">⚠️</div>
-          <div class="ann-content">
-            <div class="ann-title">${esc(x.judul)} <span class="status-badge ${bc}" style="padding:2px 8px;border-radius:10px;font-size:10px">${esc(x.status)}</span></div>
-            <div class="ann-meta"><span>${esc(x.kat)}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>${tglIndo(x.tgl)}</span></div>
-            <div style="font-size:12px;color:var(--gray);margin-top:6px">${esc(x.isi)}</div>
+        return `<div class="announcement-card" style="background:#fff;border-radius:14px;padding:14px;border:1px solid var(--border);margin-bottom:10px;display:flex;gap:12px;align-items:flex-start">
+          <div class="ann-icon" style="width:40px;height:40px;border-radius:10px;background:#FEE2E2;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">⚠️</div>
+          <div class="ann-content" style="flex:1;min-width:0">
+            <div class="ann-title" style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:4px">${esc(x.judul)} <span class="status-badge ${bc}" style="padding:2px 8px;border-radius:10px;font-size:10px">${esc(x.status)}</span></div>
+            <div class="ann-meta" style="font-size:11px;color:var(--gray);display:flex;align-items:center;gap:6px;margin-bottom:6px"><span>${esc(x.kat)}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>${esc(w ? w.nama : 'Warga')}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>${tglIndo(x.tgl)}</span></div>
+            <div style="font-size:12px;color:var(--gray)">${esc(x.isi)}</div>
           </div>
         </div>`;
       }).join('') : '<div style="text-align:center;padding:40px 20px;color:var(--gray)"><div style="font-size:48px;margin-bottom:12px">⚠️</div><p>Belum ada pengaduan</p></div>'}
@@ -2771,12 +3146,12 @@ function renderMobileRonda() {
         <h2 style="font-size:20px;font-weight:800">Jadwal Ronda</h2>
       </div>
       ${l.length ? l.map(r => `
-        <div class="announcement-card">
-          <div class="ann-icon" style="background:#E0E7FF">️</div>
-          <div class="ann-content">
-            <div class="ann-title">${esc(r.shift)} · ${esc(r.waktu || '-')}</div>
-            <div class="ann-meta"><span>📅 ${tglIndo(r.tgl)}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>👤 ${esc(r.petugas)}</span></div>
-            ${r.catatan ? `<div style="font-size:12px;color:var(--gray);margin-top:6px">📝 ${esc(r.catatan)}</div>` : ''}
+        <div class="announcement-card" style="background:#fff;border-radius:14px;padding:14px;border:1px solid var(--border);margin-bottom:10px;display:flex;gap:12px;align-items:flex-start">
+          <div class="ann-icon" style="width:40px;height:40px;border-radius:10px;background:#E0E7FF;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">🛡️</div>
+          <div class="ann-content" style="flex:1;min-width:0">
+            <div class="ann-title" style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:4px">${esc(r.shift)} · ${esc(r.waktu || '-')}</div>
+            <div class="ann-meta" style="font-size:11px;color:var(--gray);display:flex;align-items:center;gap:6px;margin-bottom:6px"><span>📅 ${tglIndo(r.tgl)}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>👤 ${esc(r.petugas)}</span></div>
+            ${r.catatan ? `<div style="font-size:12px;color:var(--gray)">📝 ${esc(r.catatan)}</div>` : ''}
           </div>
         </div>
       `).join('') : '<div style="text-align:center;padding:40px 20px;color:var(--gray)"><div style="font-size:48px;margin-bottom:12px">🛡️</div><p>Belum ada jadwal ronda</p></div>'}
@@ -2784,90 +3159,48 @@ function renderMobileRonda() {
   `;
 }
 
-function renderMobileSurat() {
-  const l = (appData.surat || []).filter(s => s.wargaId === currentUser.id).sort((a, b) => (b.tgl || '').localeCompare(a.tgl || ''));
+function renderMobilePengumuman() {
+  const l = (appData.pengumuman || []).slice().sort((a, b) => (b.pin ? 1 : 0) - (a.pin ? 1 : 0));
   $('mobileContent').innerHTML = `
     <div class="page-section">
       <div class="page-header" style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
         <button onclick="showPage('dashboard')" style="width:40px;height:40px;border-radius:12px;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
-        <h2 style="font-size:20px;font-weight:800">Surat Saya</h2>
+        <h2 style="font-size:20px;font-weight:800">Pengumuman</h2>
       </div>
-      <button class="btn btn-primary" style="margin-bottom:16px" onclick="showSuratForm()"><i class="fas fa-plus"></i> Ajukan Surat</button>
-      ${l.length ? l.map(s => {
-        const bc = s.status === 'Selesai' ? 'success' : s.status === 'Diproses' ? 'info' : s.status === 'Ditolak' ? 'danger' : 'warning';
-        return `<div class="announcement-card">
-          <div class="ann-icon" style="background:#EDE9FE">✉️</div>
-          <div class="ann-content">
-            <div class="ann-title">${esc(s.jenis)} <span class="status-badge ${bc}" style="padding:2px 8px;border-radius:10px;font-size:10px">${esc(s.status)}</span></div>
-            <div class="ann-meta"><span> ${esc(s.keperluan || '-')}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>📅 ${tglIndo(s.tgl)}</span></div>
-            ${s.noSurat ? `<div style="font-size:11px;color:var(--gray);margin-top:4px">No: ${esc(s.noSurat)}</div>` : ''}
+      ${l.length ? l.map(p => `
+        <div class="announcement-card" style="background:#fff;border-radius:14px;padding:14px;border:1px solid var(--border);margin-bottom:10px;display:flex;gap:12px;align-items:flex-start">
+          <div class="ann-icon" style="width:40px;height:40px;border-radius:10px;background:#EDE9FE;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">📢</div>
+          <div class="ann-content" style="flex:1;min-width:0">
+            <div class="ann-title" style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:4px">${esc(p.judul)} ${p.pin ? '📌' : ''}</div>
+            <div style="font-size:12px;color:var(--gray);margin:6px 0">${esc(p.isi)}</div>
+            <div class="ann-meta" style="font-size:11px;color:var(--gray);display:flex;align-items:center;gap:6px"><span>📅 ${tglIndo(p.tgl)}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>👤 ${esc(p.oleh || '')}</span></div>
           </div>
-        </div>`;
-      }).join('') : '<div style="text-align:center;padding:40px 20px;color:var(--gray)"><div style="font-size:48px;margin-bottom:12px">✉️</div><p>Belum ada surat</p></div>'}
-    </div>
-  `;
-}
-
-function renderMobileVoting() {
-  const l = (appData.voting || []).slice().sort((a, b) => (b.tgl || '').localeCompare(a.tgl || ''));
-  $('mobileContent').innerHTML = `
-    <div class="page-section">
-      <div class="page-header" style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-        <button onclick="showPage('dashboard')" style="width:40px;height:40px;border-radius:12px;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
-        <h2 style="font-size:20px;font-weight:800">Voting</h2>
-      </div>
-      ${l.length ? l.map(v => {
-        const tot = v.pilihan.reduce((s, p) => s + (p.votes || 0), 0);
-        return `<div class="announcement-card" style="flex-direction:column;align-items:stretch">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-            <div class="ann-title" style="font-size:14px;font-weight:700">${esc(v.pertanyaan)}</div>
-            <span class="status-badge ${v.status === 'Aktif' ? 'success' : 'info'}">${esc(v.status)}</span>
-          </div>
-          <div class="ann-meta" style="margin-bottom:12px"><span> ${tglIndo(v.tgl)}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>👥 ${tot} suara</span></div>
-          ${v.pilihan.map((p, i) => {
-            const pc = tot ? Math.round((p.votes || 0) / tot * 100) : 0;
-            return `<div style="margin-bottom:8px">
-              <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:12px;font-weight:600">${i+1}. ${esc(p.text)}</span><span style="font-size:11px;color:var(--gray)">${p.votes||0} (${pc}%)</span></div>
-              <div style="height:6px;background:var(--light-gray);border-radius:3px;overflow:hidden"><div style="height:100%;background:var(--primary);width:${pc}%"></div></div>
-            </div>`;
-          }).join('')}
-          ${v.status === 'Aktif' ? `<button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="voteVotingMobile('${v.id}')"><i class="fas fa-vote-yea"></i> Vote</button>` : ''}
-        </div>`;
-      }).join('') : '<div style="text-align:center;padding:40px 20px;color:var(--gray)"><div style="font-size:48px;margin-bottom:12px">🗳️</div><p>Belum ada voting</p></div>'}
-    </div>
-  `;
-}
-
-async function voteVotingMobile(vid) {
-  const v = (appData.voting || []).find(x => x.id === vid);
-  if (!v) return;
-  if (v.status !== 'Aktif') return showToast('Voting sudah ditutup', 'error');
-  
-  const modal = document.createElement('div');
-  modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;display:flex;align-items:flex-end;justify-content:center';
-  modal.innerHTML = `
-    <div style="background:#fff;border-radius:20px 20px 0 0;padding:24px;width:100%;max-width:480px">
-      <div style="width:40px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 16px"></div>
-      <h3 style="font-size:18px;font-weight:800;margin-bottom:16px">${esc(v.pertanyaan)}</h3>
-      ${v.pilihan.map((p, i) => `
-        <div style="padding:12px;border:2px solid var(--border);border-radius:10px;margin-bottom:8px;cursor:pointer" onclick="selectVoteMobile('${vid}',${i})">
-          <strong>${i + 1}. ${esc(p.text)}</strong>
         </div>
-      `).join('')}
-      <button class="btn btn-secondary" style="margin-top:8px;width:100%" onclick="this.closest('div[style]').remove()">Batal</button>
+      `).join('') : '<div style="text-align:center;padding:40px 20px;color:var(--gray)"><div style="font-size:48px;margin-bottom:12px">📢</div><p>Belum ada pengumuman</p></div>'}
     </div>
   `;
-  document.body.appendChild(modal);
 }
 
-async function selectVoteMobile(vid, idx) {
-  const v = (appData.voting || []).find(x => x.id === vid);
-  if (!v) return;
-  v.pilihan[idx].votes = (v.pilihan[idx].votes || 0) + 1;
-  await saveDataToFirebase();
-  document.querySelectorAll('div[style*="position:fixed"]').forEach(el => el.remove());
-  showToast('Suara tercatat!', 'success');
-  renderMobileVoting();
+function renderMobileKegiatan() {
+  const l = (appData.kegiatan || []).slice().sort((a, b) => (b.tgl || '').localeCompare(a.tgl || ''));
+  $('mobileContent').innerHTML = `
+    <div class="page-section">
+      <div class="page-header" style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+        <button onclick="showPage('dashboard')" style="width:40px;height:40px;border-radius:12px;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
+        <h2 style="font-size:20px;font-weight:800">Kegiatan</h2>
+      </div>
+      ${l.length ? l.map(k => `
+        <div class="announcement-card" style="background:#fff;border-radius:14px;padding:14px;border:1px solid var(--border);margin-bottom:10px;display:flex;gap:12px;align-items:flex-start">
+          <div class="ann-icon" style="width:40px;height:40px;border-radius:10px;background:#D1FAE5;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">📅</div>
+          <div class="ann-content" style="flex:1;min-width:0">
+            <div class="ann-title" style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:4px">${esc(k.judul)}</div>
+            <div class="ann-meta" style="font-size:11px;color:var(--gray);display:flex;align-items:center;gap:6px;margin-bottom:6px"><span> ${tglIndo(k.tgl)}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>🕐 ${esc(k.waktuMulai || '-')}</span></div>
+            <div style="font-size:12px;color:var(--gray)">📍 ${esc(k.lokasi || '-')} · 👤 ${esc(k.penanggungJawab || '-')}</div>
+          </div>
+        </div>
+      `).join('') : '<div style="text-align:center;padding:40px 20px;color:var(--gray)"><div style="font-size:48px;margin-bottom:12px">📅</div><p>Tidak ada kegiatan</p></div>'}
+    </div>
+  `;
 }
 
 function renderMobileProfil() {
@@ -2937,85 +3270,56 @@ async function saveProfilMobile() {
   
   await saveDataToFirebase();
   $('userAvatarMobile').textContent = initials(currentUser.nama);
-  $('userGreeting').textContent = `Hallo, ${currentUser.nama.split(' ')[0]}`;
-  $('userRoleMobile').textContent = `${currentUser.gol} · Blok ${currentUser.blok}`;
+  $('userGreeting').textContent = 'Hallo, ' + currentUser.nama.split(' ')[0];
   document.querySelector('.modal')?.remove();
   showToast('Profil tersimpan', 'success');
   renderMobileProfil();
 }
 
-function renderMobileSetoran() {
-  const mine = (appData.setoran || []).filter(s => s.wargaId === currentUser.id);
+function renderMobilePengaturan() {
+  if (!isBendahara()) {
+    $('mobileContent').innerHTML = '<div style="text-align:center;padding:60px;color:var(--gray)"><i class="fas fa-lock" style="font-size:48px;margin-bottom:16px"></i><p>Akses ditolak</p></div>';
+    return;
+  }
+  
+  const b = appData.rt.bank || {};
   $('mobileContent').innerHTML = `
     <div class="page-section">
       <div class="page-header" style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
         <button onclick="showPage('dashboard')" style="width:40px;height:40px;border-radius:12px;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:18px">←</button>
-        <h2 style="font-size:20px;font-weight:800">Setoran Iuran</h2>
+        <h2 style="font-size:20px;font-weight:800">Pengaturan</h2>
       </div>
       <div class="chart-card" style="background:#fff;border-radius:16px;padding:20px;margin-bottom:16px;box-shadow:0 2px 12px rgba(0,0,0,.04);border:1px solid var(--border)">
-        <div class="form-group"><label>Bulan</label><select class="form-control" id="setorBulan"></select></div>
-        <div class="form-group"><label>Nominal</label><input type="number" class="form-control" id="setorNominal" value="${appData.rt.iuranNominal || 50000}"></div>
-        <div class="form-group"><label>Metode</label><select class="form-control" id="setorMetode"><option>Transfer Bank</option><option>E-Wallet</option><option>QRIS</option><option>Tunai</option></select></div>
-        <div class="form-group"><label>No. Referensi</label><input type="text" class="form-control" id="setorRef" placeholder="TRX..."></div>
-        <div class="form-group"><label>Catatan</label><textarea class="form-control" id="setorCatatan" rows="2"></textarea></div>
-        <button class="btn btn-primary" onclick="submitSetoranMobile()"><i class="fas fa-paper-plane"></i> Kirim Setoran</button>
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:16px"><i class="fas fa-cog"></i> Pengaturan Rekening</h3>
+        <div class="form-group"><label>Nama Bank</label><input type="text" class="form-control" id="rBank" value="${esc(b.nama || '')}"></div>
+        <div class="form-group"><label>Nomor Rekening</label><input type="text" class="form-control" id="rRek" value="${esc(b.rek || '')}"></div>
+        <div class="form-group"><label>Atas Nama</label><input type="text" class="form-control" id="rAn" value="${esc(b.an || '')}"></div>
+        <button class="btn btn-primary" onclick="saveRekeningMobile()"><i class="fas fa-save"></i> Simpan</button>
       </div>
-      <div class="section-header" style="display:flex;justify-content:space-between;align-items:center;margin:20px 0 12px"><h3 style="font-size:16px;font-weight:700">📋 Riwayat Saya</h3></div>
-      <div id="riwayatList"></div>
+      <div class="chart-card" style="background:#fff;border-radius:16px;padding:20px;box-shadow:0 2px 12px rgba(0,0,0,.04);border:1px solid var(--border)">
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:16px"><i class="fas fa-database"></i> Backup & Restore</h3>
+        <p style="font-size:13px;color:var(--gray);margin-bottom:16px">Data otomatis tersimpan di Firebase Cloud.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <button class="btn btn-primary" onclick="downloadBackup()"><i class="fas fa-download"></i> Download</button>
+          <button class="btn btn-secondary" onclick="document.getElementById('restoreFileMobile').click()"><i class="fas fa-upload"></i> Restore</button>
+          <input type="file" id="restoreFileMobile" accept=".json" style="display:none" onchange="restoreBackup(event)">
+        </div>
+      </div>
     </div>
   `;
-  
-  const s = new Set([bulanIni()]);
-  const d = new Date();
-  for (let i = -2; i < 6; i++) { const x = new Date(d.getFullYear(), d.getMonth() + i, 1); s.add(x.getFullYear() + '-' + String(x.getMonth() + 1).padStart(2, '0')); }
-  $('setorBulan').innerHTML = [...s].sort().reverse().map(b => `<option value="${b}" ${b === bulanIni() ? 'selected' : ''}>${labelBulan(b)}</option>`).join('');
-  
-  $('riwayatList').innerHTML = mine.length ? mine.map(s => {
-    const bc = s.status === 'Pending' ? 'warning' : s.status === 'Dikonfirmasi' ? 'success' : 'danger';
-    return `<div class="announcement-card">
-      <div class="ann-icon" style="width:40px;height:40px;border-radius:10px;background:${s.status === 'Dikonfirmasi' ? '#D1FAE5' : s.status === 'Pending' ? '#FEF3C7' : '#FEE2E2'};display:flex;align-items:center;justify-content:center;font-size:20px">${s.status === 'Dikonfirmasi' ? '✅' : s.status === 'Pending' ? '⏳' : '❌'}</div>
-      <div class="ann-content" style="flex:1;min-width:0">
-        <div class="ann-title">${labelBulan(s.bulan)} · ${rp(s.nominal)}</div>
-        <div class="ann-meta"><span class="status-badge ${bc}">${s.status}</span><span style="width:4px;height:4px;border-radius:50%;background:var(--gray)"></span><span>${tglIndo(s.tglSetor)}</span></div>
-      </div>
-    </div>`;
-  }).join('') : '<div style="text-align:center;padding:40px 20px;color:var(--gray);font-size:13px">Belum pernah setor</div>';
 }
 
-async function submitSetoranMobile() {
-  const bulan = $('setorBulan').value;
-  const nominal = parseInt($('setorNominal').value);
-  const metode = $('setorMetode').value;
-  const ref = $('setorRef').value.trim();
-  const catatan = $('setorCatatan').value.trim();
+async function saveRekeningMobile() {
+  if (!isBendahara()) return showToast('Hanya Bendahara', 'error');
+  const nama = $('rBank').value.trim();
+  const rek = $('rRek').value.trim();
+  const an = $('rAn').value.trim();
   
-  if (!nominal || nominal < 1000) return showToast('Nominal minimal 1000', 'error');
+  if (!nama || !rek || !an) return showToast('Lengkapi semua field', 'error');
   
-  appData.setoran.unshift({
-    id: uid('S'), wargaId: currentUser.id, namaWarga: currentUser.nama,
-    blok: currentUser.blok, bulan, nominal, metode, ref, catatan,
-    bukti: [], status: 'Pending', tglSetor: today(),
-    tglKonfirmasi: null, dikonfirmasiOleh: null, alasan: ''
-  });
-  
+  appData.rt.bank = {nama, rek, an};
   await saveDataToFirebase();
-  showToast('Setoran terkirim', 'success');
-  $('setorRef').value = '';
-  $('setorCatatan').value = '';
-  renderMobileSetoran();
-}
-
-// Notification
-function showNotif() {
-  const pd = (appData.setoran || []).filter(s => s.status === 'Pending').length;
-  const br = (appData.lapor || []).filter(s => s.status === 'Baru').length;
-  const kg = (appData.kegiatan || []).filter(k => k.status === 'Akan Datang').length;
-  alert(`🔔 Notifikasi:\n\n📤 ${pd} setoran menunggu\n⚠️ ${br} pengaduan baru\n📅 ${kg} kegiatan akan datang`);
-}
-
-// Theme Toggle
-function toggleTheme() {
-  showToast('Fitur dark mode coming soon', 'info');
+  showToast('Rekening tersimpan', 'success');
 }
 
 // Handle resize
@@ -3026,19 +3330,13 @@ window.addEventListener('resize', () => {
       $('mobileApp').style.display = 'none';
       $('desktopLayout').style.display = 'grid';
       $('userAvatar').textContent = initials(currentUser.nama);
-      $('userName').textContent = currentUser.nama;
-      $('userRole').textContent = `${currentUser.gol} · Blok ${currentUser.blok}`;
-      $('sidebarAvatar').textContent = initials(currentUser.nama);
-      $('sidebarName').textContent = currentUser.nama;
-      $('sidebarRole').textContent = currentUser.gol;
-      updateMenuVisibility();
+      $('userGreeting').textContent = 'Hallo, ' + currentUser.nama.split(' ')[0];
       renderDesktopDashboard();
     } else if (!isDesktop && $('desktopLayout').style.display === 'grid') {
       $('desktopLayout').style.display = 'none';
       $('mobileApp').style.display = 'block';
       $('userAvatarMobile').textContent = initials(currentUser.nama);
-      $('userGreeting').textContent = `Hallo, ${currentUser.nama.split(' ')[0]}`;
-      $('userRoleMobile').textContent = `${currentUser.gol} · Blok ${currentUser.blok}`;
+      $('userGreeting').textContent = 'Hallo, ' + currentUser.nama.split(' ')[0];
       renderMobileDashboard();
     }
   }
@@ -3082,4 +3380,5 @@ window.addEventListener('online', () => showToast('Online', 'info'));
 window.addEventListener('offline', () => showToast('Offline', 'error'));
 </script>
 </body>
-</html>
+</html>  buatkan promt dari kode diatas 
+untuk google studio 
